@@ -1,9 +1,13 @@
+import 'package:covid_help/controllers/AuthController.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    AuthController authController = Get.find<AuthController>();
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -44,6 +48,7 @@ class SignUp extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
             child: TextField(
+              controller: authController.phoneNumberController,
               textAlignVertical: TextAlignVertical.center,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
@@ -66,7 +71,9 @@ class SignUp extends StatelessWidget {
             margin: EdgeInsets.only(top: 30, left: 50, right: 30),
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                authController.signIn();
+              },
               child: Text("Next"),
               style: ButtonStyle(
                   padding: MaterialStateProperty.all(
