@@ -30,28 +30,28 @@ class SignUp extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 50),
+            margin: EdgeInsets.only(left: 50, top: 5, right: 30),
             child: Text(
-              "Enter your phone number to get start working",
+              "Enter your phone number to start working",
               style: GoogleFonts.nunito(
-                fontSize: 18,
-                color: Color.fromRGBO(185, 189, 198, 1),
+                fontSize: 19,
+                color: Colors.grey,
               ),
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 30, left: 50, right: 30),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Color.fromRGBO(185, 189, 198, 0.5),
-              ),
-              borderRadius: BorderRadius.circular(5),
-            ),
+            margin: EdgeInsets.only(top: 20, left: 50, right: 30),
             child: TextField(
               controller: authController.phoneNumberController,
               textAlignVertical: TextAlignVertical.center,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(
+                    color: Color.fromRGBO(185, 189, 198, 0.5),
+                  ),
+                  borderRadius: BorderRadius.circular(5),
+                ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(
                     color: Color.fromRGBO(20, 121, 255, 1),
@@ -59,6 +59,11 @@ class SignUp extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5),
                 ),
                 border: InputBorder.none,
+                hintText: " Enter your number here..",
+                hintStyle: GoogleFonts.nunito(
+                  fontSize: 17,
+                  color: Colors.grey,
+                ),
                 prefixIcon: Icon(
                   Icons.call_rounded,
                   color: Color.fromRGBO(20, 121, 255, 1),
@@ -68,7 +73,7 @@ class SignUp extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 30, left: 50, right: 30),
+            margin: EdgeInsets.only(top: 20, left: 50, right: 30),
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
@@ -85,7 +90,7 @@ class SignUp extends StatelessWidget {
                   textStyle: MaterialStateProperty.all(
                     GoogleFonts.nunito(
                       decoration: TextDecoration.none,
-                      fontSize: 14,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
                   )),

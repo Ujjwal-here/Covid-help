@@ -29,12 +29,12 @@ class VerifCode extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 50),
+            margin: EdgeInsets.only(left: 50, right: 30, top: 5),
             child: Text(
               "Enter the 6-digit code sent to your phone number",
               style: GoogleFonts.nunito(
                 fontSize: 18,
-                color: Color.fromRGBO(185, 189, 198, 1),
+                color: Colors.grey,
               ),
             ),
           ),
@@ -44,17 +44,23 @@ class VerifCode extends StatelessWidget {
               Container(
                 width: 45,
                 margin: EdgeInsets.only(top: 30, left: 50),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Color.fromRGBO(185, 189, 198, 0.5),
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
                 child: TextField(
                   controller: authController.otpController1,
+                  textAlign: TextAlign.center,
                   textAlignVertical: TextAlignVertical.center,
                   keyboardType: TextInputType.phone,
+                  style: GoogleFonts.nunito(
+                    fontSize: 25,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w800,
+                  ),
                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color.fromRGBO(185, 189, 198, 0.5),
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
                         color: Color.fromRGBO(20, 121, 255, 1),
@@ -68,17 +74,23 @@ class VerifCode extends StatelessWidget {
               Container(
                 width: 45,
                 margin: EdgeInsets.only(top: 30),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Color.fromRGBO(185, 189, 198, 0.5),
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
                 child: TextField(
                   controller: authController.otpController2,
+                  textAlign: TextAlign.center,
                   textAlignVertical: TextAlignVertical.center,
                   keyboardType: TextInputType.phone,
+                  style: GoogleFonts.nunito(
+                    fontSize: 25,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w800,
+                  ),
                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color.fromRGBO(185, 189, 198, 0.5),
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
                         color: Color.fromRGBO(20, 121, 255, 1),
@@ -92,17 +104,24 @@ class VerifCode extends StatelessWidget {
               Container(
                 width: 45,
                 margin: EdgeInsets.only(top: 30),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Color.fromRGBO(185, 189, 198, 0.5),
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
                 child: TextField(
                   controller: authController.otpController3,
+
+                  textAlign: TextAlign.center,
                   textAlignVertical: TextAlignVertical.center,
                   keyboardType: TextInputType.phone,
+                  style: GoogleFonts.nunito(
+                    fontSize: 25,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w800,
+                  ),
                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color.fromRGBO(185, 189, 198, 0.5),
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
                         color: Color.fromRGBO(20, 121, 255, 1),
@@ -116,17 +135,25 @@ class VerifCode extends StatelessWidget {
               Container(
                 width: 45,
                 margin: EdgeInsets.only(top: 30),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Color.fromRGBO(185, 189, 198, 0.5),
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
                 child: TextField(
                   controller: authController.otpController4,
+
+                  textAlign: TextAlign.center,
+
                   textAlignVertical: TextAlignVertical.center,
                   keyboardType: TextInputType.phone,
+                  style: GoogleFonts.nunito(
+                    fontSize: 25,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w800,
+                  ),
                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color.fromRGBO(185, 189, 198, 0.5),
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
                         color: Color.fromRGBO(20, 121, 255, 1),
@@ -140,17 +167,24 @@ class VerifCode extends StatelessWidget {
               Container(
                 width: 45,
                 margin: EdgeInsets.only(top: 30),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Color.fromRGBO(185, 189, 198, 0.5),
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
                 child: TextField(
                   controller: authController.otpController5,
+
+                  textAlign: TextAlign.center,
                   textAlignVertical: TextAlignVertical.center,
                   keyboardType: TextInputType.phone,
+                  style: GoogleFonts.nunito(
+                    fontSize: 25,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w800,
+                  ),
                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color.fromRGBO(185, 189, 198, 0.5),
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
                         color: Color.fromRGBO(20, 121, 255, 1),
@@ -164,17 +198,25 @@ class VerifCode extends StatelessWidget {
               Container(
                 width: 45,
                 margin: EdgeInsets.only(top: 30, right: 30),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Color.fromRGBO(185, 189, 198, 0.5),
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
                 child: TextField(
+
                   controller: authController.otpController6,
+
+                  textAlign: TextAlign.center,
                   textAlignVertical: TextAlignVertical.center,
                   keyboardType: TextInputType.phone,
+                  style: GoogleFonts.nunito(
+                    fontSize: 25,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w800,
+                  ),
                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color.fromRGBO(185, 189, 198, 0.5),
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
                         color: Color.fromRGBO(20, 121, 255, 1),
@@ -196,19 +238,20 @@ class VerifCode extends StatelessWidget {
               },
               child: Text("Verify"),
               style: ButtonStyle(
-                  padding: MaterialStateProperty.all(
-                    EdgeInsets.all(15),
+                padding: MaterialStateProperty.all(
+                  EdgeInsets.all(15),
+                ),
+                backgroundColor: MaterialStateProperty.all(
+                  Color.fromRGBO(20, 121, 255, 1),
+                ),
+                textStyle: MaterialStateProperty.all(
+                  GoogleFonts.nunito(
+                    decoration: TextDecoration.none,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
                   ),
-                  backgroundColor: MaterialStateProperty.all(
-                    Color.fromRGBO(20, 121, 255, 1),
-                  ),
-                  textStyle: MaterialStateProperty.all(
-                    GoogleFonts.nunito(
-                      decoration: TextDecoration.none,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )),
+                ),
+              ),
             ),
           )
         ],
