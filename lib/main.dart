@@ -1,8 +1,10 @@
-import 'package:covid_help/screens/signup.dart';
-import 'package:covid_help/screens/verificationCode.dart';
+import 'package:covid_help/screens/signUp.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'COVID-19',
       debugShowCheckedModeBanner: false,
-      home: VerifCode(),
+      home: SignUp(),
     );
   }
 }
