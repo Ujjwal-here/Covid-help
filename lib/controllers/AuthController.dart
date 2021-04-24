@@ -1,3 +1,4 @@
+import 'package:covid_help/root.dart';
 import 'package:covid_help/screens/homescreen.dart';
 import 'package:covid_help/screens/verificationCode.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -74,5 +75,6 @@ class AuthController extends GetxController {
 
   signOut() {
     _auth.signOut();
+    Get.offAll(Root());
   }
 }
