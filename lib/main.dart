@@ -1,4 +1,5 @@
 import 'package:covid_help/screens/signup.dart';
+import 'package:covid_help/screens/verificationCode.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'COVID-19',
       debugShowCheckedModeBanner: false,
-      home: SignUp(),
+      home: VerifCode(),
     );
   }
 }

@@ -12,7 +12,7 @@ class SignUp extends StatelessWidget {
         children: [
           Image(
             width: 350,
-            image: AssetImage("assets/undraw_secure_login_pdn4.png"),
+            image: AssetImage("assets/login.png"),
           ),
           Container(
             margin: EdgeInsets.only(left: 50, top: 10),
