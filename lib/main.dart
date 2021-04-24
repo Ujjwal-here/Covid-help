@@ -1,5 +1,8 @@
-import 'package:covid_help/screens/signUp.dart';
+
+import 'package:covid_help/root.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,10 +13,10 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'COVID-19',
       debugShowCheckedModeBanner: false,
-      home: SignUp(),
+      home: Root(),
     );
   }
 }
