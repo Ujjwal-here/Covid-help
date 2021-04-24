@@ -5,33 +5,86 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        centerTitle: true,
-        title: RichText(
-          text: TextSpan(
-            text: 'Co',
-            style: GoogleFonts.nunito(
-              fontWeight: FontWeight.w900,
-              color: Colors.black,
-              fontSize: 25,
-            ),
-            children: <TextSpan>[
-              TextSpan(
-                text: 'Win',
-                style: GoogleFonts.nunito(
-                  color: Color.fromRGBO(20, 121, 255, 1),
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
       backgroundColor: Colors.white,
       body: Column(
-        children: [],
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image(
+            width: 350,
+            image: AssetImage("assets/undraw_Access_account_re_8spm.png"),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 50),
+            child: Text(
+              "Sign Up",
+              style: GoogleFonts.nunito(
+                fontWeight: FontWeight.w800,
+                fontSize: 30,
+                color: Color.fromRGBO(37, 46, 73, 1),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 50),
+            child: Text(
+              "Enter your phone number to get start working",
+              style: GoogleFonts.nunito(
+                fontSize: 18,
+                color: Color.fromRGBO(185, 189, 198, 1),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 30, left: 50, right: 30),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Color.fromRGBO(185, 189, 198, 0.5),
+              ),
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: TextField(
+              textAlignVertical: TextAlignVertical.center,
+              keyboardType: TextInputType.phone,
+              decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(
+                    color: Color.fromRGBO(20, 121, 255, 1),
+                  ),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                border: InputBorder.none,
+                prefixIcon: Icon(
+                  Icons.call_rounded,
+                  color: Color.fromRGBO(20, 121, 255, 1),
+                  size: 18,
+                ),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 30, left: 50, right: 30),
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Text("Next"),
+              style: ButtonStyle(
+                  padding: MaterialStateProperty.all(
+                    EdgeInsets.all(15),
+                  ),
+                  backgroundColor: MaterialStateProperty.all(
+                    Color.fromRGBO(20, 121, 255, 1),
+                  ),
+                  textStyle: MaterialStateProperty.all(
+                    GoogleFonts.nunito(
+                      decoration: TextDecoration.none,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )),
+            ),
+          )
+        ],
       ),
     );
   }
