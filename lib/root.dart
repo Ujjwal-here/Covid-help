@@ -5,16 +5,15 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
-class Root extends GetWidget{
+class Root extends GetWidget {
   @override
   Widget build(BuildContext context) {
     AuthController authController = Get.put(AuthController());
-    return Obx((){
-      if(authController.user != null){
+    return Obx(() {
+      if (authController.user != null) {
         return HomeScreen();
       }
       return SignUp();
     });
-  
-}
+  }
 }

@@ -34,7 +34,7 @@ class SignUp extends StatelessWidget {
             child: Text(
               "Enter your phone number to start working",
               style: GoogleFonts.nunito(
-                fontSize: 19,
+                fontSize: 18,
                 color: Colors.grey,
               ),
             ),
@@ -45,6 +45,11 @@ class SignUp extends StatelessWidget {
               controller: authController.phoneNumberController,
               textAlignVertical: TextAlignVertical.center,
               keyboardType: TextInputType.phone,
+              style: GoogleFonts.nunito(
+                fontSize: 18,
+                color: Colors.black,
+                fontWeight: FontWeight.w800,
+              ),
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(
@@ -59,11 +64,6 @@ class SignUp extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5),
                 ),
                 border: InputBorder.none,
-                hintText: " Enter your number here..",
-                hintStyle: GoogleFonts.nunito(
-                  fontSize: 17,
-                  color: Colors.grey,
-                ),
                 prefixIcon: Icon(
                   Icons.call_rounded,
                   color: Color.fromRGBO(20, 121, 255, 1),

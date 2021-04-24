@@ -1,11 +1,10 @@
 import 'package:covid_help/screens/homescreen.dart';
 import 'package:covid_help/screens/verificationCode.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AuthController extends GetxController{
+class AuthController extends GetxController {
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   Rx<User> _firebaseUser = Rx<User>(null);
@@ -28,47 +27,52 @@ class AuthController extends GetxController{
     super.onInit();
   }
 
-  signIn(){
+  signIn() {
     _auth.verifyPhoneNumber(
-      phoneNumber: phoneNumberController.text.trim(),
-      timeout: const Duration(seconds: 60),
-      verificationCompleted: verificationCompleted, 
-      verificationFailed: verificationFailed, 
-      codeSent: codeSent, 
-      codeAutoRetrievalTimeout: codeAutoRetrievalTimeout);
+        phoneNumber: phoneNumberController.text.trim(),
+        timeout: const Duration(seconds: 60),
+        verificationCompleted: verificationCompleted,
+        verificationFailed: verificationFailed,
+        codeSent: codeSent,
+        codeAutoRetrievalTimeout: codeAutoRetrievalTimeout);
   }
 
-  verificationCompleted(PhoneAuthCredential phoneAuthCredential)async{
+  verificationCompleted(PhoneAuthCredential phoneAuthCredential) async {
     await _auth.signInWithCredential(phoneAuthCredential);
     Get.off(HomeScreen());
   }
 
-  verificationFailed(FirebaseAuthException e){
+  verificationFailed(FirebaseAuthException e) {
     Get.snackbar("A problem Occured!", e.message);
   }
 
-  codeSent(String verificationId, int resendToken)async{
+  codeSent(String verificationId, int resendToken) async {
     Get.to(VerifCode());
     _verificationId = verificationId;
-
   }
 
-  codeAutoRetrievalTimeout(String verificationId){
+  codeAutoRetrievalTimeout(String verificationId) {
     _verificationId = verificationId;
   }
 
-  manualPart()async{
+  manualPart() async {
     try {
-      String otp = otpController1.text+otpController2.text+otpController3.text+otpController4.text+otpController5.text+otpController6.text;
-      PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: _verificationId, smsCode: otp.trim());
+      String otp = otpController1.text +
+          otpController2.text +
+          otpController3.text +
+          otpController4.text +
+          otpController5.text +
+          otpController6.text;
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+          verificationId: _verificationId, smsCode: otp.trim());
       await _auth.signInWithCredential(credential);
       Get.off(HomeScreen());
     } catch (e) {
       Get.snackbar("Wrong Otp", "You have entered wrong OTP");
     }
-    
   }
-  signOut(){
+
+  signOut() {
     _auth.signOut();
   }
 }
