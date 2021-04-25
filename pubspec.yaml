@@ -35,8 +35,12 @@ dependencies:
   flutter_svg: ^0.22.0
   cloud_firestore: ^1.0.6
   equatable: ^2.0.0
-  flutter_google_places:
+  flutter_google_places: ^0.3.0
   enum_to_string: ^2.0.1
+  google_maps_webservice: ^0.0.19
+  google_api_headers: ^1.0.0
+
+
 
 
 dev_dependencies:

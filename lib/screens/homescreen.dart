@@ -1,9 +1,12 @@
+import 'package:covid_help/config.dart';
 import 'package:covid_help/controllers/AuthController.dart';
 import 'package:covid_help/screens/form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_maps_webservice/places.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -17,6 +20,18 @@ class HomeScreen extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 20),
             child: TextField(
+              onTap: ()async{
+                Prediction p = await PlacesAutocomplete.show(
+                                    context: context,
+                                    apiKey: GOOGLE_API_KEY,
+                                    language: "en",
+                                    mode: Mode.overlay,
+                                    types: [],
+                                    strictbounds: false,
+                                  components: [Component(Component.country, "in")],
+                                );
+                print(p.description);                
+              },
               controller: authController.phoneNumberController,
               textAlignVertical: TextAlignVertical.center,
               style: GoogleFonts.nunito(
@@ -627,7 +642,7 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          authController.signOut();
+          Get.to(HelpForm());
         },
         backgroundColor: Color.fromRGBO(20, 121, 255, 1),
         child: Icon(
