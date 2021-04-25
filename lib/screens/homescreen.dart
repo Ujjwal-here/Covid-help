@@ -1,7 +1,7 @@
-import 'package:covid_help/config.dart';
 import 'package:covid_help/controllers/AuthController.dart';
 import 'package:covid_help/screens/form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
               onTap: ()async{
                 Prediction p = await PlacesAutocomplete.show(
                                     context: context,
-                                    apiKey: GOOGLE_API_KEY,
+                                    apiKey: env["GOOGLE_API_KEY"],
                                     language: "en",
                                     mode: Mode.overlay,
                                     types: [],
