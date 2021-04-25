@@ -1,8 +1,17 @@
+import 'package:covid_help/Repository/user_repo.dart';
+import 'package:covid_help/controllers/AuthController.dart';
+import 'package:covid_help/screens/homescreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
 class UserDetails extends StatelessWidget {
+
+  AuthController authController = Get.find<AuthController>();
+  UserRepo _userRepo = UserRepo();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,6 +49,7 @@ class UserDetails extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 5, left: 50, right: 30),
             child: TextField(
+              controller: authController.userNameController,
               textAlignVertical: TextAlignVertical.center,
               keyboardType: TextInputType.phone,
               style: GoogleFonts.nunito(
@@ -73,7 +83,16 @@ class UserDetails extends StatelessWidget {
             margin: EdgeInsets.only(top: 20, left: 50, right: 30),
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () async{
+                Map<String, dynamic> user = {
+                  "name":authController.userNameController.text.trim(),
+                  "phoneNumber": authController.phoneNumberController.text.trim()
+                  };
+                var userRef = await _userRepo.registerUser(user);
+                if(userRef != null){
+                  Get.off(()=>HomeScreen());
+                }
+              },
               child: Text("Next"),
               style: ButtonStyle(
                   padding: MaterialStateProperty.all(

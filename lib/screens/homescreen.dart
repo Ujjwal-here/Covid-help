@@ -627,12 +627,7 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HelpForm(),
-            ),
-          );
+          authController.signOut();
         },
         backgroundColor: Color.fromRGBO(20, 121, 255, 1),
         child: Icon(

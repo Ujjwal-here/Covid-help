@@ -1,5 +1,7 @@
+import 'package:covid_help/Repository/user_repo.dart';
 import 'package:covid_help/root.dart';
 import 'package:covid_help/screens/homescreen.dart';
+import 'package:covid_help/screens/userDetails.dart';
 import 'package:covid_help/screens/verificationCode.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +9,7 @@ import 'package:get/get.dart';
 
 class AuthController extends GetxController {
   FirebaseAuth _auth = FirebaseAuth.instance;
+  UserRepo userRepo = UserRepo();
 
   Rx<User> _firebaseUser = Rx<User>(null);
   User get user => _firebaseUser?.value;
@@ -19,6 +22,8 @@ class AuthController extends GetxController {
   TextEditingController otpController6 = TextEditingController();
 
   TextEditingController phoneNumberController = TextEditingController();
+
+  TextEditingController userNameController = TextEditingController();
 
   String _verificationId;
 
@@ -39,8 +44,14 @@ class AuthController extends GetxController {
   }
 
   verificationCompleted(PhoneAuthCredential phoneAuthCredential) async {
+    bool ifExists = await userRepo.checkUserExists(phoneNumberController.text.trim());
     await _auth.signInWithCredential(phoneAuthCredential);
-    Get.off(HomeScreen());
+    if(ifExists){
+      Get.off(HomeScreen());
+    }
+    else{
+      Get.off(UserDetails());
+    }
   }
 
   verificationFailed(FirebaseAuthException e) {
@@ -66,9 +77,17 @@ class AuthController extends GetxController {
           otpController6.text;
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
           verificationId: _verificationId, smsCode: otp.trim());
-      await _auth.signInWithCredential(credential);
+      bool ifExists = await userRepo.checkUserExists(phoneNumberController.text.trim());
+    await _auth.signInWithCredential(credential);
+    if(ifExists){
       Get.off(HomeScreen());
+    }
+    else{
+      Get.off(UserDetails());
+    }    
+      
     } catch (e) {
+      print(e);
       Get.snackbar("Wrong Otp", "You have entered wrong OTP");
     }
   }

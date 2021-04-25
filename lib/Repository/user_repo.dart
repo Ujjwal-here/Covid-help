@@ -21,4 +21,20 @@ class UserRepo {
       Get.snackbar("Something Went Wrong", "Please Try Again!!");
     }
   }
+
+  Future<bool> checkUserExists(String phoneNumber)async{
+    try {
+        var qs = await _firestore.collection("users").where("phoneNumber",isEqualTo: phoneNumber).get();
+        if(qs.docs.isEmpty){
+          return false;
+        }
+        else{
+          return true;
+        }
+
+    } catch (e) {
+      print(e);
+    }
+  }
+
 }
