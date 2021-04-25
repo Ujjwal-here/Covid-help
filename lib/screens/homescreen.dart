@@ -14,9 +14,48 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(25),
         children: [
           Container(
+            margin: EdgeInsets.only(top: 20),
+            child: TextField(
+              controller: authController.phoneNumberController,
+              textAlignVertical: TextAlignVertical.center,
+              keyboardType: TextInputType.phone,
+              style: GoogleFonts.nunito(
+                fontSize: 18,
+                color: Colors.black,
+                fontWeight: FontWeight.w800,
+              ),
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(
+                    color: Color.fromRGBO(185, 189, 198, 1),
+                  ),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(
+                    color: Color.fromRGBO(185, 189, 198, 0.7),
+                  ),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                hintText: "Search by city or state",
+                hintStyle: GoogleFonts.nunito(
+                  fontSize: 18,
+                  color: Colors.grey[700],
+                  fontWeight: FontWeight.w400,
+                ),
+                border: InputBorder.none,
+                prefixIcon: Icon(
+                  Icons.search_rounded,
+                  color: Color.fromRGBO(20, 121, 255, 1),
+                  size: 22,
+                ),
+              ),
+            ),
+          ),
+          Container(
             padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
             width: double.infinity,
-            margin: const EdgeInsets.only(top: 40),
+            margin: const EdgeInsets.only(top: 20),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
@@ -96,7 +135,7 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: [
                 Container(
-                  width: 120,
+                  width: 110,
                   margin: EdgeInsets.only(right: 10),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
@@ -119,6 +158,12 @@ class HomeScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Image(
+                          width: 30,
+                          image: AssetImage(
+                            "assets/oxygen.png",
+                          ),
                         ),
                       ),
                       Container(
@@ -148,18 +193,11 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: 120,
+                  width: 110,
                   margin: const EdgeInsets.only(right: 10),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color.fromRGBO(71, 138, 251, 1),
-                        Color.fromRGBO(115, 166, 252, 1),
-                      ],
-                    ),
+                    color: Colors.red[400],
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Column(
@@ -172,13 +210,19 @@ class HomeScreen extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(8),
                         ),
+                        child: Image(
+                          width: 30,
+                          image: AssetImage(
+                            "assets/Blood.png",
+                          ),
+                        ),
                       ),
                       Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Ambulance",
+                              "Plasma",
                               style: GoogleFonts.nunito(
                                 fontWeight: FontWeight.w800,
                                 fontSize: 18,
@@ -200,18 +244,11 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: 120,
-                  margin: EdgeInsets.only(right: 10),
+                  width: 110,
+                  margin: const EdgeInsets.only(right: 10),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color.fromRGBO(71, 138, 251, 1),
-                        Color.fromRGBO(115, 166, 252, 1),
-                      ],
-                    ),
+                    color: Colors.teal,
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Column(
@@ -223,6 +260,12 @@ class HomeScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Image(
+                          width: 30,
+                          image: AssetImage(
+                            "assets/ambulance.png",
+                          ),
                         ),
                       ),
                       Container(
@@ -247,22 +290,16 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
                 Container(
-                  width: 120,
+                  width: 110,
+                  margin: const EdgeInsets.only(right: 10),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color.fromRGBO(71, 138, 251, 1),
-                        Color.fromRGBO(115, 166, 252, 1),
-                      ],
-                    ),
+                    color: Colors.green,
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Column(
@@ -275,13 +312,19 @@ class HomeScreen extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(8),
                         ),
+                        child: Image(
+                          width: 40,
+                          image: AssetImage(
+                            "assets/medicine.png",
+                          ),
+                        ),
                       ),
                       Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Ambulance",
+                              "Medicine",
                               style: GoogleFonts.nunito(
                                 fontWeight: FontWeight.w800,
                                 fontSize: 18,
@@ -298,7 +341,109 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                      )
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 110,
+                  margin: const EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.indigo,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Image(
+                          width: 40,
+                          image: AssetImage(
+                            "assets/food.png",
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Food",
+                              style: GoogleFonts.nunito(
+                                fontWeight: FontWeight.w800,
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text(
+                              "Donation",
+                              style: GoogleFonts.nunito(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                                color: Colors.white70,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 110,
+                  margin: const EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.amber,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Image(
+                          width: 30,
+                          image: AssetImage(
+                            "assets/others.png",
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Others",
+                              style: GoogleFonts.nunito(
+                                fontWeight: FontWeight.w800,
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text(
+                              "Donation",
+                              style: GoogleFonts.nunito(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                                color: Colors.white70,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -317,7 +462,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Container(
-            height: 250,
+            height: 350,
             child: ListView(
               children: [
                 Container(
@@ -381,72 +526,100 @@ class HomeScreen extends StatelessWidget {
                         margin: EdgeInsets.only(top: 20),
                         child: Column(
                           children: [
-                            Row(
-                              children: [
-                                Text(
-                                  "City ------------->",
-                                  style: GoogleFonts.nunito(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                    color: Colors.black,
+                            Container(
+                              margin: const EdgeInsets.symmetric(vertical: 5),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "City",
+                                    style: GoogleFonts.nunito(
+                                      fontSize: 18,
+                                      color: Colors.black,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  " Renukoot",
-                                  style: GoogleFonts.nunito(
-                                    fontWeight: FontWeight.w900,
-                                    fontSize: 18,
-                                    color: Colors.black,
+                                  Text(
+                                    " Renukoot",
+                                    style: GoogleFonts.nunito(
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 18,
+                                      color: Colors.black,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                            Row(
-                              children: [
-                                Text(
-                                  "Phone number ------------->",
-                                  style: GoogleFonts.nunito(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                    color: Colors.black,
+                            Container(
+                              margin: EdgeInsets.symmetric(vertical: 5),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Phone number",
+                                    style: GoogleFonts.nunito(
+                                      fontSize: 18,
+                                      color: Colors.black,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  " 9919937915",
-                                  style: GoogleFonts.nunito(
-                                    fontWeight: FontWeight.w900,
-                                    fontSize: 18,
-                                    color: Colors.black,
+                                  Text(
+                                    " 9919937915",
+                                    style: GoogleFonts.nunito(
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 18,
+                                      color: Colors.black,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                            Row(
-                              children: [
-                                Text(
-                                  "Filter Type ------------->",
-                                  style: GoogleFonts.nunito(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                    color: Colors.black,
+                            Container(
+                              margin: const EdgeInsets.symmetric(vertical: 5),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Filter Type",
+                                    style: GoogleFonts.nunito(
+                                      fontSize: 18,
+                                      color: Colors.black,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  " Hospital beds",
-                                  style: GoogleFonts.nunito(
-                                    fontWeight: FontWeight.w900,
-                                    fontSize: 18,
-                                    color: Colors.black,
+                                  Text(
+                                    " Hospital beds",
+                                    style: GoogleFonts.nunito(
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 18,
+                                      color: Colors.black,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
+                            ),
+                            Divider(),
+                            Container(
+                              margin: EdgeInsets.only(top: 10),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "Read more..",
+                                    style: GoogleFonts.nunito(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                      color: Color.fromRGBO(20, 121, 255, 1),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             )
                           ],
                         ),
                       )
                     ],
                   ),
-                )
+                ),
               ],
             ),
           )
@@ -456,10 +629,10 @@ class HomeScreen extends StatelessWidget {
         onPressed: () {
           authController.signOut();
         },
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromRGBO(20, 121, 255, 1),
         child: Icon(
-          Icons.logout,
-          color: Colors.black,
+          Icons.add,
+          color: Colors.white,
         ),
       ),
     );

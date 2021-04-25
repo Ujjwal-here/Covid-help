@@ -53,6 +53,14 @@ flutter:
     - assets/auth.png
     - assets/coronadr.svg
     - assets/Drcorona.svg
+    - assets/oxygen.png
+    - assets/ambulance.png
+    - assets/Blood.png
+    - assets/medicine.png
+    - assets/food.png
+    - assets/others.png
+
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:
