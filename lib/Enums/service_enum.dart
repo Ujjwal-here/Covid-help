@@ -11,6 +11,6 @@ enum Services {
   EmergencyService
 }
 
-String convert(Services){
-  return EnumToString.convertToString(Services,camelCase: true);
+String convert(Services services){
+  return EnumToString.convertToString(services,camelCase: true);
 }
