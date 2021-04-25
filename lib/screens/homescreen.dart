@@ -1,4 +1,5 @@
 import 'package:covid_help/controllers/AuthController.dart';
+import 'package:covid_help/screens/form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -18,7 +19,6 @@ class HomeScreen extends StatelessWidget {
             child: TextField(
               controller: authController.phoneNumberController,
               textAlignVertical: TextAlignVertical.center,
-              keyboardType: TextInputType.phone,
               style: GoogleFonts.nunito(
                 fontSize: 18,
                 color: Colors.black,
@@ -627,7 +627,12 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          authController.signOut();
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HelpForm(),
+            ),
+          );
         },
         backgroundColor: Color.fromRGBO(20, 121, 255, 1),
         child: Icon(
