@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                                     strictbounds: false,
                                   components: [Component(Component.country, "in")],
                                 );
-                print(p.description);                
+                print(p?.description);                
               },
               controller: authController.phoneNumberController,
               textAlignVertical: TextAlignVertical.center,
