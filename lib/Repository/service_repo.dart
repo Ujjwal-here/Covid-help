@@ -8,7 +8,7 @@ class ServiceRepo {
     try {
       return await _firestore
           .collection("services")
-          .where("address", isEqualTo: location)
+          .where("city", isEqualTo: location)
           .get();
     } catch (e) {
       Get.snackbar("Something Went Wrong", "Please Try Again!");

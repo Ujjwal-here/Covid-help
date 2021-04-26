@@ -9,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
 
-  ServiceController serviceController = Get.put(ServiceController());
+  final ServiceController serviceController = Get.put(ServiceController());
 
   @override
   Widget build(BuildContext context) {

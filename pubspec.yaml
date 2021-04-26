@@ -35,9 +35,10 @@ dependencies:
   cloud_firestore: ^1.0.6
   equatable: ^2.0.0
   enum_to_string: ^2.0.1
-  location: ^4.1.1
+  location: ^4.0.0
   csc_picker: ^0.2.3
   geocoder: ^0.2.1
+  
 
 dev_dependencies:
   flutter_test:
