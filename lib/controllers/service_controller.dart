@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:covid_help/Enums/service_enum.dart';
 import 'package:covid_help/Repository/service_repo.dart';
 import 'package:covid_help/models/service_model.dart';
-import 'package:geocoder/geocoder.dart';
 import 'package:get/get.dart';
 import 'package:location/location.dart';
 

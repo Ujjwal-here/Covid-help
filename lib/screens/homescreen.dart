@@ -174,249 +174,274 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  width: 110,
-                  margin:
-                      EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.red[100],
+                GestureDetector(
+                  onTap: (){
+                    serviceController.selectServiceType(Services.Blood);
+                  },
+                  child: Container(
+                    width: 110,
+                    margin:
+                        EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.red[100],
+                      ),
                     ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Image(
-                          width: 40,
-                          image: AssetImage(
-                            "assets/blood-test.png",
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          child: Image(
+                            width: 40,
+                            image: AssetImage(
+                              "assets/blood-test.png",
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Plasma",
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: Colors.red,
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Plasma",
+                                style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.red,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Donation",
-                              style: GoogleFonts.nunito(
-                                fontSize: 14,
-                                color: Color.fromRGBO(185, 189, 198, 1),
+                              Text(
+                                "Donation",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 14,
+                                  color: Color.fromRGBO(185, 189, 198, 1),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  width: 110,
-                  margin:
-                      EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.pink[100],
+                GestureDetector(
+                  onTap: (){
+                    serviceController.selectServiceType(Services.EmergencyService);
+                  },
+                  child: Container(
+                    width: 110,
+                    margin:
+                        EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.pink[100],
+                      ),
                     ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Image(
-                          width: 40,
-                          image: AssetImage(
-                            "assets/emergency.png",
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          child: Image(
+                            width: 40,
+                            image: AssetImage(
+                              "assets/emergency.png",
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Ambulance",
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: Colors.pink,
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Ambulance",
+                                style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.pink,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Donation",
-                              style: GoogleFonts.nunito(
-                                fontSize: 14,
-                                color: Color.fromRGBO(185, 189, 198, 1),
+                              Text(
+                                "Donation",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 14,
+                                  color: Color.fromRGBO(185, 189, 198, 1),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  width: 110,
-                  margin:
-                      EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.blue[100],
+                GestureDetector(
+                  onTap:(){
+                    serviceController.selectServiceType(Services.Medicine);
+                  },
+                  child: Container(
+                    width: 110,
+                    margin:
+                        EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.blue[100],
+                      ),
                     ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Image(
-                          width: 40,
-                          image: AssetImage(
-                            "assets/pills-tablets.png",
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          child: Image(
+                            width: 40,
+                            image: AssetImage(
+                              "assets/pills-tablets.png",
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Medicine",
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: Colors.blue,
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Medicine",
+                                style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.blue,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Donation",
-                              style: GoogleFonts.nunito(
-                                fontSize: 14,
-                                color: Color.fromRGBO(185, 189, 198, 1),
+                              Text(
+                                "Donation",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 14,
+                                  color: Color.fromRGBO(185, 189, 198, 1),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  width: 110,
-                  margin:
-                      EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.teal[100],
+                GestureDetector(
+                  onTap: (){
+                    serviceController.selectServiceType(Services.Food);
+                  },
+                  child: Container(
+                    width: 110,
+                    margin:
+                        EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.teal[100],
+                      ),
                     ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Image(
-                          width: 40,
-                          image: AssetImage(
-                            "assets/vegetarian-food.png",
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          child: Image(
+                            width: 40,
+                            image: AssetImage(
+                              "assets/vegetarian-food.png",
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Food",
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: Colors.teal,
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Food",
+                                style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.teal,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Donation",
-                              style: GoogleFonts.nunito(
-                                fontSize: 14,
-                                color: Color.fromRGBO(185, 189, 198, 1),
+                              Text(
+                                "Donation",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 14,
+                                  color: Color.fromRGBO(185, 189, 198, 1),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  width: 110,
-                  margin:
-                      EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.red[100],
+                GestureDetector(
+                  onTap: (){
+                    serviceController.selectServiceType(Services.Ambulance);
+                  },
+                  child: Container(
+                    width: 110,
+                    margin:
+                        EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.red[100],
+                      ),
                     ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Image(
-                          width: 40,
-                          image: AssetImage(
-                            "assets/donate-donation.png",
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          child: Image(
+                            width: 40,
+                            image: AssetImage(
+                              "assets/donate-donation.png",
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Others",
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: Colors.red,
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Others",
+                                style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.red,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Donation",
-                              style: GoogleFonts.nunito(
-                                fontSize: 14,
-                                color: Color.fromRGBO(185, 189, 198, 1),
+                              Text(
+                                "Donation",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 14,
+                                  color: Color.fromRGBO(185, 189, 198, 1),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],
