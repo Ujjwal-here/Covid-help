@@ -8,7 +8,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
-
   ServiceController serviceController = Get.put(ServiceController());
 
   @override
@@ -83,17 +82,56 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Container(
-            child: CSCPicker(
-              flagState: CountryFlag.DISABLE,
-              onCountryChanged: (value){
-                print(value);
-              },
-              onCityChanged: (value){
-                print(value);
-              },
-              onStateChanged: (value){
-                print(value);
-              },
+            margin: const EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                color: Colors.red[100],
+              ),
+            ),
+            child: Column(
+              children: [
+                CSCPicker(
+                  dropdownHeadingStyle: GoogleFonts.nunito(),
+                  dropdownItemStyle: GoogleFonts.nunito(),
+                  flagState: CountryFlag.DISABLE,
+                  onCountryChanged: (value) {
+                    print(value);
+                  },
+                  onCityChanged: (value) {
+                    print(value);
+                  },
+                  onStateChanged: (value) {
+                    print(value);
+                  },
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 10),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      authController.signIn();
+                    },
+                    child: Text("Search"),
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(
+                        EdgeInsets.all(15),
+                      ),
+                      backgroundColor: MaterialStateProperty.all(
+                        Color.fromRGBO(20, 121, 255, 1),
+                      ),
+                      textStyle: MaterialStateProperty.all(
+                        GoogleFonts.nunito(
+                          decoration: TextDecoration.none,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
           Container(
