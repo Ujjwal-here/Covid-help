@@ -1,3 +1,4 @@
+import 'package:covid_help/Enums/service_enum.dart';
 import 'package:covid_help/controllers/AuthController.dart';
 import 'package:covid_help/controllers/service_controller.dart';
 import 'package:covid_help/screens/form.dart';
@@ -71,16 +72,18 @@ class HomeScreen extends StatelessWidget {
                     print(value);
                   },
                   onCityChanged: (value) {
-                    print(value);
+                    serviceController.city = value?.toLowerCase();
                   },
                   onStateChanged: (value) {
-                    print(value);
+                    serviceController.state = value?.toLowerCase();
                   },
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 10),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      serviceController.getServices();
+                    },
                     child: Text("Search"),
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all(
@@ -117,53 +120,58 @@ class HomeScreen extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                Container(
-                  width: 110,
-                  margin:
-                      EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.green[100],
+                GestureDetector(
+                  onTap: (){
+                    serviceController.selectServiceType(Services.Oxygen);
+                  },
+                  child: Container(
+                    width: 110,
+                    margin:
+                        EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.green[100],
+                      ),
                     ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Image(
-                          width: 15,
-                          image: AssetImage(
-                            "assets/oxygen-cylinder.png",
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          child: Image(
+                            width: 15,
+                            image: AssetImage(
+                              "assets/oxygen-cylinder.png",
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Oxygen",
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: Colors.green,
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Oxygen",
+                                style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.green,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Donation",
-                              style: GoogleFonts.nunito(
-                                fontSize: 14,
-                                color: Color.fromRGBO(185, 189, 198, 1),
+                              Text(
+                                "Donation",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 14,
+                                  color: Color.fromRGBO(185, 189, 198, 1),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Container(
