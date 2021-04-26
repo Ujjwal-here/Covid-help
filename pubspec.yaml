@@ -34,13 +34,9 @@ dependencies:
   flutter_svg: ^0.22.0
   cloud_firestore: ^1.0.6
   equatable: ^2.0.0
-  flutter_google_places: ^0.3.0
   enum_to_string: ^2.0.1
-  google_maps_webservice: ^0.0.19
-  google_api_headers: ^1.0.0
   location: ^4.1.1
-  flutter_dotenv: ^3.1.0
-  country_state_city_picker: ^1.2.7
+  csc_picker: ^0.2.3
 
 dev_dependencies:
   flutter_test:
@@ -66,7 +62,7 @@ flutter:
     - assets/vegetarian-food.png
     - assets/donate-donation.png
     - assets/blood-test.png
-    - lib/.env
+
 
 
 

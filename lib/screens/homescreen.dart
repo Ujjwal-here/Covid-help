@@ -1,6 +1,6 @@
-import 'package:country_state_city_picker/country_state_city_picker.dart';
 import 'package:covid_help/controllers/AuthController.dart';
 import 'package:covid_help/screens/form.dart';
+import 'package:csc_picker/csc_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -87,9 +87,6 @@ class HomeScreen extends StatelessWidget {
               border: Border.all(
                 color: Colors.teal[100],
               ),
-            ),
-            child: SelectState(
-              style: GoogleFonts.nunito(),
             ),
           ),
           Container(
