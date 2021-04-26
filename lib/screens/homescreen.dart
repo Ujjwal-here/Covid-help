@@ -422,107 +422,104 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Container(
-            padding: const EdgeInsets.all(20),
-            margin: EdgeInsets.only(top: 20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color: Color.fromRGBO(185, 189, 198, 0.5),
-              ),
-              color: Colors.white,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            margin: EdgeInsets.only(top: 10),
+            height: 170,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Newlife hospital.",
-                      style: GoogleFonts.nunito(
-                        fontWeight: FontWeight.w800,
-                        fontSize: 20,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Text(
-                      "Updated 2hrs ago",
-                      style: GoogleFonts.nunito(
-                        fontSize: 16,
-                        color: Color.fromRGBO(185, 189, 198, 1),
-                      ),
-                    ),
-                  ],
-                ),
-                Divider(),
                 Container(
-                  margin: EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: Color.fromRGBO(185, 189, 198, 0.5),
+                    ),
+                    color: Colors.white,
+                  ),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        margin: const EdgeInsets.symmetric(vertical: 5),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "City",
-                              style: GoogleFonts.nunito(
-                                fontSize: 18,
-                                color: Colors.black,
-                              ),
-                            ),
-                            Text(
-                              " Renukoot",
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.w800,
-                                fontSize: 18,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ],
+                      Text(
+                        "Newlife hospital.",
+                        style: GoogleFonts.nunito(
+                          fontWeight: FontWeight.w800,
+                          fontSize: 18,
+                          color: Colors.black,
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.symmetric(vertical: 5),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        margin: EdgeInsets.only(top: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              "Donation type",
-                              style: GoogleFonts.nunito(
-                                fontSize: 18,
-                                color: Colors.black,
+                            Container(
+                              margin: const EdgeInsets.symmetric(vertical: 5),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "City :",
+                                    style: GoogleFonts.nunito(
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  Text(
+                                    " Renukoot",
+                                    style: GoogleFonts.nunito(
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            Text(
-                              " Hospital beds",
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.w800,
-                                fontSize: 18,
-                                color: Colors.black,
+                            Container(
+                              margin: const EdgeInsets.symmetric(vertical: 5),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Type :",
+                                    style: GoogleFonts.nunito(
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  Text(
+                                    " Hospital beds",
+                                    style: GoogleFonts.nunito(
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                      Divider(),
-                      Container(
-                        margin: EdgeInsets.only(top: 10),
-                        child: Row(
-                          children: [
-                            Text(
-                              "Read more..",
-                              style: GoogleFonts.nunito(
-                                fontSize: 18,
-                                color: Color.fromRGBO(20, 121, 255, 1),
+                            Container(
+                              margin: EdgeInsets.only(top: 10),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "Read more..",
+                                    style: GoogleFonts.nunito(
+                                      fontSize: 16,
+                                      color: Color.fromRGBO(20, 121, 255, 1),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
+                            )
                           ],
                         ),
                       )
                     ],
                   ),
-                )
+                ),
               ],
             ),
           )
