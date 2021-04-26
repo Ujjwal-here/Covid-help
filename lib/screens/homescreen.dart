@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:covid_help/controllers/AuthController.dart';
+import 'package:covid_help/controllers/service_controller.dart';
 import 'package:covid_help/screens/form.dart';
 import 'package:csc_picker/csc_picker.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +10,9 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
+
+  ServiceController serviceController = Get.put(ServiceController());
+
   @override
   Widget build(BuildContext context) {
     AuthController authController = Get.find<AuthController>();
@@ -80,6 +86,7 @@ class HomeScreen extends StatelessWidget {
           ),
           Container(
             child: CSCPicker(
+              flagState: CountryFlag.DISABLE,
               onCountryChanged: (value){
                 print(value);
               },
