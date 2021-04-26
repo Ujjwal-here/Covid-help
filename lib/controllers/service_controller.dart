@@ -17,10 +17,10 @@ class ServiceController extends GetxController{
   
   LocationData _locationData;
 
-  Rx<String> state;
-  Rx<String> city;
+  String state;
+  String city;
 
-  Rx<Services> filter;
+  Services filter;
 
   @override
   void onInit() async{
@@ -30,15 +30,15 @@ class ServiceController extends GetxController{
           _locationData.latitude, _locationData.longitude);
     var addresses = await Geocoder.local.findAddressesFromCoordinates(
           coordinates);
-      city = addresses.first.locality.obs;
-      state = addresses.first.adminArea.obs;
+      city = addresses.first.locality;
+      state = addresses.first.adminArea;
       print(city);
 
     super.onInit();
   }
 
   getServices()async{
-    QuerySnapshot qs = await _serviceRepo.getServices(city.value.toLowerCase());
+    QuerySnapshot qs = await _serviceRepo.getServices(city.toLowerCase());
     _services = qs.docs.map((e) => ServiceModel(
       type: convertToTypeOf(e["type"]), 
       city: e["city"], 
