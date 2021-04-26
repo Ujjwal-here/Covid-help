@@ -3,12 +3,10 @@ import 'package:covid_help/controllers/service_controller.dart';
 import 'package:covid_help/screens/form.dart';
 import 'package:csc_picker/csc_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
-
   final ServiceController serviceController = Get.put(ServiceController());
 
   @override
@@ -20,70 +18,29 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(25),
         children: [
           Container(
-            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-            width: double.infinity,
-            margin: const EdgeInsets.only(top: 20),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Color.fromRGBO(20, 121, 255, 1),
-                Color.fromRGBO(20, 121, 255, 0.6),
-              ]),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                SvgPicture.asset(
-                  "assets/Drcorona.svg",
-                  height: 130,
+            margin: EdgeInsets.only(top: 30),
+            child: RichText(
+              text: TextSpan(
+                text: 'Hello\n',
+                style: GoogleFonts.nunito(
+                  fontSize: 22,
+                  color: Colors.black,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      child: Text(
-                        "Stay home",
-                        style: GoogleFonts.nunito(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 23,
-                          color: Colors.white,
-                        ),
-                      ),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: 'Wear mask,save lives',
+                    style: TextStyle(
+                      color: Color.fromRGBO(20, 121, 255, 1),
+                      letterSpacing: 1,
+                      fontSize: 15,
                     ),
-                    Container(
-                      child: Text(
-                        "Save lives",
-                        style: GoogleFonts.nunito(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 21,
-                          color: Colors.white70,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.white60,
-                      ),
-                      child: Text(
-                        "Wear your mask,\nProtect your family and others",
-                        style: GoogleFonts.nunito(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                          color: Colors.black,
-                        ),
-                      ),
-                    )
-                  ],
-                )
-              ],
+                  ),
+                ],
+              ),
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 20),
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -150,7 +107,6 @@ class HomeScreen extends StatelessWidget {
             child: Text(
               "Filters",
               style: GoogleFonts.nunito(
-                fontWeight: FontWeight.w800,
                 fontSize: 18,
                 color: Color.fromRGBO(37, 46, 73, 1),
               ),
@@ -192,7 +148,7 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               "Oxygen",
                               style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.bold,
                                 fontSize: 18,
                                 color: Colors.green,
                               ),
@@ -200,7 +156,6 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               "Donation",
                               style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
                                 fontSize: 14,
                                 color: Color.fromRGBO(185, 189, 198, 1),
                               ),
@@ -242,7 +197,7 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               "Plasma",
                               style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.bold,
                                 fontSize: 18,
                                 color: Colors.red,
                               ),
@@ -250,7 +205,6 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               "Donation",
                               style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
                                 fontSize: 14,
                                 color: Color.fromRGBO(185, 189, 198, 1),
                               ),
@@ -292,7 +246,7 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               "Ambulance",
                               style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.bold,
                                 fontSize: 18,
                                 color: Colors.pink,
                               ),
@@ -300,7 +254,6 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               "Donation",
                               style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
                                 fontSize: 14,
                                 color: Color.fromRGBO(185, 189, 198, 1),
                               ),
@@ -342,7 +295,7 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               "Medicine",
                               style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.bold,
                                 fontSize: 18,
                                 color: Colors.blue,
                               ),
@@ -350,7 +303,6 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               "Donation",
                               style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
                                 fontSize: 14,
                                 color: Color.fromRGBO(185, 189, 198, 1),
                               ),
@@ -392,7 +344,7 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               "Food",
                               style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.bold,
                                 fontSize: 18,
                                 color: Colors.teal,
                               ),
@@ -400,7 +352,6 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               "Donation",
                               style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
                                 fontSize: 14,
                                 color: Color.fromRGBO(185, 189, 198, 1),
                               ),
@@ -442,7 +393,7 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               "Others",
                               style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.bold,
                                 fontSize: 18,
                                 color: Colors.red,
                               ),
@@ -450,7 +401,6 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               "Donation",
                               style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
                                 fontSize: 14,
                                 color: Color.fromRGBO(185, 189, 198, 1),
                               ),
@@ -469,7 +419,6 @@ class HomeScreen extends StatelessWidget {
             child: Text(
               "Search Results",
               style: GoogleFonts.nunito(
-                fontWeight: FontWeight.w800,
                 fontSize: 18,
                 color: Color.fromRGBO(37, 46, 73, 1),
               ),
