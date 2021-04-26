@@ -85,16 +85,28 @@ class HomeScreen extends StatelessWidget {
             margin: const EdgeInsets.only(top: 10),
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color: Colors.red[100],
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromRGBO(20, 121, 255, 1),
+                  Color.fromRGBO(20, 121, 255, 0.6),
+                ],
               ),
+              borderRadius: BorderRadius.circular(10),
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 CSCPicker(
-                  dropdownHeadingStyle: GoogleFonts.nunito(),
+                  dropdownDecoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Colors.white,
+                  ),
+                  disabledDropdownDecoration: BoxDecoration(
+                    color: Colors.white60,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  selectedItemStyle: GoogleFonts.nunito(),
+                  dropdownHeadingStyle: GoogleFonts.nunito(color: Colors.white),
                   dropdownItemStyle: GoogleFonts.nunito(),
                   flagState: CountryFlag.DISABLE,
                   onCountryChanged: (value) {
@@ -110,13 +122,11 @@ class HomeScreen extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(top: 10),
                   child: ElevatedButton(
-                    onPressed: () {
-                      authController.signIn();
-                    },
+                    onPressed: () {},
                     child: Text("Search"),
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all(
-                        EdgeInsets.all(15),
+                        EdgeInsets.all(8),
                       ),
                       backgroundColor: MaterialStateProperty.all(
                         Color.fromRGBO(20, 121, 255, 1),
