@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:covid_help/Enums/service_enum.dart';
 import 'package:covid_help/Repository/service_repo.dart';
-import 'package:covid_help/controllers/location_controller.dart';
 import 'package:covid_help/models/service_model.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:get/get.dart';
@@ -9,7 +8,6 @@ import 'package:location/location.dart';
 
 class ServiceController extends GetxController{
 
-  final LocationController _locationController = LocationController();
   final ServiceRepo _serviceRepo = ServiceRepo();
 
   RxList<ServiceModel> _services;
@@ -34,22 +32,11 @@ class ServiceController extends GetxController{
     getServicesByFilter();
   }
 
-  @override
-  void onInit() async{
-    await _locationController.getLocation();
-    _locationData = _locationController.locationData;
-   final coordinates = new Coordinates(
-          _locationData.latitude, _locationData.longitude);
-    var addresses = await Geocoder.local.findAddressesFromCoordinates(
-          coordinates);
-      _city = addresses.first.locality;
-      _state = addresses.first.adminArea;
-      print(_city);
-
-    super.onInit();
-  }
-
   getServices()async{
+    if(_city ==null || _state == null){
+      Get.snackbar("Error", "You have to search a state and city");
+      return;
+    }
     QuerySnapshot qs = await _serviceRepo.getServices(_city.toLowerCase());
     _services = qs.docs.map((e) => ServiceModel(
       serviceType: convertToService(e["type"]), 
@@ -62,6 +49,10 @@ class ServiceController extends GetxController{
     print(_services);  
   }
   getServicesByFilter()async{
+    if(_city ==null || _state == null){
+      Get.snackbar("Error", "You have to search a state and city");
+      return;
+    }
       QuerySnapshot qs = await _serviceRepo.getServicesByFilter(_serviceType.value,_city.toLowerCase());
     _services = qs.docs.map((e) => ServiceModel(
       serviceType: convertToService(e["type"]), 
