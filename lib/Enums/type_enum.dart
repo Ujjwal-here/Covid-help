@@ -1,10 +1,13 @@
 import 'package:enum_to_string/enum_to_string.dart';
 
-enum Type{
+enum TypeOf{
   Individual,
   Organization
 }
 
-String convert(Type type){
+String convertToString(Type type){
   return EnumToString.convertToString(type,camelCase: true);
+}
+TypeOf convertToTypeOf(String type){
+  return EnumToString.fromString(TypeOf.values, type);
 }

@@ -3,7 +3,8 @@ import 'package:location/location.dart';
 
 class LocationController extends GetxController{
 
-  final Location _location = Location();
+  Location location = new Location();
+
   bool _serviceEnabled;
   PermissionStatus _permissionGranted;
   LocationData _locationData;
@@ -11,24 +12,25 @@ class LocationController extends GetxController{
   LocationData get locationData => _locationData;
 
   getLocation()async{
-    _serviceEnabled = await _location.serviceEnabled();
+     _serviceEnabled = await location.serviceEnabled();
+  if (!_serviceEnabled) {
+    _serviceEnabled = await location.requestService();
     if (!_serviceEnabled) {
-     _serviceEnabled = await _location.requestService();
-    if (!_serviceEnabled) {
-      return null;
+      return;
     }
   }
 
-  _permissionGranted = await _location.hasPermission();
+  _permissionGranted = await location.hasPermission();
   if (_permissionGranted == PermissionStatus.denied) {
-    _permissionGranted = await _location.requestPermission();
+    _permissionGranted = await location.requestPermission();
     if (_permissionGranted != PermissionStatus.granted) {
-      return null;
+      return;
     }
   }
 
-  _locationData = await _location.getLocation();
-   
+  _locationData = await location.getLocation();
   }
+
+ 
 
 }

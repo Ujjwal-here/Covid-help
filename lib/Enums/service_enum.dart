@@ -14,3 +14,6 @@ enum Services {
 String convert(Services services){
   return EnumToString.convertToString(services,camelCase: true);
 }
+Services convertToService(String service){
+  return EnumToString.fromString(Services.values, service);
+}
