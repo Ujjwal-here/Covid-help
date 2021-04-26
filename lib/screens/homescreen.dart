@@ -415,12 +415,12 @@ class HomeScreen extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.only(top: 10),
-            height: 180,
+            height: 170,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
@@ -435,7 +435,7 @@ class HomeScreen extends StatelessWidget {
                         "Newlife hospital.",
                         style: GoogleFonts.nunito(
                           fontWeight: FontWeight.w800,
-                          fontSize: 20,
+                          fontSize: 18,
                           color: Colors.black,
                         ),
                       ),
@@ -453,7 +453,7 @@ class HomeScreen extends StatelessWidget {
                                   Text(
                                     "City :",
                                     style: GoogleFonts.nunito(
-                                      fontSize: 18,
+                                      fontSize: 16,
                                       color: Colors.black,
                                     ),
                                   ),
@@ -461,7 +461,7 @@ class HomeScreen extends StatelessWidget {
                                     " Renukoot",
                                     style: GoogleFonts.nunito(
                                       fontWeight: FontWeight.w800,
-                                      fontSize: 18,
+                                      fontSize: 16,
                                       color: Colors.black,
                                     ),
                                   ),
@@ -477,7 +477,7 @@ class HomeScreen extends StatelessWidget {
                                   Text(
                                     "Type :",
                                     style: GoogleFonts.nunito(
-                                      fontSize: 18,
+                                      fontSize: 16,
                                       color: Colors.black,
                                     ),
                                   ),
@@ -485,7 +485,7 @@ class HomeScreen extends StatelessWidget {
                                     " Hospital beds",
                                     style: GoogleFonts.nunito(
                                       fontWeight: FontWeight.w800,
-                                      fontSize: 18,
+                                      fontSize: 16,
                                       color: Colors.black,
                                     ),
                                   ),
@@ -499,7 +499,7 @@ class HomeScreen extends StatelessWidget {
                                   Text(
                                     "Read more..",
                                     style: GoogleFonts.nunito(
-                                      fontSize: 18,
+                                      fontSize: 16,
                                       color: Color.fromRGBO(20, 121, 255, 1),
                                     ),
                                   ),
