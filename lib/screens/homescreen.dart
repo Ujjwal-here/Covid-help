@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:covid_help/controllers/AuthController.dart';
 import 'package:covid_help/controllers/service_controller.dart';
 import 'package:covid_help/screens/form.dart';
