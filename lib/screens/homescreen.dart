@@ -79,6 +79,15 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Container(
+            margin: const EdgeInsets.only(top: 10),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                color: Colors.teal[100],
+              ),
+            ),
             child: SelectState(
               style: GoogleFonts.nunito(),
             ),
