@@ -19,23 +19,21 @@ class HomeScreen extends StatelessWidget {
         children: [
           Container(
             margin: EdgeInsets.only(top: 30),
-            child: RichText(
-              text: TextSpan(
-                text: 'Hello\n',
-                style: GoogleFonts.nunito(
-                  fontSize: 22,
-                  color: Colors.black,
-                ),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: 'Wear mask,save lives',
-                    style: TextStyle(
-                      color: Color.fromRGBO(20, 121, 255, 1),
-                      letterSpacing: 1,
-                      fontSize: 15,
-                    ),
-                  ),
-                ],
+            child: Text(
+              "Covid-19 Resources",
+              style: GoogleFonts.nunito(
+                fontSize: 22,
+                color: Color.fromRGBO(37, 46, 73, 1),
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ),
+          Container(
+            child: Text(
+              "Help people out in this pandemic by donating",
+              style: GoogleFonts.nunito(
+                fontSize: 16,
+                color: Color.fromRGBO(185, 189, 198, 1),
               ),
             ),
           ),
@@ -77,29 +75,29 @@ class HomeScreen extends StatelessWidget {
                     print(value);
                   },
                 ),
-                Container(
-                  margin: EdgeInsets.only(top: 10),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text("Search"),
-                    style: ButtonStyle(
-                      padding: MaterialStateProperty.all(
-                        EdgeInsets.all(8),
-                      ),
-                      backgroundColor: MaterialStateProperty.all(
-                        Color.fromRGBO(20, 121, 255, 1),
-                      ),
-                      textStyle: MaterialStateProperty.all(
-                        GoogleFonts.nunito(
-                          decoration: TextDecoration.none,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                )
               ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 10),
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Text("Search"),
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all(
+                  EdgeInsets.all(12),
+                ),
+                backgroundColor: MaterialStateProperty.all(
+                  Color.fromRGBO(20, 121, 255, 1),
+                ),
+                textStyle: MaterialStateProperty.all(
+                  GoogleFonts.nunito(
+                    decoration: TextDecoration.none,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
           ),
           Container(
@@ -123,10 +121,10 @@ class HomeScreen extends StatelessWidget {
                       EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.green[50],
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Colors.green[100],
+                      color: Colors.green[50],
                     ),
                   ),
                   child: Column(
@@ -149,14 +147,14 @@ class HomeScreen extends StatelessWidget {
                               "Oxygen",
                               style: GoogleFonts.nunito(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                fontSize: 16,
                                 color: Colors.green,
                               ),
                             ),
                             Text(
                               "Donation",
                               style: GoogleFonts.nunito(
-                                fontSize: 14,
+                                fontSize: 13,
                                 color: Color.fromRGBO(185, 189, 198, 1),
                               ),
                             ),
@@ -172,10 +170,10 @@ class HomeScreen extends StatelessWidget {
                       EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.red[50],
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Colors.red[100],
+                      color: Colors.red[50],
                     ),
                   ),
                   child: Column(
@@ -198,14 +196,14 @@ class HomeScreen extends StatelessWidget {
                               "Plasma",
                               style: GoogleFonts.nunito(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                fontSize: 16,
                                 color: Colors.red,
                               ),
                             ),
                             Text(
                               "Donation",
                               style: GoogleFonts.nunito(
-                                fontSize: 14,
+                                fontSize: 13,
                                 color: Color.fromRGBO(185, 189, 198, 1),
                               ),
                             ),
@@ -221,10 +219,10 @@ class HomeScreen extends StatelessWidget {
                       EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.pink[50],
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Colors.pink[100],
+                      color: Colors.pink[50],
                     ),
                   ),
                   child: Column(
@@ -247,14 +245,14 @@ class HomeScreen extends StatelessWidget {
                               "Ambulance",
                               style: GoogleFonts.nunito(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                fontSize: 16,
                                 color: Colors.pink,
                               ),
                             ),
                             Text(
                               "Donation",
                               style: GoogleFonts.nunito(
-                                fontSize: 14,
+                                fontSize: 13,
                                 color: Color.fromRGBO(185, 189, 198, 1),
                               ),
                             ),
@@ -270,10 +268,10 @@ class HomeScreen extends StatelessWidget {
                       EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.blue[50],
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Colors.blue[100],
+                      color: Colors.blue[50],
                     ),
                   ),
                   child: Column(
@@ -296,14 +294,14 @@ class HomeScreen extends StatelessWidget {
                               "Medicine",
                               style: GoogleFonts.nunito(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                fontSize: 16,
                                 color: Colors.blue,
                               ),
                             ),
                             Text(
                               "Donation",
                               style: GoogleFonts.nunito(
-                                fontSize: 14,
+                                fontSize: 13,
                                 color: Color.fromRGBO(185, 189, 198, 1),
                               ),
                             ),
@@ -319,10 +317,10 @@ class HomeScreen extends StatelessWidget {
                       EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.teal[50],
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Colors.teal[100],
+                      color: Colors.teal[50],
                     ),
                   ),
                   child: Column(
@@ -345,14 +343,14 @@ class HomeScreen extends StatelessWidget {
                               "Food",
                               style: GoogleFonts.nunito(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                fontSize: 16,
                                 color: Colors.teal,
                               ),
                             ),
                             Text(
                               "Donation",
                               style: GoogleFonts.nunito(
-                                fontSize: 14,
+                                fontSize: 13,
                                 color: Color.fromRGBO(185, 189, 198, 1),
                               ),
                             ),
@@ -368,10 +366,10 @@ class HomeScreen extends StatelessWidget {
                       EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.red[50],
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Colors.red[100],
+                      color: Colors.red[50],
                     ),
                   ),
                   child: Column(
@@ -394,14 +392,14 @@ class HomeScreen extends StatelessWidget {
                               "Others",
                               style: GoogleFonts.nunito(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                fontSize: 16,
                                 color: Colors.red,
                               ),
                             ),
                             Text(
                               "Donation",
                               style: GoogleFonts.nunito(
-                                fontSize: 14,
+                                fontSize: 13,
                                 color: Color.fromRGBO(185, 189, 198, 1),
                               ),
                             ),
@@ -425,104 +423,112 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 10),
-            height: 170,
+            height: 200,
+            margin: const EdgeInsets.only(top: 20),
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
                 Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Color.fromRGBO(185, 189, 198, 0.5),
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color.fromRGBO(10, 88, 189, 1),
+                        Color.fromRGBO(66, 143, 244, 1),
+                      ],
                     ),
-                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Newlife hospital.",
-                        style: GoogleFonts.nunito(
-                          fontWeight: FontWeight.w800,
-                          fontSize: 18,
-                          color: Colors.black,
+                      Container(
+                        child: Text(
+                          "Newlife Hospital",
+                          style: GoogleFonts.nunito(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w800,
+                          ),
                         ),
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(66, 143, 244, 1),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              margin: const EdgeInsets.symmetric(vertical: 5),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "City :",
-                                    style: GoogleFonts.nunito(
-                                      fontSize: 16,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                  Text(
-                                    " Renukoot",
-                                    style: GoogleFonts.nunito(
-                                      fontWeight: FontWeight.w800,
-                                      fontSize: 16,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ],
+                              child: Text(
+                                "\tCity :",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                             Container(
-                              margin: const EdgeInsets.symmetric(vertical: 5),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "Type :",
-                                    style: GoogleFonts.nunito(
-                                      fontSize: 16,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                  Text(
-                                    " Hospital beds",
-                                    style: GoogleFonts.nunito(
-                                      fontWeight: FontWeight.w800,
-                                      fontSize: 16,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ],
+                              child: Text(
+                                "\tRenukoot",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "Read more..",
-                                    style: GoogleFonts.nunito(
-                                      fontSize: 16,
-                                      color: Color.fromRGBO(20, 121, 255, 1),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )
                           ],
                         ),
-                      )
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 10),
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(66, 143, 244, 1),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              child: Text(
+                                "\tType :",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              child: Text(
+                                "\tHospital beds-with Oxygen",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 30),
+                        child: Text(
+                          "More details...",
+                          style: GoogleFonts.nunito(
+                            fontSize: 15,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                ),
+                )
               ],
             ),
           )
