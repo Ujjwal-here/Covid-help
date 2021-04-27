@@ -27,8 +27,6 @@ class ServiceRepo {
     }
   }
 
-
-
   postServices(Map<String, dynamic> service) async {
     try {
       return await _firestore.collection("services").add(service);

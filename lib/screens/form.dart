@@ -1,8 +1,19 @@
+import 'package:covid_help/Enums/service_enum.dart';
+import 'package:covid_help/controllers/form_conttroller.dart';
 import 'package:csc_picker/csc_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HelpForm extends StatelessWidget {
+class HelpForm extends StatefulWidget {
+  
+  @override
+  _HelpFormState createState() => _HelpFormState();
+}
+
+class _HelpFormState extends State<HelpForm> {
+  final FormController formController = Get.put(FormController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +71,7 @@ class HelpForm extends StatelessWidget {
                 ),
                 Container(
                   child: TextField(
+                    controller: formController.nameController,
                     textAlignVertical: TextAlignVertical.center,
                     style: GoogleFonts.nunito(
                       fontSize: 18,
@@ -126,8 +138,19 @@ class HelpForm extends StatelessWidget {
                   child: Row(
                     children: [
                       Checkbox(
-                        value: true,
-                        onChanged: null,
+                        value: formController.isPlasmaSelected,
+                        onChanged: (value) {
+                          if(!formController.isPlasmaSelected){
+                            formController.addServiceType(Services.Blood);
+                          }
+                          else{
+                            formController.removeService(Services.Blood);
+                          }
+                          setState(() {
+                            formController.isPlasmaSelected = !formController.isPlasmaSelected;
+                          });
+                          
+                        } ,
                         fillColor: MaterialStateProperty.all(Colors.red),
                       ),
                       Container(
@@ -148,36 +171,6 @@ class HelpForm extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Colors.blue[100],
-                    ),
-                    color: Colors.white,
-                  ),
-                  margin: EdgeInsets.only(top: 20),
-                  child: Row(
-                    children: [
-                      Checkbox(
-                        value: true,
-                        onChanged: null,
-                        fillColor: MaterialStateProperty.all(Colors.blue),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(left: 5),
-                        child: Text(
-                          "Hospital beds-with Oxygen",
-                          style: GoogleFonts.nunito(
-                            //fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            color: Colors.blue[900],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
                       color: Colors.cyan[100],
                     ),
                     color: Colors.white,
@@ -186,14 +179,25 @@ class HelpForm extends StatelessWidget {
                   child: Row(
                     children: [
                       Checkbox(
-                        value: true,
-                        onChanged: null,
+                        value: formController.isHospitalBedsSelected,
+                        onChanged: (value) {
+                          if(!formController.isHospitalBedsSelected){
+                            formController.addServiceType(Services.HospitalBeds);
+                          }
+                          else{
+                            formController.removeService(Services.HospitalBeds);
+                          }
+                          setState(() {
+                            formController.isHospitalBedsSelected = !formController.isHospitalBedsSelected;
+                          });
+                          
+                        } ,
                         fillColor: MaterialStateProperty.all(Colors.cyan),
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 5),
                         child: Text(
-                          "Hospital beds-without Oxygen",
+                          "Hospital Beds",
                           style: GoogleFonts.nunito(
                             //fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -216,8 +220,19 @@ class HelpForm extends StatelessWidget {
                   child: Row(
                     children: [
                       Checkbox(
-                        value: true,
-                        onChanged: null,
+                        value: formController.isOxygenSelected,
+                        onChanged: (value) {
+                          if(!formController.isOxygenSelected){
+                            formController.addServiceType(Services.Oxygen);
+                          }
+                          else{
+                            formController.removeService(Services.Oxygen);
+                          }
+                          setState(() {
+                            formController.isOxygenSelected = !formController.isOxygenSelected;
+                          });
+                          print(formController.typeOfServices);
+                        } ,
                         fillColor: MaterialStateProperty.all(Colors.indigo),
                       ),
                       Container(
@@ -246,14 +261,24 @@ class HelpForm extends StatelessWidget {
                   child: Row(
                     children: [
                       Checkbox(
-                        value: true,
-                        onChanged: null,
+                        value: formController.isMedicineSelected,
+                        onChanged: (value) {
+                          if(!formController.isMedicineSelected){
+                            formController.addServiceType(Services.Medicine);
+                          }
+                          else{
+                            formController.removeService(Services.Medicine);
+                          }
+                          setState(() {
+                            formController.isMedicineSelected = !formController.isMedicineSelected;
+                          });
+                        } ,
                         fillColor: MaterialStateProperty.all(Colors.orange),
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 5),
                         child: Text(
-                          "Remedesivir",
+                          "Medicine",
                           style: GoogleFonts.nunito(
                             //fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -264,36 +289,7 @@ class HelpForm extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.green[100],
-                    ),
-                    color: Colors.white,
-                  ),
-                  margin: EdgeInsets.only(top: 20),
-                  child: Row(
-                    children: [
-                      Checkbox(
-                        value: true,
-                        onChanged: null,
-                        fillColor: MaterialStateProperty.all(Colors.green),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(left: 5),
-                        child: Text(
-                          "Medicines",
-                          style: GoogleFonts.nunito(
-                            //fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            color: Colors.green[900],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+              
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -306,8 +302,19 @@ class HelpForm extends StatelessWidget {
                   child: Row(
                     children: [
                       Checkbox(
-                        value: true,
-                        onChanged: null,
+                        value: formController.isFoodSelected,
+                        onChanged: (value) {
+                          if(!formController.isFoodSelected){
+                            formController.addServiceType(Services.Food);
+                          }
+                          else{
+                            formController.removeService(Services.Food);
+                          }
+                          setState(() {
+                            formController.isFoodSelected = !formController.isFoodSelected;
+                          });
+                          
+                        } ,
                         fillColor: MaterialStateProperty.all(Colors.teal),
                       ),
                       Container(
@@ -336,8 +343,19 @@ class HelpForm extends StatelessWidget {
                   child: Row(
                     children: [
                       Checkbox(
-                        value: true,
-                        onChanged: null,
+                        value: formController.isAmbulanceSelected,
+                        onChanged: (value) {
+                          if(!formController.isAmbulanceSelected){
+                            formController.addServiceType(Services.Ambulance);
+                          }
+                          else{
+                            formController.removeService(Services.Ambulance);
+                          }
+                          setState(() {
+                            formController.isAmbulanceSelected = !formController.isAmbulanceSelected;
+                          });
+                          
+                        } ,
                         fillColor: MaterialStateProperty.all(Colors.pink),
                       ),
                       Container(
@@ -368,8 +386,19 @@ class HelpForm extends StatelessWidget {
                       Row(
                         children: [
                           Checkbox(
-                            value: true,
-                            onChanged: null,
+                            value: formController.isOtherSelected,
+                            onChanged: (value) {
+                              if(!formController.isOtherSelected){
+                                formController.addServiceType(Services.Others);
+                              }
+                              else{
+                                formController.removeService(Services.Others);
+                              }
+                              setState(() {
+                                formController.isOtherSelected = !formController.isOtherSelected;
+                              });
+                              
+                            } ,
                             fillColor:
                                 MaterialStateProperty.all(Colors.deepOrange),
                           ),
@@ -390,6 +419,7 @@ class HelpForm extends StatelessWidget {
                         margin:
                             EdgeInsets.only(bottom: 20, left: 40, right: 30),
                         child: TextField(
+                          controller: formController.otherController,
                           textAlignVertical: TextAlignVertical.center,
                           style: GoogleFonts.nunito(
                             fontSize: 18,
@@ -472,10 +502,10 @@ class HelpForm extends StatelessWidget {
                       print(value);
                     },
                     onCityChanged: (value) {
-                      //serviceController.city = value?.toLowerCase();
+                      formController.city = value;
                     },
                     onStateChanged: (value) {
-                      //serviceController.state = value?.toLowerCase();
+                      formController.state = value;
                     },
                   ),
                 ),
@@ -512,6 +542,7 @@ class HelpForm extends StatelessWidget {
                 ),
                 Container(
                   child: TextField(
+                    controller: formController.phoneNumberController,
                     textAlignVertical: TextAlignVertical.center,
                     style: GoogleFonts.nunito(
                       fontSize: 18,
@@ -568,6 +599,7 @@ class HelpForm extends StatelessWidget {
                 ),
                 Container(
                   child: TextField(
+                    controller: formController.linkController,
                     textAlignVertical: TextAlignVertical.center,
                     style: GoogleFonts.nunito(
                       fontSize: 18,
@@ -624,6 +656,7 @@ class HelpForm extends StatelessWidget {
                 ),
                 Container(
                   child: TextField(
+                    controller: formController.detailController,
                     textAlignVertical: TextAlignVertical.center,
                     keyboardType: TextInputType.multiline,
                     style: GoogleFonts.nunito(
