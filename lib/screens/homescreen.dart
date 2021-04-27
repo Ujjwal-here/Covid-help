@@ -5,6 +5,7 @@ import 'package:covid_help/models/service_model.dart';
 import 'package:covid_help/screens/form.dart';
 import 'package:csc_picker/csc_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -461,120 +462,119 @@ class HomeScreen extends StatelessWidget {
             height: 200,
             margin: const EdgeInsets.only(top: 20),
             child: GetX<ServiceController>(
-              builder: (controller){
-                if(controller.isLoading.value){
+              builder: (controller) {
+                if (controller.isLoading.value) {
                   return Center(child: CircularProgressIndicator());
                 }
                 return ListView.builder(
-                itemCount: controller.services.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context,index){
-                  ServiceModel result = controller.services[index];
-                  return Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Color.fromRGBO(10, 88, 189, 1),
-                          Color.fromRGBO(66, 143, 244, 1),
+                  itemCount: controller.services.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    ServiceModel result = controller.services[index];
+                    return Container(
+                      padding: const EdgeInsets.all(20),
+                      constraints: BoxConstraints(maxWidth: 190),
+                      margin: EdgeInsets.only(right: 10),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color.fromRGBO(10, 88, 189, 1),
+                            Color.fromRGBO(66, 143, 244, 1),
+                          ],
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text(
+                              result.name,
+                              style: GoogleFonts.nunito(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 20),
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(66, 143, 244, 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Text(
+                                    "\t City :",
+                                    style: GoogleFonts.nunito(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  child: Text(
+                                    " ${result.city.capitalizeFirst}",
+                                    style: GoogleFonts.nunito(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(66, 143, 244, 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Text(
+                                    "\tType :",
+                                    style: GoogleFonts.nunito(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  child: Text(
+                                    "\t${convert(result.serviceType)}",
+                                    style: GoogleFonts.nunito(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(top: 30),
+                            child: Text(
+                              "More details...",
+                              style: GoogleFonts.nunito(
+                                fontSize: 15,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          child: Text(
-                            result.name,
-                            style: GoogleFonts.nunito(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 20),
-                          padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(66, 143, 244, 1),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                child: Text(
-                                  "\t city:",
-                                  style: GoogleFonts.nunito(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                child: Text(
-                                  "\t ${result.city}",
-                                  style: GoogleFonts.nunito(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 10),
-                          padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(66, 143, 244, 1),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                child: Text(
-                                  "\tType :",
-                                  style: GoogleFonts.nunito(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                child: Text(
-                                  "\t${convert(result.serviceType)}",
-                                  style: GoogleFonts.nunito(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(top: 30),
-                          child: Text(
-                            "More details...",
-                            style: GoogleFonts.nunito(
-                              fontSize: 15,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              
-              );
-              },  
+                    );
+                  },
+                );
+              },
             ),
           )
         ],
