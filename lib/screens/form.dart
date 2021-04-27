@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HelpForm extends StatefulWidget {
-  
   @override
   _HelpFormState createState() => _HelpFormState();
 }
@@ -140,17 +139,16 @@ class _HelpFormState extends State<HelpForm> {
                       Checkbox(
                         value: formController.isPlasmaSelected,
                         onChanged: (value) {
-                          if(!formController.isPlasmaSelected){
+                          if (!formController.isPlasmaSelected) {
                             formController.addServiceType(Services.Blood);
-                          }
-                          else{
+                          } else {
                             formController.removeService(Services.Blood);
                           }
                           setState(() {
-                            formController.isPlasmaSelected = !formController.isPlasmaSelected;
+                            formController.isPlasmaSelected =
+                                !formController.isPlasmaSelected;
                           });
-                          
-                        } ,
+                        },
                         fillColor: MaterialStateProperty.all(Colors.red),
                       ),
                       Container(
@@ -181,17 +179,17 @@ class _HelpFormState extends State<HelpForm> {
                       Checkbox(
                         value: formController.isHospitalBedsSelected,
                         onChanged: (value) {
-                          if(!formController.isHospitalBedsSelected){
-                            formController.addServiceType(Services.HospitalBeds);
-                          }
-                          else{
+                          if (!formController.isHospitalBedsSelected) {
+                            formController
+                                .addServiceType(Services.HospitalBeds);
+                          } else {
                             formController.removeService(Services.HospitalBeds);
                           }
                           setState(() {
-                            formController.isHospitalBedsSelected = !formController.isHospitalBedsSelected;
+                            formController.isHospitalBedsSelected =
+                                !formController.isHospitalBedsSelected;
                           });
-                          
-                        } ,
+                        },
                         fillColor: MaterialStateProperty.all(Colors.cyan),
                       ),
                       Container(
@@ -222,17 +220,17 @@ class _HelpFormState extends State<HelpForm> {
                       Checkbox(
                         value: formController.isOxygenSelected,
                         onChanged: (value) {
-                          if(!formController.isOxygenSelected){
+                          if (!formController.isOxygenSelected) {
                             formController.addServiceType(Services.Oxygen);
-                          }
-                          else{
+                          } else {
                             formController.removeService(Services.Oxygen);
                           }
                           setState(() {
-                            formController.isOxygenSelected = !formController.isOxygenSelected;
+                            formController.isOxygenSelected =
+                                !formController.isOxygenSelected;
                           });
                           print(formController.typeOfServices);
-                        } ,
+                        },
                         fillColor: MaterialStateProperty.all(Colors.indigo),
                       ),
                       Container(
@@ -263,16 +261,16 @@ class _HelpFormState extends State<HelpForm> {
                       Checkbox(
                         value: formController.isMedicineSelected,
                         onChanged: (value) {
-                          if(!formController.isMedicineSelected){
+                          if (!formController.isMedicineSelected) {
                             formController.addServiceType(Services.Medicine);
-                          }
-                          else{
+                          } else {
                             formController.removeService(Services.Medicine);
                           }
                           setState(() {
-                            formController.isMedicineSelected = !formController.isMedicineSelected;
+                            formController.isMedicineSelected =
+                                !formController.isMedicineSelected;
                           });
-                        } ,
+                        },
                         fillColor: MaterialStateProperty.all(Colors.orange),
                       ),
                       Container(
@@ -289,7 +287,6 @@ class _HelpFormState extends State<HelpForm> {
                     ],
                   ),
                 ),
-              
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -304,17 +301,16 @@ class _HelpFormState extends State<HelpForm> {
                       Checkbox(
                         value: formController.isFoodSelected,
                         onChanged: (value) {
-                          if(!formController.isFoodSelected){
+                          if (!formController.isFoodSelected) {
                             formController.addServiceType(Services.Food);
-                          }
-                          else{
+                          } else {
                             formController.removeService(Services.Food);
                           }
                           setState(() {
-                            formController.isFoodSelected = !formController.isFoodSelected;
+                            formController.isFoodSelected =
+                                !formController.isFoodSelected;
                           });
-                          
-                        } ,
+                        },
                         fillColor: MaterialStateProperty.all(Colors.teal),
                       ),
                       Container(
@@ -345,17 +341,16 @@ class _HelpFormState extends State<HelpForm> {
                       Checkbox(
                         value: formController.isAmbulanceSelected,
                         onChanged: (value) {
-                          if(!formController.isAmbulanceSelected){
+                          if (!formController.isAmbulanceSelected) {
                             formController.addServiceType(Services.Ambulance);
-                          }
-                          else{
+                          } else {
                             formController.removeService(Services.Ambulance);
                           }
                           setState(() {
-                            formController.isAmbulanceSelected = !formController.isAmbulanceSelected;
+                            formController.isAmbulanceSelected =
+                                !formController.isAmbulanceSelected;
                           });
-                          
-                        } ,
+                        },
                         fillColor: MaterialStateProperty.all(Colors.pink),
                       ),
                       Container(
@@ -388,17 +383,16 @@ class _HelpFormState extends State<HelpForm> {
                           Checkbox(
                             value: formController.isOtherSelected,
                             onChanged: (value) {
-                              if(!formController.isOtherSelected){
+                              if (!formController.isOtherSelected) {
                                 formController.addServiceType(Services.Others);
-                              }
-                              else{
+                              } else {
                                 formController.removeService(Services.Others);
                               }
                               setState(() {
-                                formController.isOtherSelected = !formController.isOtherSelected;
+                                formController.isOtherSelected =
+                                    !formController.isOtherSelected;
                               });
-                              
-                            } ,
+                            },
                             fillColor:
                                 MaterialStateProperty.all(Colors.deepOrange),
                           ),
@@ -684,6 +678,28 @@ class _HelpFormState extends State<HelpForm> {
               ],
             ),
           ),
+          Container(
+            margin: EdgeInsets.only(top: 20),
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Text("Submit"),
+              style: ButtonStyle(
+                  padding: MaterialStateProperty.all(
+                    EdgeInsets.all(15),
+                  ),
+                  backgroundColor: MaterialStateProperty.all(
+                    Color.fromRGBO(20, 121, 255, 1),
+                  ),
+                  textStyle: MaterialStateProperty.all(
+                    GoogleFonts.nunito(
+                      decoration: TextDecoration.none,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )),
+            ),
+          )
         ],
       ),
     );
