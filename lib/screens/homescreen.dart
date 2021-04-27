@@ -1,3 +1,4 @@
+import 'package:covid_help/Enums/service_enum.dart';
 import 'package:covid_help/controllers/AuthController.dart';
 import 'package:covid_help/controllers/service_controller.dart';
 import 'package:covid_help/screens/form.dart';
@@ -69,10 +70,10 @@ class HomeScreen extends StatelessWidget {
                     print(value);
                   },
                   onCityChanged: (value) {
-                    print(value);
+                    serviceController.city = value?.toLowerCase();
                   },
                   onStateChanged: (value) {
-                    print(value);
+                    serviceController.state = value?.toLowerCase();
                   },
                 ),
               ],
@@ -81,7 +82,9 @@ class HomeScreen extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 10),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                serviceController.getServices();
+              },
               child: Text("Search"),
               style: ButtonStyle(
                 padding: MaterialStateProperty.all(
@@ -115,298 +118,329 @@ class HomeScreen extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                Container(
-                  width: 110,
-                  margin:
-                      EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.green[50],
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
+                GestureDetector(
+                  onTap: () {
+                    serviceController.selectServiceType(Services.Oxygen);
+                  },
+                  child: Container(
+                    width: 110,
+                    margin: EdgeInsets.only(
+                        right: 10, top: 10, left: 5, bottom: 10),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
                       color: Colors.green[50],
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.green[50],
+                      ),
                     ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Image(
-                          width: 15,
-                          image: AssetImage(
-                            "assets/oxygen-cylinder.png",
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          child: Image(
+                            width: 15,
+                            image: AssetImage(
+                              "assets/oxygen-cylinder.png",
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Oxygen",
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                color: Colors.green,
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Oxygen",
+                                style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Colors.green,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Donation",
-                              style: GoogleFonts.nunito(
-                                fontSize: 13,
-                                color: Color.fromRGBO(185, 189, 198, 1),
+                              Text(
+                                "Donation",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 13,
+                                  color: Color.fromRGBO(185, 189, 198, 1),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  width: 110,
-                  margin:
-                      EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.red[50],
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
+                GestureDetector(
+                  onTap: () {
+                    serviceController.selectServiceType(Services.Blood);
+                  },
+                  child: Container(
+                    width: 110,
+                    margin: EdgeInsets.only(
+                        right: 10, top: 10, left: 5, bottom: 10),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
                       color: Colors.red[50],
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.red[50],
+                      ),
                     ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Image(
-                          width: 40,
-                          image: AssetImage(
-                            "assets/blood-test.png",
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          child: Image(
+                            width: 40,
+                            image: AssetImage(
+                              "assets/blood-test.png",
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Plasma",
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                color: Colors.red,
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Plasma",
+                                style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Colors.red,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Donation",
-                              style: GoogleFonts.nunito(
-                                fontSize: 13,
-                                color: Color.fromRGBO(185, 189, 198, 1),
+                              Text(
+                                "Donation",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 13,
+                                  color: Color.fromRGBO(185, 189, 198, 1),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  width: 110,
-                  margin:
-                      EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.pink[50],
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
+                GestureDetector(
+                  onTap: () {
+                    serviceController
+                        .selectServiceType(Services.EmergencyService);
+                  },
+                  child: Container(
+                    width: 110,
+                    margin: EdgeInsets.only(
+                        right: 10, top: 10, left: 5, bottom: 10),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
                       color: Colors.pink[50],
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.pink[50],
+                      ),
                     ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Image(
-                          width: 40,
-                          image: AssetImage(
-                            "assets/emergency.png",
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          child: Image(
+                            width: 40,
+                            image: AssetImage(
+                              "assets/emergency.png",
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Ambulance",
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                color: Colors.pink,
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Ambulance",
+                                style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Colors.pink,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Donation",
-                              style: GoogleFonts.nunito(
-                                fontSize: 13,
-                                color: Color.fromRGBO(185, 189, 198, 1),
+                              Text(
+                                "Donation",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 13,
+                                  color: Color.fromRGBO(185, 189, 198, 1),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  width: 110,
-                  margin:
-                      EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.blue[50],
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
+                GestureDetector(
+                  onTap: () {
+                    serviceController.selectServiceType(Services.Medicine);
+                  },
+                  child: Container(
+                    width: 110,
+                    margin: EdgeInsets.only(
+                        right: 10, top: 10, left: 5, bottom: 10),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
                       color: Colors.blue[50],
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.blue[50],
+                      ),
                     ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Image(
-                          width: 40,
-                          image: AssetImage(
-                            "assets/pills-tablets.png",
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          child: Image(
+                            width: 40,
+                            image: AssetImage(
+                              "assets/pills-tablets.png",
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Medicine",
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                color: Colors.blue,
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Medicine",
+                                style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Donation",
-                              style: GoogleFonts.nunito(
-                                fontSize: 13,
-                                color: Color.fromRGBO(185, 189, 198, 1),
+                              Text(
+                                "Donation",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 13,
+                                  color: Color.fromRGBO(185, 189, 198, 1),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  width: 110,
-                  margin:
-                      EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.teal[50],
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
+                GestureDetector(
+                  onTap: () {
+                    serviceController.selectServiceType(Services.Food);
+                  },
+                  child: Container(
+                    width: 110,
+                    margin: EdgeInsets.only(
+                        right: 10, top: 10, left: 5, bottom: 10),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
                       color: Colors.teal[50],
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.teal[50],
+                      ),
                     ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Image(
-                          width: 40,
-                          image: AssetImage(
-                            "assets/vegetarian-food.png",
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          child: Image(
+                            width: 40,
+                            image: AssetImage(
+                              "assets/vegetarian-food.png",
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Food",
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                color: Colors.teal,
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Food",
+                                style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Colors.teal,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Donation",
-                              style: GoogleFonts.nunito(
-                                fontSize: 13,
-                                color: Color.fromRGBO(185, 189, 198, 1),
+                              Text(
+                                "Donation",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 13,
+                                  color: Color.fromRGBO(185, 189, 198, 1),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  width: 110,
-                  margin:
-                      EdgeInsets.only(right: 10, top: 10, left: 5, bottom: 10),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.red[50],
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
+                GestureDetector(
+                  onTap: () {
+                    serviceController.selectServiceType(Services.Ambulance);
+                  },
+                  child: Container(
+                    width: 110,
+                    margin: EdgeInsets.only(
+                        right: 10, top: 10, left: 5, bottom: 10),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
                       color: Colors.red[50],
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.red[50],
+                      ),
                     ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Image(
-                          width: 40,
-                          image: AssetImage(
-                            "assets/donate-donation.png",
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          child: Image(
+                            width: 40,
+                            image: AssetImage(
+                              "assets/donate-donation.png",
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Others",
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                color: Colors.red,
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Others",
+                                style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Colors.red,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Donation",
-                              style: GoogleFonts.nunito(
-                                fontSize: 13,
-                                color: Color.fromRGBO(185, 189, 198, 1),
+                              Text(
+                                "Donation",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 13,
+                                  color: Color.fromRGBO(185, 189, 198, 1),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],
