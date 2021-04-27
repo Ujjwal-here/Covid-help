@@ -9,11 +9,13 @@ class ServiceController extends GetxController{
 
   final ServiceRepo _serviceRepo = ServiceRepo();
 
-  RxList<ServiceModel> _services;
+  RxList<ServiceModel> _services = List<ServiceModel>.empty().obs;
 
   Rx<Services> _serviceType = Services.Oxygen.obs;
   
   LocationData _locationData;
+
+  Rx<bool> isLoading = false.obs;
 
   String _state;
   String _city;
@@ -26,6 +28,8 @@ class ServiceController extends GetxController{
     this._city = c;
   }
 
+  List<ServiceModel> get services => _services.value;
+
   selectServiceType(Services serviceType){
     _serviceType.value = serviceType;
     getServicesByFilter();
@@ -36,8 +40,11 @@ class ServiceController extends GetxController{
       Get.snackbar("Error", "You have to search a state and city");
       return;
     }
+
+    isLoading.value = true;
+
     QuerySnapshot qs = await _serviceRepo.getServices(_city.toLowerCase());
-    _services = qs.docs.map((e) => ServiceModel(
+    _services.value = qs.docs.map((e) => ServiceModel(
       serviceType: convertToService(e["type"]), 
       city: e["city"], 
       state: e["state"], 
@@ -45,15 +52,17 @@ class ServiceController extends GetxController{
       phoneNumber: e["phoneNumber"], 
       upvotes: e["upvotes"])).toList().obs;
 
-    print(_services);  
+    print(_services);
+    isLoading.value = false;
   }
   getServicesByFilter()async{
     if(_city ==null || _state == null){
       Get.snackbar("Error", "You have to search a state and city");
       return;
     }
+    isLoading.value = true;
       QuerySnapshot qs = await _serviceRepo.getServicesByFilter(_serviceType.value,_city.toLowerCase());
-    _services = qs.docs.map((e) => ServiceModel(
+    _services.value = qs.docs.map((e) => ServiceModel(
       serviceType: convertToService(e["type"]), 
       city: e["city"], 
       state: e["state"], 
@@ -62,6 +71,7 @@ class ServiceController extends GetxController{
       upvotes: e["upvotes"])).toList().obs;
 
     print(_services);  
+    isLoading.value = false;
   }
 
 }
