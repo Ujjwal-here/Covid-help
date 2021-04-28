@@ -115,382 +115,283 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 150,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
+                  margin: const EdgeInsets.only(top: 10),
+                  child: Column(
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          serviceController.selectServiceType(Services.Oxygen);
-                        },
-                        child: Container(
-                          width: 110,
-                          margin: EdgeInsets.only(
-                              right: 10, top: 10, left: 5, bottom: 10),
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.green[50],
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: Colors.green[50],
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.green[100],
-                                blurRadius: 1,
-                                spreadRadius: 1,
-                              )
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                child: Image(
-                                  width: 15,
-                                  image: AssetImage(
-                                    "assets/oxygen-cylinder.png",
-                                  ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              serviceController
+                                  .selectServiceType(Services.Oxygen);
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: Colors.green[50],
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: Colors.green[50],
                                 ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.green[100],
+                                    blurRadius: 1,
+                                    spreadRadius: 1,
+                                  )
+                                ],
                               ),
-                              Container(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Oxygen",
-                                      style: GoogleFonts.nunito(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                        color: Colors.green,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    child: Image(
+                                      width: 20,
+                                      image: AssetImage(
+                                        "assets/blood-test.png",
                                       ),
                                     ),
-                                    Text(
-                                      "Donation",
-                                      style: GoogleFonts.nunito(
-                                        fontSize: 13,
-                                        color: Color.fromRGBO(185, 189, 198, 1),
+                                  ),
+                                  Text(
+                                    "\tOxygen",
+                                    style: GoogleFonts.nunito(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              serviceController
+                                  .selectServiceType(Services.Plasma);
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: Colors.red[50],
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: Colors.red[50],
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.red[100],
+                                    blurRadius: 1,
+                                    spreadRadius: 1,
+                                  )
+                                ],
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    child: Image(
+                                      width: 22,
+                                      image: AssetImage(
+                                        "assets/blood-test.png",
                                       ),
                                     ),
+                                  ),
+                                  Text(
+                                    "\tPlasma",
+                                    style: GoogleFonts.nunito(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                      color: Colors.red,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              serviceController
+                                  .selectServiceType(Services.EmergencyService);
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: Colors.teal[50],
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: Colors.teal[50],
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.teal[100],
+                                    blurRadius: 1,
+                                    spreadRadius: 1,
+                                  )
+                                ],
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    child: Image(
+                                      width: 20,
+                                      image: AssetImage(
+                                        "assets/vegetarian-food.png",
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    "\t Food",
+                                    style: GoogleFonts.nunito(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                      color: Colors.teal,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                serviceController
+                                    .selectServiceType(Services.Medicine);
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: Colors.blue[50],
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    color: Colors.blue[50],
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.blue[100],
+                                      blurRadius: 1,
+                                      spreadRadius: 1,
+                                    )
                                   ],
                                 ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          serviceController.selectServiceType(Services.Blood);
-                        },
-                        child: Container(
-                          width: 110,
-                          margin: EdgeInsets.only(
-                              right: 10, top: 10, left: 5, bottom: 10),
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.red[50],
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: Colors.red[50],
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.red[100],
-                                blurRadius: 1,
-                                spreadRadius: 1,
-                              )
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                child: Image(
-                                  width: 40,
-                                  image: AssetImage(
-                                    "assets/blood-test.png",
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                child: Row(
                                   children: [
+                                    Container(
+                                      child: Image(
+                                        width: 20,
+                                        image: AssetImage(
+                                          "assets/pills-tablets.png",
+                                        ),
+                                      ),
+                                    ),
                                     Text(
-                                      "Plasma",
+                                      "\tMedicine",
                                       style: GoogleFonts.nunito(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                        color: Colors.red,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Donation",
-                                      style: GoogleFonts.nunito(
-                                        fontSize: 13,
-                                        color: Color.fromRGBO(185, 189, 198, 1),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          serviceController
-                              .selectServiceType(Services.EmergencyService);
-                        },
-                        child: Container(
-                          width: 110,
-                          margin: EdgeInsets.only(
-                              right: 10, top: 10, left: 5, bottom: 10),
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.pink[50],
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: Colors.pink[50],
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.pink[100],
-                                blurRadius: 1,
-                                spreadRadius: 1,
-                              )
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                child: Image(
-                                  width: 40,
-                                  image: AssetImage(
-                                    "assets/emergency.png",
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Ambulance",
-                                      style: GoogleFonts.nunito(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                        color: Colors.pink,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Donation",
-                                      style: GoogleFonts.nunito(
-                                        fontSize: 13,
-                                        color: Color.fromRGBO(185, 189, 198, 1),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          serviceController
-                              .selectServiceType(Services.Medicine);
-                        },
-                        child: Container(
-                          width: 110,
-                          margin: EdgeInsets.only(
-                              right: 10, top: 10, left: 5, bottom: 10),
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.blue[50],
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: Colors.blue[50],
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.blue[100],
-                                blurRadius: 1,
-                                spreadRadius: 1,
-                              )
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                child: Image(
-                                  width: 40,
-                                  image: AssetImage(
-                                    "assets/pills-tablets.png",
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Medicine",
-                                      style: GoogleFonts.nunito(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
+                                        fontSize: 15,
                                         color: Colors.blue,
                                       ),
                                     ),
-                                    Text(
-                                      "Donation",
-                                      style: GoogleFonts.nunito(
-                                        fontSize: 13,
-                                        color: Color.fromRGBO(185, 189, 198, 1),
-                                      ),
-                                    ),
                                   ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          serviceController.selectServiceType(Services.Food);
-                        },
-                        child: Container(
-                          width: 110,
-                          margin: EdgeInsets.only(
-                              right: 10, top: 10, left: 5, bottom: 10),
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.teal[50],
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: Colors.teal[50],
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.teal[100],
-                                blurRadius: 1,
-                                spreadRadius: 1,
-                              )
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                child: Image(
-                                  width: 40,
-                                  image: AssetImage(
-                                    "assets/vegetarian-food.png",
-                                  ),
                                 ),
                               ),
-                              Container(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                serviceController
+                                    .selectServiceType(Services.Ambulance);
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: Colors.pink[50],
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    color: Colors.pink[50],
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.pink[100],
+                                      blurRadius: 1,
+                                      spreadRadius: 1,
+                                    )
+                                  ],
+                                ),
+                                child: Row(
                                   children: [
-                                    Text(
-                                      "Food",
-                                      style: GoogleFonts.nunito(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                        color: Colors.teal,
+                                    Container(
+                                      child: Image(
+                                        width: 20,
+                                        image: AssetImage(
+                                          "assets/emergency.png",
+                                        ),
                                       ),
                                     ),
                                     Text(
-                                      "Donation",
+                                      "\tAmbulance",
                                       style: GoogleFonts.nunito(
-                                        fontSize: 13,
-                                        color: Color.fromRGBO(185, 189, 198, 1),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                        color: Colors.pink,
                                       ),
                                     ),
                                   ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          serviceController
-                              .selectServiceType(Services.Ambulance);
-                        },
-                        child: Container(
-                          width: 110,
-                          margin: EdgeInsets.only(
-                              right: 10, top: 10, left: 5, bottom: 10),
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.red[50],
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: Colors.red[50],
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.red[100],
-                                blurRadius: 1,
-                                spreadRadius: 1,
-                              )
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                child: Image(
-                                  width: 40,
-                                  image: AssetImage(
-                                    "assets/donate-donation.png",
-                                  ),
                                 ),
                               ),
-                              Container(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                serviceController
+                                    .selectServiceType(Services.Others);
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: Colors.orange[50],
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    color: Colors.orange[50],
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.orange[100],
+                                      blurRadius: 1,
+                                      spreadRadius: 1,
+                                    )
+                                  ],
+                                ),
+                                child: Row(
                                   children: [
-                                    Text(
-                                      "Others",
-                                      style: GoogleFonts.nunito(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                        color: Colors.red,
+                                    Container(
+                                      child: Image(
+                                        width: 18,
+                                        image: AssetImage(
+                                          "assets/donate-donation.png",
+                                        ),
                                       ),
                                     ),
                                     Text(
-                                      "Donation",
+                                      "\tOthers",
                                       style: GoogleFonts.nunito(
-                                        fontSize: 13,
-                                        color: Color.fromRGBO(185, 189, 198, 1),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                        color: Colors.orange,
                                       ),
                                     ),
                                   ],
                                 ),
-                              )
-                            ],
-                          ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
-                ),
+                )
               ],
             ),
           ),
@@ -503,6 +404,7 @@ class HomeScreen extends StatelessWidget {
             return Center(child: CircularProgressIndicator());
           }
           return ListView.builder(
+            padding: EdgeInsets.only(left: 20, right: 20),
             itemCount: controller.services.length,
             itemBuilder: (context, index) {
               ServiceModel result = controller.services[index];
@@ -512,7 +414,7 @@ class HomeScreen extends StatelessWidget {
                 },
                 child: Container(
                   padding: const EdgeInsets.all(20),
-                  margin: EdgeInsets.only(right: 10),
+                  margin: EdgeInsets.only(bottom: 20),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
@@ -542,7 +444,7 @@ class HomeScreen extends StatelessWidget {
                         padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
                           color: Color.fromRGBO(20, 121, 255, 1),
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(5),
                         ),
                         child: Row(
                           children: [
@@ -572,9 +474,10 @@ class HomeScreen extends StatelessWidget {
                         padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
                           color: Color.fromRGBO(20, 121, 255, 1),
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(5),
                         ),
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
                               child: Text(
@@ -585,12 +488,14 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Container(
-                              child: Text(
-                                "\t${convert(result.serviceType)}",
-                                style: GoogleFonts.nunito(
-                                  fontSize: 15,
-                                  color: Colors.white,
+                            Flexible(
+                              child: Container(
+                                child: Text(
+                                  "\t${convert(result.serviceType)}",
+                                  style: GoogleFonts.nunito(
+                                    fontSize: 15,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
@@ -598,7 +503,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.only(top: 30),
+                        margin: const EdgeInsets.only(top: 20),
                         child: Text(
                           "More details...",
                           style: GoogleFonts.nunito(
