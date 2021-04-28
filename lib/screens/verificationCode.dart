@@ -9,16 +9,19 @@ class VerifCode extends StatelessWidget {
     AuthController authController = Get.find<AuthController>();
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
+        padding: const EdgeInsets.all(30),
         children: [
-          Image(
-            width: 350,
-            image: AssetImage("assets/auth.png"),
+          Container(
+            alignment: Alignment.centerLeft,
+            margin: const EdgeInsets.only(top: 50),
+            child: Image(
+              height: 250,
+              image: AssetImage("assets/protection.png"),
+            ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 50, top: 10),
+            margin: EdgeInsets.only(top: 10),
             child: Text(
               "Verification",
               style: GoogleFonts.nunito(
@@ -29,7 +32,7 @@ class VerifCode extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 50, right: 30, top: 5),
+            margin: EdgeInsets.only(top: 5),
             child: Text(
               "Enter the 6-digit code sent to your phone number",
               style: GoogleFonts.nunito(
@@ -43,7 +46,7 @@ class VerifCode extends StatelessWidget {
             children: [
               Container(
                 width: 45,
-                margin: EdgeInsets.only(top: 30, left: 50),
+                margin: EdgeInsets.only(top: 30),
                 child: TextField(
                   controller: authController.otpController1,
                   textAlign: TextAlign.center,
@@ -106,7 +109,6 @@ class VerifCode extends StatelessWidget {
                 margin: EdgeInsets.only(top: 30),
                 child: TextField(
                   controller: authController.otpController3,
-
                   textAlign: TextAlign.center,
                   textAlignVertical: TextAlignVertical.center,
                   keyboardType: TextInputType.phone,
@@ -137,9 +139,7 @@ class VerifCode extends StatelessWidget {
                 margin: EdgeInsets.only(top: 30),
                 child: TextField(
                   controller: authController.otpController4,
-
                   textAlign: TextAlign.center,
-
                   textAlignVertical: TextAlignVertical.center,
                   keyboardType: TextInputType.phone,
                   style: GoogleFonts.nunito(
@@ -169,7 +169,6 @@ class VerifCode extends StatelessWidget {
                 margin: EdgeInsets.only(top: 30),
                 child: TextField(
                   controller: authController.otpController5,
-
                   textAlign: TextAlign.center,
                   textAlignVertical: TextAlignVertical.center,
                   keyboardType: TextInputType.phone,
@@ -197,11 +196,9 @@ class VerifCode extends StatelessWidget {
               ),
               Container(
                 width: 45,
-                margin: EdgeInsets.only(top: 30, right: 30),
+                margin: EdgeInsets.only(top: 30),
                 child: TextField(
-
                   controller: authController.otpController6,
-
                   textAlign: TextAlign.center,
                   textAlignVertical: TextAlignVertical.center,
                   keyboardType: TextInputType.phone,
@@ -230,7 +227,7 @@ class VerifCode extends StatelessWidget {
             ],
           ),
           Container(
-            margin: EdgeInsets.only(top: 30, left: 50, right: 30),
+            margin: EdgeInsets.only(top: 30),
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {

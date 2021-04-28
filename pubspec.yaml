@@ -54,14 +54,14 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/login.png
-    - assets/auth.png
+    - assets/protection.png
     - assets/oxygen-cylinder.png
     - assets/emergency.png
     - assets/pills-tablets.png
     - assets/vegetarian-food.png
     - assets/donate-donation.png
     - assets/blood-test.png
+    - assets/mask.png
 
 
 

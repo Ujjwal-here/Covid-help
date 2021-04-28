@@ -10,16 +10,19 @@ class SignUp extends StatelessWidget {
     AuthController authController = Get.find<AuthController>();
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
+        padding: const EdgeInsets.all(30),
         children: [
-          Image(
-            width: 350,
-            image: AssetImage("assets/login.png"),
+          Container(
+            alignment: Alignment.centerLeft,
+            margin: EdgeInsets.only(top: 50),
+            child: Image(
+              height: 250,
+              image: AssetImage("assets/mask.png"),
+            ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 50, top: 10),
+            margin: EdgeInsets.only(top: 20),
             child: Text(
               "Sign Up",
               style: GoogleFonts.nunito(
@@ -30,7 +33,7 @@ class SignUp extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 50, top: 5, right: 30),
+            margin: EdgeInsets.only(top: 5),
             child: Text(
               "Enter your phone number to start working",
               style: GoogleFonts.nunito(
@@ -40,7 +43,7 @@ class SignUp extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 20, left: 50, right: 30),
+            margin: EdgeInsets.only(top: 20),
             child: TextField(
               controller: authController.phoneNumberController,
               textAlignVertical: TextAlignVertical.center,
@@ -73,7 +76,7 @@ class SignUp extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 20, left: 50, right: 30),
+            margin: EdgeInsets.only(top: 20),
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
