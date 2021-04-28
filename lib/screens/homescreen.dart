@@ -136,6 +136,13 @@ class HomeScreen extends StatelessWidget {
                       border: Border.all(
                         color: Colors.green[50],
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.green[100],
+                          blurRadius: 1,
+                          spreadRadius: 1,
+                        )
+                      ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -190,6 +197,13 @@ class HomeScreen extends StatelessWidget {
                       border: Border.all(
                         color: Colors.red[50],
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.red[100],
+                          blurRadius: 1,
+                          spreadRadius: 1,
+                        )
+                      ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -245,6 +259,13 @@ class HomeScreen extends StatelessWidget {
                       border: Border.all(
                         color: Colors.pink[50],
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.pink[100],
+                          blurRadius: 1,
+                          spreadRadius: 1,
+                        )
+                      ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -299,6 +320,13 @@ class HomeScreen extends StatelessWidget {
                       border: Border.all(
                         color: Colors.blue[50],
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.blue[100],
+                          blurRadius: 1,
+                          spreadRadius: 1,
+                        )
+                      ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -353,6 +381,13 @@ class HomeScreen extends StatelessWidget {
                       border: Border.all(
                         color: Colors.teal[50],
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.teal[100],
+                          blurRadius: 1,
+                          spreadRadius: 1,
+                        )
+                      ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -407,6 +442,13 @@ class HomeScreen extends StatelessWidget {
                       border: Border.all(
                         color: Colors.red[50],
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.red[100],
+                          blurRadius: 1,
+                          spreadRadius: 1,
+                        )
+                      ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -485,8 +527,8 @@ class HomeScreen extends StatelessWidget {
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                             colors: [
-                              Color.fromRGBO(10, 88, 189, 1),
-                              Color.fromRGBO(66, 143, 244, 1),
+                              Color.fromRGBO(20, 121, 255, 1),
+                              Color.fromRGBO(20, 121, 255, 0.6),
                             ],
                           ),
                           borderRadius: BorderRadius.circular(10),
@@ -508,7 +550,7 @@ class HomeScreen extends StatelessWidget {
                               margin: EdgeInsets.only(top: 20),
                               padding: EdgeInsets.all(5),
                               decoration: BoxDecoration(
-                                color: Color.fromRGBO(66, 143, 244, 1),
+                                color: Color.fromRGBO(20, 121, 255, 1),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Row(
@@ -538,7 +580,7 @@ class HomeScreen extends StatelessWidget {
                               margin: EdgeInsets.only(top: 10),
                               padding: EdgeInsets.all(5),
                               decoration: BoxDecoration(
-                                color: Color.fromRGBO(66, 143, 244, 1),
+                                color: Color.fromRGBO(20, 121, 255, 1),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Row(
