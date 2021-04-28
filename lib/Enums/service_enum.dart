@@ -2,13 +2,13 @@ import 'package:enum_to_string/enum_to_string.dart';
 
 enum Services {
   Oxygen,
-  HospitalBeds,
+  Beds,
   Medicine,
   Plasma,
   Blood,
   Food,
   Ambulance,
-  EmergencyService,
+  Emergency,
   Others
 }
 

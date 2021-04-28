@@ -181,9 +181,9 @@ class _HelpFormState extends State<HelpForm> {
                         onChanged: (value) {
                           if (!formController.isHospitalBedsSelected) {
                             formController
-                                .addServiceType(Services.HospitalBeds);
+                                .addServiceType(Services.Beds);
                           } else {
-                            formController.removeService(Services.HospitalBeds);
+                            formController.removeService(Services.Beds);
                           }
                           setState(() {
                             formController.isHospitalBedsSelected =
