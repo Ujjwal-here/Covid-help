@@ -27,6 +27,8 @@ class AuthController extends GetxController {
 
   String _verificationId;
 
+  Rx<bool> isLoading = false.obs;
+
   @override
   void onInit() {
     _firebaseUser.bindStream(_auth.authStateChanges());
@@ -34,6 +36,7 @@ class AuthController extends GetxController {
   }
 
   signIn() {
+    isLoading.value = true;
     _auth.verifyPhoneNumber(
         phoneNumber: phoneNumberController.text.trim(),
         timeout: const Duration(seconds: 60),
@@ -59,6 +62,7 @@ class AuthController extends GetxController {
   }
 
   codeSent(String verificationId, int resendToken) async {
+    isLoading.value = false;
     Get.to(VerifCode());
     _verificationId = verificationId;
   }

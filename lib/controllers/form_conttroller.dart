@@ -44,17 +44,16 @@ class FormController extends GetxController{
   }
 
   postForm()async{
-    if(isOtherSelected){
       Map<String,dynamic> form = {
         "name":nameController.text.trim(),
         "city":_city,
         "state":_state,
         "phoneNumber":phoneNumberController.text.trim(),
-        "type":typeOfServices.toList(),
+        "type":convert(typeOfServices.toList()[0]),
         "upvotes":0
       };
-    return await serviceRepo.postServices(form);
-    }
+    await serviceRepo.postServices(form);
+    Get.back();
   }
 
 

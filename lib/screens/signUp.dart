@@ -10,7 +10,7 @@ class SignUp extends StatelessWidget {
     AuthController authController = Get.find<AuthController>();
     return Scaffold(
       backgroundColor: Colors.white,
-      body: ListView(
+      body: authController.isLoading.value?Center(child: CircularProgressIndicator(),): ListView(
         padding: const EdgeInsets.all(30),
         children: [
           Container(

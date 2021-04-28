@@ -73,10 +73,10 @@ class HomeScreen extends StatelessWidget {
                     print(value);
                   },
                   onCityChanged: (value) {
-                    serviceController.city = value?.toLowerCase();
+                    serviceController.city = value;
                   },
                   onStateChanged: (value) {
-                    serviceController.state = value?.toLowerCase();
+                    serviceController.state = value;
                   },
                 ),
               ],
@@ -630,6 +630,7 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.to(HelpForm());
+          
         },
         backgroundColor: Color.fromRGBO(20, 121, 255, 1),
         child: Icon(
