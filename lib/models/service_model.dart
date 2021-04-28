@@ -10,6 +10,7 @@ class ServiceModel extends Equatable {
   final String state;
   final String phoneNumber;
   final int upvotes;
+  final String moreDetail;
 
   ServiceModel(
       {@required this.serviceType,
@@ -17,7 +18,8 @@ class ServiceModel extends Equatable {
       @required this.state,
       @required this.name,
       @required this.phoneNumber,
-      @required this.upvotes});
+      @required this.upvotes,
+      this.moreDetail});
 
   @override
   List<Object> get props => [serviceType, name, city, state, phoneNumber];

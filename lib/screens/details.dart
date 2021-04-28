@@ -2,6 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Details extends StatelessWidget {
+
+  final String name;
+  final String phoneNumber;
+  final String city;
+  final String donationType;
+  final String link;
+  final String moreDetail;
+
+  Details({Key key, 
+  @required this.name,
+  @required this.city,
+  @required this.phoneNumber,
+  @required this.donationType,
+  this.link,
+  @required this.moreDetail
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +45,7 @@ class Details extends StatelessWidget {
                       children: [
                         Container(
                           child: Text(
-                            "Trauma Hospital",
+                            name,
                             style: GoogleFonts.nunito(
                               fontSize: 22,
                               color: Color.fromRGBO(37, 46, 73, 1),
@@ -95,7 +112,7 @@ class Details extends StatelessWidget {
                       Flexible(
                         child: Container(
                           child: Text(
-                            " 9919937915",
+                            phoneNumber,
                             style: GoogleFonts.nunito(
                               fontSize: 17,
                               color: Color.fromRGBO(20, 121, 255, 1),
@@ -133,7 +150,7 @@ class Details extends StatelessWidget {
                       Flexible(
                         child: Container(
                           child: Text(
-                            " Renukoot",
+                            city,
                             style: GoogleFonts.nunito(
                               fontSize: 17,
                               color: Color.fromRGBO(20, 121, 255, 1),
@@ -171,7 +188,7 @@ class Details extends StatelessWidget {
                       Flexible(
                         child: Container(
                           child: Text(
-                            " Oxygen",
+                           donationType,
                             style: GoogleFonts.nunito(
                               fontSize: 17,
                               color: Color.fromRGBO(20, 121, 255, 1),
@@ -210,7 +227,7 @@ class Details extends StatelessWidget {
                       Flexible(
                         child: Container(
                           child: Text(
-                            " Akshya Nagar 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016",
+                            moreDetail == null?"":moreDetail,
                             style: GoogleFonts.nunito(
                               fontSize: 17,
                               color: Color.fromRGBO(20, 121, 255, 1),
@@ -248,7 +265,7 @@ class Details extends StatelessWidget {
                       Flexible(
                         child: Container(
                           child: Text(
-                            " https://google.com/",
+                            link==null?"":link,
                             style: GoogleFonts.nunito(
                               fontSize: 17,
                               color: Color.fromRGBO(20, 121, 255, 1),

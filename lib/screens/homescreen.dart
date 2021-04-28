@@ -244,7 +244,7 @@ class HomeScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           serviceController
-                              .selectServiceType(Services.EmergencyService);
+                              .selectServiceType(Services.Emergency);
                         },
                         child: Container(
                           width: 110,
@@ -508,7 +508,7 @@ class HomeScreen extends StatelessWidget {
               ServiceModel result = controller.services[index];
               return GestureDetector(
                 onTap: () {
-                  Get.to(Details());
+                  Get.to(Details(name: result.name, city: result.city, phoneNumber: result.phoneNumber, donationType: convert(result.serviceType), moreDetail: result.moreDetail));
                 },
                 child: Container(
                   padding: const EdgeInsets.all(20),
