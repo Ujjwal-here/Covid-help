@@ -682,7 +682,9 @@ class _HelpFormState extends State<HelpForm> {
             margin: EdgeInsets.only(top: 20),
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                formController.postForm();
+              },
               child: Text("Submit"),
               style: ButtonStyle(
                   padding: MaterialStateProperty.all(
