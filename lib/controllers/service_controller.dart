@@ -43,7 +43,7 @@ class ServiceController extends GetxController{
 
     isLoading.value = true;
 
-    QuerySnapshot qs = await _serviceRepo.getServices(_city.toLowerCase());
+    QuerySnapshot qs = await _serviceRepo.getServices(_city);
     _services.value = qs.docs.map((e) => ServiceModel(
       serviceType: convertToService(e["type"]), 
       city: e["city"], 
@@ -61,7 +61,7 @@ class ServiceController extends GetxController{
       return;
     }
     isLoading.value = true;
-      QuerySnapshot qs = await _serviceRepo.getServicesByFilter(_serviceType.value,_city.toLowerCase());
+      QuerySnapshot qs = await _serviceRepo.getServicesByFilter(_serviceType.value,_city);
     _services.value = qs.docs.map((e) => ServiceModel(
       serviceType: convertToService(e["type"]), 
       city: e["city"], 
