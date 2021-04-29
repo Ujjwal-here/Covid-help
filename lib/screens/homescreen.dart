@@ -395,30 +395,23 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return Container(
-                  color: index.isOdd ? Colors.white : Colors.black12,
-                  height: 100.0,
-                  child: Center(
-                    child: GetX<ServiceController>(
-                      builder:(controller){
-                        return ListView.builder(
-            padding: EdgeInsets.only(left: 20, right: 20),
-            itemCount: controller.services.length,
-            itemBuilder: (context, index) {
-              ServiceModel result = controller.services[index];
-              return GestureDetector(
-                onTap: () {
+           GetX<ServiceController>(
+             builder: (controller){
+               return SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  ServiceModel result = controller.services[index];
+                  return Center(
+                child: GestureDetector(
+                  onTap: () {
                   Get.to(Details(
                       name: result.name,
                       city: result.city,
                       phoneNumber: result.phoneNumber,
                       donationType: convert(result.serviceType),
                       moreDetail: result.moreDetail));
-                },
-                child: Container(
+                  },
+                  child: Container(
                   padding: const EdgeInsets.all(20),
                   margin: EdgeInsets.only(bottom: 20),
                   decoration: BoxDecoration(
@@ -520,20 +513,18 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),
-              );
-            },
-          );
-        },
-                    ) ,
-                    ),
-                  );
-                
+                  ),
+                ));
+            
+             
               },
-            ),
-          ),
-        ],
-      ),
+                    childCount: controller.services.length,),
+                    );
+                  
+                },
+                
+              ),
+        ]),
     );
   }
 }
