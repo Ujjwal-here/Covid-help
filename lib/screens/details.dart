@@ -6,7 +6,7 @@ class Details extends StatelessWidget {
   final String name;
   final String phoneNumber;
   final String city;
-  final String donationType;
+  final List<String> donationType;
   final String link;
   final String moreDetail;
 
@@ -188,7 +188,7 @@ class Details extends StatelessWidget {
                       Flexible(
                         child: Container(
                           child: Text(
-                           donationType,
+                           "${donationType.map((e) => (e))},",
                             style: GoogleFonts.nunito(
                               fontSize: 17,
                               color: Color.fromRGBO(20, 121, 255, 1),

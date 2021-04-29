@@ -44,13 +44,17 @@ class ServiceController extends GetxController{
     isLoading.value = true;
 
     QuerySnapshot qs = await _serviceRepo.getServices(_city);
-    _services.value = qs.docs.map((e) => ServiceModel(
-      serviceType: convertToService(e["type"]), 
+    _services.value = qs.docs.map((e) {
+      List<Services> serviceType = List.from(e["type"].map((e)=>convertToService(e)));
+      print(serviceType);
+      print("garegaergerg");
+      return ServiceModel(
+      serviceType:serviceType , 
       city: e["city"], 
       state: e["state"], 
       name: e["name"], 
       phoneNumber: e["phoneNumber"], 
-      upvotes: e["upvotes"])).toList().obs;
+      upvotes: e["upvotes"]);}).toList().obs;
 
     print(_services);
     isLoading.value = false;
@@ -62,13 +66,15 @@ class ServiceController extends GetxController{
     }
     isLoading.value = true;
       QuerySnapshot qs = await _serviceRepo.getServicesByFilter(_serviceType.value,_city);
-    _services.value = qs.docs.map((e) => ServiceModel(
-      serviceType: convertToService(e["type"]), 
+    _services.value = qs.docs.map((e) {
+      List<Services> serviceType = List.from(e["type"].map((e)=>convertToService(e)));
+      return ServiceModel(
+      serviceType: serviceType, 
       city: e["city"], 
       state: e["state"], 
       name: e["name"], 
       phoneNumber: e["phoneNumber"], 
-      upvotes: e["upvotes"])).toList().obs;
+      upvotes: e["upvotes"]);}).toList().obs;
 
     print(_services);  
     isLoading.value = false;

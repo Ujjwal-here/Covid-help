@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 
 class ServiceModel extends Equatable {
-  final Services serviceType;
+  final List<Services> serviceType;
   final String name;
   final String city;
   final String state;
@@ -13,7 +13,7 @@ class ServiceModel extends Equatable {
   final String moreDetail;
 
   ServiceModel(
-      {@required this.serviceType,
+      {this.serviceType,
       @required this.city,
       @required this.state,
       @required this.name,

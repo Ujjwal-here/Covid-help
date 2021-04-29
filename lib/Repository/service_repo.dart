@@ -20,7 +20,7 @@ class ServiceRepo {
       return await _firestore
           .collection("services")
           .where("city", isEqualTo: location)
-          .where("type", isEqualTo: convert(service))
+          .where("type", arrayContains: convert(service))
           .get();
     } catch (e) {
       Get.snackbar("Something Went Wrong", "Please Try Again!");

@@ -371,13 +371,14 @@ class HomeScreen extends StatelessWidget {
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
                     ServiceModel result = controller.services[index];
+                    print(result.serviceType);
                     return GestureDetector(
                       onTap: () {
                         Get.to(Details(
                             name: result.name,
                             city: result.city,
                             phoneNumber: result.phoneNumber,
-                            donationType: convert(result.serviceType),
+                            donationType: result.serviceType.map((e) => convert(e)).toList(),
                             moreDetail: result.moreDetail));
                       },
                       child: Container(
@@ -460,7 +461,7 @@ class HomeScreen extends StatelessWidget {
                                   Flexible(
                                     child: Container(
                                       child: Text(
-                                        "\t${convert(result.serviceType)}",
+                                        "\t${result.serviceType.map((e) => convert(e))}",
                                         style: GoogleFonts.nunito(
                                           fontSize: 15,
                                           color: Colors.white,
