@@ -133,13 +133,6 @@ class HomeScreen extends StatelessWidget {
                                   border: Border.all(
                                     color: Colors.green[50],
                                   ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.green[100],
-                                      blurRadius: 1,
-                                      spreadRadius: 1,
-                                    )
-                                  ],
                                 ),
                                 child: Row(
                                   children: [
@@ -176,13 +169,6 @@ class HomeScreen extends StatelessWidget {
                                   border: Border.all(
                                     color: Colors.red[50],
                                   ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.red[100],
-                                      blurRadius: 1,
-                                      spreadRadius: 1,
-                                    )
-                                  ],
                                 ),
                                 child: Row(
                                   children: [
@@ -219,13 +205,6 @@ class HomeScreen extends StatelessWidget {
                                   border: Border.all(
                                     color: Colors.teal[50],
                                   ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.teal[100],
-                                      blurRadius: 1,
-                                      spreadRadius: 1,
-                                    )
-                                  ],
                                 ),
                                 child: Row(
                                   children: [
@@ -269,13 +248,6 @@ class HomeScreen extends StatelessWidget {
                                     border: Border.all(
                                       color: Colors.blue[50],
                                     ),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.blue[100],
-                                        blurRadius: 1,
-                                        spreadRadius: 1,
-                                      )
-                                    ],
                                   ),
                                   child: Row(
                                     children: [
@@ -312,13 +284,6 @@ class HomeScreen extends StatelessWidget {
                                     border: Border.all(
                                       color: Colors.pink[50],
                                     ),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.pink[100],
-                                        blurRadius: 1,
-                                        spreadRadius: 1,
-                                      )
-                                    ],
                                   ),
                                   child: Row(
                                     children: [
@@ -355,13 +320,6 @@ class HomeScreen extends StatelessWidget {
                                     border: Border.all(
                                       color: Colors.orange[50],
                                     ),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.orange[100],
-                                        blurRadius: 1,
-                                        spreadRadius: 1,
-                                      )
-                                    ],
                                   ),
                                   child: Row(
                                     children: [
@@ -390,153 +348,159 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                  )
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 20),
+                    child: Text(
+                      "Search Results",
+                      style: GoogleFonts.nunito(
+                        fontSize: 18,
+                        color: Color.fromRGBO(37, 46, 73, 1),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
-           GetX<ServiceController>(
-             builder: (controller){
-               return SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  ServiceModel result = controller.services[index];
-                  if (controller.isLoading.value) {
-                          return Center(child: CircularProgressIndicator());
-                  }
-                  return Center(
-                child: GestureDetector(
-                  onTap: () {
-                  Get.to(Details(
-                      name: result.name,
-                      city: result.city,
-                      phoneNumber: result.phoneNumber,
-                      donationType: convert(result.serviceType),
-                      moreDetail: result.moreDetail));
-                  },
-                  child: Container(
-                  padding: const EdgeInsets.all(20),
-                  margin: EdgeInsets.only(bottom: 20),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color.fromRGBO(20, 121, 255, 1),
-                        Color.fromRGBO(20, 121, 255, 0.6),
-                      ],
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        child: Text(
-                          result.name,
-                          style: GoogleFonts.nunito(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+          GetX<ServiceController>(
+            builder: (controller) {
+              return SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                    ServiceModel result = controller.services[index];
+                    return GestureDetector(
+                      onTap: () {
+                        Get.to(Details(
+                            name: result.name,
+                            city: result.city,
+                            phoneNumber: result.phoneNumber,
+                            donationType: convert(result.serviceType),
+                            moreDetail: result.moreDetail));
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(20),
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 5, horizontal: 20),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color.fromRGBO(20, 121, 255, 1),
+                              Color.fromRGBO(20, 121, 255, 0.6),
+                            ],
                           ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 20),
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(20, 121, 255, 1),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: Row(
-                          children: [
-                            Container(
-                              child: Text(
-                                "\t City :",
-                                style: GoogleFonts.nunito(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              child: Text(
-                                " ${result.city.capitalizeFirst}",
-                                style: GoogleFonts.nunito(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 10),
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(20, 121, 255, 1),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: Row(
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
                               child: Text(
-                                "\tType :",
+                                result.name,
+                                style: GoogleFonts.nunito(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 20),
+                              padding: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                color: Color.fromRGBO(20, 121, 255, 1),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      "\t City :",
+                                      style: GoogleFonts.nunito(
+                                        fontSize: 15,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      " ${result.city.capitalizeFirst}",
+                                      style: GoogleFonts.nunito(
+                                        fontSize: 15,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 10),
+                              padding: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                color: Color.fromRGBO(20, 121, 255, 1),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      "\tType :",
+                                      style: GoogleFonts.nunito(
+                                        fontSize: 15,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                  Flexible(
+                                    child: Container(
+                                      child: Text(
+                                        "\t${convert(result.serviceType)}",
+                                        style: GoogleFonts.nunito(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(top: 20),
+                              child: Text(
+                                "More details...",
                                 style: GoogleFonts.nunito(
                                   fontSize: 15,
                                   color: Colors.white,
                                 ),
                               ),
                             ),
-                            Flexible(
-                              child: Container(
-                                child: Text(
-                                  "\t${convert(result.serviceType)}",
-                                  style: GoogleFonts.nunito(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ),
                           ],
                         ),
                       ),
-                      Container(
-                        margin: const EdgeInsets.only(top: 20),
-                        child: Text(
-                          "More details...",
-                          style: GoogleFonts.nunito(
-                            fontSize: 15,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  ),
-                ));
-            
-             
-              },
-                    childCount: controller.services.length,),
                     );
-                  
-                },
-                
-              ),
-        ]),
-    floatingActionButton: FloatingActionButton(
+                  },
+                  childCount: controller.services.length,
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.to(HelpForm());
         },
-        backgroundColor: Color.fromRGBO(20, 121, 255, 1),
+        backgroundColor: Colors.purple,
         child: Icon(
           Icons.add,
           color: Colors.white,
         ),
-      ),);
+      ),
+    );
   }
 }
