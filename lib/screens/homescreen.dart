@@ -166,7 +166,7 @@ class HomeScreen extends StatelessWidget {
                             GestureDetector(
                               onTap: () {
                                 serviceController
-                                    .selectServiceType(Services.Plasma);
+                                    .selectServiceType(Services.Blood);
                               },
                               child: Container(
                                 padding: const EdgeInsets.all(10),
@@ -401,6 +401,9 @@ class HomeScreen extends StatelessWidget {
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
                   ServiceModel result = controller.services[index];
+                  if (controller.isLoading.value) {
+                          return Center(child: CircularProgressIndicator());
+                  }
                   return Center(
                 child: GestureDetector(
                   onTap: () {
@@ -525,6 +528,15 @@ class HomeScreen extends StatelessWidget {
                 
               ),
         ]),
-    );
+    floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Get.to(HelpForm());
+        },
+        backgroundColor: Color.fromRGBO(20, 121, 255, 1),
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+      ),);
   }
 }
