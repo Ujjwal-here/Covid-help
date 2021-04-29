@@ -12,10 +12,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
   final ServiceController serviceController = Get.put(ServiceController());
-
+  AuthController authController = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
-    AuthController authController = Get.find<AuthController>();
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
@@ -365,6 +364,9 @@ class HomeScreen extends StatelessWidget {
           ),
           GetX<ServiceController>(
             builder: (controller) {
+              if(serviceController.isLoading.value){
+                return SliverToBoxAdapter(child: Center(child: CircularProgressIndicator(),),);
+              }
               return SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
