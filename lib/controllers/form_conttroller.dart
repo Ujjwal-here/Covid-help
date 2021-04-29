@@ -7,7 +7,7 @@ class FormController extends GetxController{
 
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
-  TextEditingController detailController = TextEditingController(text: "");
+  TextEditingController detailController = TextEditingController();
   TextEditingController linkController = TextEditingController();
   TextEditingController otherController = TextEditingController();
 

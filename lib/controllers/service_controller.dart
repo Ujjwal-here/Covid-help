@@ -74,7 +74,9 @@ class ServiceController extends GetxController{
       state: e["state"], 
       name: e["name"], 
       phoneNumber: e["phoneNumber"], 
-      upvotes: e["upvotes"]);}).toList().obs;
+      upvotes: e["upvotes"],
+      moreDetail: e["moreDetail"]
+      );}).toList().obs;
 
     print(_services);  
     isLoading.value = false;
