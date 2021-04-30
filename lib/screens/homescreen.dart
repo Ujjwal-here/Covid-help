@@ -5,6 +5,7 @@ import 'package:covid_help/controllers/service_controller.dart';
 import 'package:covid_help/models/service_model.dart';
 import 'package:covid_help/screens/details.dart';
 import 'package:covid_help/screens/form.dart';
+import 'package:covid_help/screens/posts.dart';
 import 'package:csc_picker/csc_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -15,9 +16,33 @@ class HomeScreen extends StatelessWidget {
   final ServiceController serviceController = Get.put(ServiceController());
   final AuthController authController = Get.find<AuthController>();
   final FormController formController = Get.put(FormController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        actions: [
+          Container(
+            margin: const EdgeInsets.only(right: 30),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Posts(),
+                  ),
+                );
+              },
+              child: Icon(
+                Icons.post_add,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ],
+      ),
       backgroundColor: Color.fromRGBO(244, 246, 248, 1),
       body: CustomScrollView(
         slivers: [
@@ -26,13 +51,11 @@ class HomeScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Color.fromRGBO(244, 246, 248, 1),
               ),
-              margin: const EdgeInsets.only(top: 20),
               padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(top: 10),
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                         color: Colors.white,
