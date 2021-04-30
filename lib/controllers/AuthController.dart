@@ -1,7 +1,6 @@
 import 'package:covid_help/Repository/user_repo.dart';
 import 'package:covid_help/root.dart';
 import 'package:covid_help/screens/homescreen.dart';
-import 'package:covid_help/screens/userDetails.dart';
 
 import 'package:covid_help/screens/verificationCode.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -51,11 +50,7 @@ class AuthController extends GetxController {
     bool ifExists =
         await userRepo.checkUserExists(phoneNumberController.text.trim());
     await _auth.signInWithCredential(phoneAuthCredential);
-    if (ifExists) {
       Get.off(HomeScreen());
-    } else {
-      Get.off(UserDetails());
-    }
   }
 
   verificationFailed(FirebaseAuthException e) {
@@ -85,11 +80,7 @@ class AuthController extends GetxController {
       bool ifExists =
           await userRepo.checkUserExists(phoneNumberController.text.trim());
       await _auth.signInWithCredential(credential);
-      if (ifExists) {
         Get.off(HomeScreen());
-      } else {
-        Get.off(UserDetails());
-      }
     } catch (e) {
       print(e);
       Get.snackbar("Wrong Otp", "You have entered wrong OTP");
