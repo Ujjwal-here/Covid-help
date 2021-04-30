@@ -1,5 +1,6 @@
 import 'package:covid_help/Enums/service_enum.dart';
 import 'package:covid_help/controllers/AuthController.dart';
+import 'package:covid_help/controllers/form_conttroller.dart';
 import 'package:covid_help/controllers/service_controller.dart';
 import 'package:covid_help/models/service_model.dart';
 import 'package:covid_help/screens/details.dart';
@@ -13,6 +14,7 @@ import 'package:google_fonts/google_fonts.dart';
 class HomeScreen extends StatelessWidget {
   final ServiceController serviceController = Get.put(ServiceController());
   final AuthController authController = Get.find<AuthController>();
+  final FormController formController = Get.put(FormController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(

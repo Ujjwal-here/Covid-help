@@ -11,7 +11,7 @@ class HelpForm extends StatefulWidget {
 }
 
 class _HelpFormState extends State<HelpForm> {
-  final FormController formController = Get.put(FormController());
+  final FormController formController = Get.find<FormController>();
 
   @override
   Widget build(BuildContext context) {
