@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:covid_help/Enums/service_enum.dart';
 import 'package:covid_help/Repository/service_repo.dart';
 import 'package:flutter/cupertino.dart';
@@ -57,10 +58,29 @@ class FormController extends GetxController{
         "upvotes":0,
         "moreDetail":detailController.text.trim()
       };
-    await serviceRepo.postServices(form);
+    DocumentReference docRef = await serviceRepo.postServices(form);
+    await serviceRepo.postServiceInUser(form,docRef.id);
+    
     Get.back();
   }
 
+  editForm(String uid)async{
+    if(nameController.text == null || phoneNumberController.text == null || typeOfServices.isEmpty || _city == null || _state == null){
+      Get.snackbar("Fill Required Fields!!", "Some Fields are required fill those to submit!");
+      return;
+    }
+    Map<String,dynamic> form = {
+        "name":nameController.text.trim(),
+        "city":_city,
+        "state":_state,
+        "phoneNumber":phoneNumberController.text.trim(),
+        "type":typeOfServices.map((e) => convert(e)).toList(),
+        "upvotes":0,
+        "moreDetail":detailController.text.trim()
+      };
 
+    await serviceRepo.editPostService(uid, form);
+    Get.back();
 
+  }
 }

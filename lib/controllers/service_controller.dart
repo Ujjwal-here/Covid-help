@@ -84,4 +84,5 @@ class ServiceController extends GetxController{
     isLoading.value = false;
   }
 
+
 }

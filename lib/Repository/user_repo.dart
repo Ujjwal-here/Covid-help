@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 class UserRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<DocumentReference> registerUser(Map<String, dynamic> user) async {
+  Future<void> registerUser(Map<String, dynamic> user,String userUid) async {
     try {
-      return await _firestore.collection("users").add(user);
+      return await _firestore.collection("users").doc(userUid).set(user);
     } catch (e) {
       Get.snackbar("Something Went Wrong", "Please Try Again!!");
     }

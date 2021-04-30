@@ -2,6 +2,7 @@ import 'package:covid_help/Enums/service_enum.dart';
 import 'package:covid_help/controllers/AuthController.dart';
 import 'package:covid_help/controllers/form_conttroller.dart';
 import 'package:covid_help/controllers/service_controller.dart';
+import 'package:covid_help/controllers/user_service_controller.dart';
 import 'package:covid_help/models/service_model.dart';
 import 'package:covid_help/screens/details.dart';
 import 'package:covid_help/screens/form.dart';
@@ -16,24 +17,23 @@ class HomeScreen extends StatelessWidget {
   final ServiceController serviceController = Get.put(ServiceController());
   final AuthController authController = Get.find<AuthController>();
   final FormController formController = Get.put(FormController());
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        actions: [
+        actions: [GestureDetector(
+          onTap: (){
+            authController.signOut();
+          },
+          child: Icon(Icons.logout,color: Colors.blue,),
+          ),
           Container(
             margin: const EdgeInsets.only(right: 30),
             child: GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Posts(),
-                  ),
-                );
+                Get.to(()=>Posts());
               },
               child: Icon(
                 Icons.post_add,

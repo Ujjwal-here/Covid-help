@@ -12,7 +12,6 @@ class AuthController extends GetxController {
   UserRepo userRepo = UserRepo();
 
   Rx<User> _firebaseUser = Rx<User>(null);
-  User get user => _firebaseUser?.value;
 
   TextEditingController otpController1 = TextEditingController();
   TextEditingController otpController2 = TextEditingController();
@@ -28,6 +27,8 @@ class AuthController extends GetxController {
   String _verificationId;
 
   Rx<bool> isLoading = false.obs;
+
+  User get user => _firebaseUser?.value;
 
   @override
   void onInit() {
@@ -79,8 +80,9 @@ class AuthController extends GetxController {
           verificationId: _verificationId, smsCode: otp.trim());
       bool ifExists =
           await userRepo.checkUserExists(phoneNumberController.text.trim());
-      await _auth.signInWithCredential(credential);
-        Get.off(HomeScreen());
+      UserCredential userCred = await _auth.signInWithCredential(credential);
+      await userRepo.registerUser({"phoneNumber":phoneNumberController.text.trim()}, userCred.user.uid);
+      Get.off(HomeScreen());
     } catch (e) {
       print(e);
       Get.snackbar("Wrong Otp", "You have entered wrong OTP");

@@ -6,6 +6,12 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HelpForm extends StatefulWidget {
+
+  final bool editMode;
+  final String uid;
+
+  HelpForm({Key key, @required this.editMode,this.uid});
+  
   @override
   _HelpFormState createState() => _HelpFormState();
 }
@@ -688,7 +694,7 @@ class _HelpFormState extends State<HelpForm> {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
-                formController.postForm();
+                widget.editMode?formController.editForm(widget.uid):formController.postForm();
               },
               child: Text("Submit"),
               style: ButtonStyle(
@@ -711,7 +717,7 @@ class _HelpFormState extends State<HelpForm> {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
-                Navigator.pop(context);
+                Get.back();
               },
               child: Text("Back"),
               style: ButtonStyle(

@@ -11,9 +11,11 @@ class ServiceModel extends Equatable {
   final String phoneNumber;
   final int upvotes;
   final String moreDetail;
+  final String serviceUid;
 
   ServiceModel(
-      {this.serviceType,
+      {@required this.serviceType,
+      this.serviceUid,
       @required this.city,
       @required this.state,
       @required this.name,
