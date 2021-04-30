@@ -90,6 +90,10 @@ class Details extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.grey[200], blurRadius: 20, spreadRadius: 2)
+              ],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,7 +111,7 @@ class Details extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 10),
+                  margin: EdgeInsets.only(top: 5),
                   child: Text(
                     "Updated a day ago",
                     style: GoogleFonts.lato(
@@ -286,10 +290,10 @@ class Details extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("Back to home"),
+              child: Text("Back"),
               style: ButtonStyle(
                 padding: MaterialStateProperty.all(
-                  EdgeInsets.all(12),
+                  EdgeInsets.all(15),
                 ),
                 backgroundColor: MaterialStateProperty.all(
                   Color.fromRGBO(26, 99, 209, 1),

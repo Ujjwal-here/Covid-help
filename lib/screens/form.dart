@@ -713,7 +713,7 @@ class _HelpFormState extends State<HelpForm> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("Back to home"),
+              child: Text("Back"),
               style: ButtonStyle(
                 padding: MaterialStateProperty.all(
                   EdgeInsets.all(12),
