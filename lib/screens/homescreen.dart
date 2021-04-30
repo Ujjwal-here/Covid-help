@@ -505,7 +505,7 @@ class HomeScreen extends StatelessWidget {
                     print(result.serviceType);
                     return GestureDetector(
                       onTap: () {
-                        Get.to(Details(
+                        Get.to(()=>Details(
                             name: result.name,
                             city: result.city,
                             phoneNumber: result.phoneNumber,
@@ -642,7 +642,7 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(HelpForm());
+          Get.to(()=>HelpForm());
         },
         backgroundColor: Color.fromRGBO(133, 116, 249, 1),
         child: Icon(
