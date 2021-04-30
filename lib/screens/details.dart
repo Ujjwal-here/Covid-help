@@ -26,18 +26,78 @@ class Details extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         children: [
           Container(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.symmetric(vertical: 15),
             margin: const EdgeInsets.only(top: 50),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromRGBO(133, 116, 249, 1),
+                  Color.fromRGBO(133, 116, 249, 1),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Image(
+                  image: AssetImage("assets/doctor.png"),
+                  height: 120,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Text(
+                        "Stay home",
+                        style: GoogleFonts.lato(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      child: Text(
+                        "Save lives",
+                        style: GoogleFonts.lato(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Colors.white70,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.white,
+                      ),
+                      child: Text(
+                        "Wear your mask,\nProtect your family and others",
+                        style: GoogleFonts.lato(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Colors.black87,
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.only(top: 30),
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey[300],
-                    spreadRadius: 1,
-                    blurRadius: 5,
-                  )
-                ]),
+                border: Border.all(
+                  color: Color.fromRGBO(133, 116, 249, 0.5),
+                )),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
