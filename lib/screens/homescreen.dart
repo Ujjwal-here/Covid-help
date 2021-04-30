@@ -12,10 +12,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
   final ServiceController serviceController = Get.put(ServiceController());
-
+  AuthController authController = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
-    AuthController authController = Get.find<AuthController>();
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
@@ -61,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(5),
                               color: Colors.white,
                               border: Border.all(
-                                color: Color.fromRGBO(1, 118, 255, 0.7),
+                                color: Color.fromRGBO(85, 206, 254, 1),
                               ),
                             ),
                             disabledDropdownDecoration: BoxDecoration(
@@ -97,7 +96,7 @@ class HomeScreen extends StatelessWidget {
                                 EdgeInsets.all(12),
                               ),
                               backgroundColor: MaterialStateProperty.all(
-                                Color.fromRGBO(55, 52, 169, 1),
+                                Color.fromRGBO(133, 116, 249, 1),
                               ),
                               textStyle: MaterialStateProperty.all(
                                 GoogleFonts.lato(
@@ -492,17 +491,27 @@ class HomeScreen extends StatelessWidget {
           ),
           GetX<ServiceController>(
             builder: (controller) {
+              if (serviceController.isLoading.value) {
+                return SliverToBoxAdapter(
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              }
               return SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
                     ServiceModel result = controller.services[index];
+                    print(result.serviceType);
                     return GestureDetector(
                       onTap: () {
                         Get.to(Details(
                             name: result.name,
                             city: result.city,
                             phoneNumber: result.phoneNumber,
-                            donationType: convert(result.serviceType),
+                            donationType: result.serviceType
+                                .map((e) => convert(e))
+                                .toList(),
                             moreDetail: result.moreDetail));
                       },
                       child: Container(
@@ -510,7 +519,19 @@ class HomeScreen extends StatelessWidget {
                         margin: const EdgeInsets.symmetric(
                             vertical: 10, horizontal: 20),
                         decoration: BoxDecoration(
-                          color: Color.fromRGBO(255, 127, 92, 1),
+                          gradient: LinearGradient(
+                            colors: [
+                              Color.fromRGBO(84, 206, 254, 1),
+                              Color.fromRGBO(112, 219, 254, 1),
+                            ],
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromRGBO(84, 206, 254, 0.5),
+                              spreadRadius: 1,
+                              blurRadius: 5,
+                            )
+                          ],
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Column(
@@ -519,7 +540,7 @@ class HomeScreen extends StatelessWidget {
                             Container(
                               child: Text(
                                 result.name,
-                                style: GoogleFonts.nunito(
+                                style: GoogleFonts.lato(
                                   fontSize: 22,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w800,
@@ -528,77 +549,89 @@ class HomeScreen extends StatelessWidget {
                             ),
                             Container(
                               margin: EdgeInsets.only(top: 10),
-                              padding: EdgeInsets.all(5),
+                              padding: const EdgeInsets.symmetric(vertical: 5),
                               decoration: BoxDecoration(
-                                color: Color.fromRGBO(255, 136, 104, 1),
                                 borderRadius: BorderRadius.circular(5),
+                                color: Colors.white12,
                               ),
-                              child: Row(
+                              child: Column(
                                 children: [
                                   Container(
-                                    child: Text(
-                                      "\t City :",
-                                      style: GoogleFonts.nunito(
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                      ),
+                                    padding: EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
                                     ),
-                                  ),
-                                  Container(
-                                    child: Text(
-                                      " ${result.city.capitalizeFirst}",
-                                      style: GoogleFonts.nunito(
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                color: Color.fromRGBO(255, 136, 104, 1),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    child: Text(
-                                      "\tType :",
-                                      style: GoogleFonts.nunito(
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        //fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                  Flexible(
-                                    child: Container(
-                                      child: Text(
-                                        "\t${convert(result.serviceType)}",
-                                        style: GoogleFonts.nunito(
-                                          fontSize: 16,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          child: Text(
+                                            "City :",
+                                            style: GoogleFonts.lato(
+                                              fontSize: 16,
+                                              color: Colors.white,
+                                            ),
+                                          ),
                                         ),
-                                      ),
+                                        Container(
+                                          child: Text(
+                                            " ${result.city.capitalizeFirst}",
+                                            style: GoogleFonts.lato(
+                                              fontSize: 16,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(top: 10),
+                                    padding: EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          child: Text(
+                                            "Type :",
+                                            style: GoogleFonts.lato(
+                                              fontSize: 16,
+                                              color: Colors.white,
+                                              //fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                        Flexible(
+                                          child: Container(
+                                            child: Text(
+                                              "\t${result.serviceType.map((e) => convert(e))}",
+                                              style: GoogleFonts.lato(
+                                                fontSize: 16,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ],
                               ),
                             ),
                             Container(
+                              alignment: Alignment.centerRight,
                               margin: const EdgeInsets.only(top: 20),
                               child: Text(
-                                "More details...",
-                                style: GoogleFonts.nunito(
+                                "Read more",
+                                style: GoogleFonts.lato(
                                   fontSize: 15,
-                                  color: Colors.white,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -618,7 +651,7 @@ class HomeScreen extends StatelessWidget {
         onPressed: () {
           Get.to(HelpForm());
         },
-        backgroundColor: Colors.purple,
+        backgroundColor: Color.fromRGBO(133, 116, 249, 1),
         child: Icon(
           Icons.add,
           color: Colors.white,

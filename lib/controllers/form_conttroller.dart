@@ -49,8 +49,9 @@ class FormController extends GetxController{
         "city":_city,
         "state":_state,
         "phoneNumber":phoneNumberController.text.trim(),
-        "type":convert(typeOfServices.toList()[0]),
-        "upvotes":0
+        "type":typeOfServices.map((e) => convert(e)).toList(),
+        "upvotes":0,
+        "moreDetail":detailController.text.trim()
       };
     await serviceRepo.postServices(form);
     Get.back();

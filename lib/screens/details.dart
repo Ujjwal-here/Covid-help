@@ -2,26 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Details extends StatelessWidget {
-
   final String name;
   final String phoneNumber;
   final String city;
-  final String donationType;
+  final List<String> donationType;
   final String link;
   final String moreDetail;
 
-  Details({Key key, 
-  @required this.name,
-  @required this.city,
-  @required this.phoneNumber,
-  @required this.donationType,
-  this.link,
-  @required this.moreDetail
-  });
+  Details(
+      {Key key,
+      @required this.name,
+      @required this.city,
+      @required this.phoneNumber,
+      @required this.donationType,
+      this.link,
+      @required this.moreDetail});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
@@ -29,83 +29,51 @@ class Details extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             margin: const EdgeInsets.only(top: 50),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color: Colors.black54,
-              ),
-            ),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey[300],
+                    spreadRadius: 1,
+                    blurRadius: 5,
+                  )
+                ]),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          child: Text(
-                            name,
-                            style: GoogleFonts.nunito(
-                              fontSize: 22,
-                              color: Color.fromRGBO(37, 46, 73, 1),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          child: Text(
-                            "Updated a day ago",
-                            style: GoogleFonts.nunito(
-                              fontSize: 16,
-                              color: Color.fromRGBO(185, 189, 198, 1),
-                              //fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
+                Container(
+                  child: Text(
+                    name,
+                    style: GoogleFonts.lato(
+                      fontSize: 22,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900,
                     ),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(20, 121, 255, 1),
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: Color.fromRGBO(20, 121, 255, 1),
-                        ),
-                      ),
-                      child: Text(
-                        "Available",
-                        style: GoogleFonts.nunito(
-                          fontSize: 16,
-                          color: Colors.white,
-                          //fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 10),
+                  child: Text(
+                    "Updated a day ago",
+                    style: GoogleFonts.lato(
+                      fontSize: 15,
+                      color: Color.fromRGBO(133, 116, 249, 1),
                     ),
-                  ],
+                  ),
                 ),
                 Divider(),
                 Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    //color: Color.fromRGBO(185, 189, 198, 1),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Color.fromRGBO(185, 189, 198, 0.5),
-                    ),
-                  ),
-                  margin: const EdgeInsets.only(top: 20),
+                  margin: const EdgeInsets.only(top: 40),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
                         child: Text(
                           "Phone :",
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.lato(
                             fontSize: 17,
-                            color: Color.fromRGBO(37, 46, 73, 1),
-                            //fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
@@ -113,9 +81,9 @@ class Details extends StatelessWidget {
                         child: Container(
                           child: Text(
                             phoneNumber,
-                            style: GoogleFonts.nunito(
-                              fontSize: 17,
-                              color: Color.fromRGBO(20, 121, 255, 1),
+                            style: GoogleFonts.lato(
+                              fontSize: 16,
+                              color: Color.fromRGBO(133, 116, 249, 1),
                               //fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -124,15 +92,8 @@ class Details extends StatelessWidget {
                     ],
                   ),
                 ),
+                Divider(),
                 Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    //color: Color.fromRGBO(185, 189, 198, 1),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Color.fromRGBO(185, 189, 198, 0.5),
-                    ),
-                  ),
                   margin: const EdgeInsets.only(top: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -142,18 +103,18 @@ class Details extends StatelessWidget {
                           "City :",
                           style: GoogleFonts.nunito(
                             fontSize: 17,
-                            color: Color.fromRGBO(37, 46, 73, 1),
-                            //fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       Flexible(
                         child: Container(
                           child: Text(
-                            city,
-                            style: GoogleFonts.nunito(
-                              fontSize: 17,
-                              color: Color.fromRGBO(20, 121, 255, 1),
+                            city == null ? "Not Provided" : city,
+                            style: GoogleFonts.lato(
+                              fontSize: 16,
+                              color: Color.fromRGBO(133, 116, 249, 1),
                               //fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -162,15 +123,8 @@ class Details extends StatelessWidget {
                     ],
                   ),
                 ),
+                Divider(),
                 Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    //color: Color.fromRGBO(185, 189, 198, 1),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Color.fromRGBO(185, 189, 198, 0.5),
-                    ),
-                  ),
                   margin: const EdgeInsets.only(top: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -178,21 +132,22 @@ class Details extends StatelessWidget {
                       Container(
                         child: Text(
                           "Donation type :",
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.lato(
                             fontSize: 17,
-                            color: Color.fromRGBO(37, 46, 73, 1),
-                            //fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       Flexible(
                         child: Container(
                           child: Text(
-                           donationType,
+                            donationType == null
+                                ? "Not Provided"
+                                : "${donationType.map((e) => (e))}",
                             style: GoogleFonts.nunito(
-                              fontSize: 17,
-                              color: Color.fromRGBO(20, 121, 255, 1),
-                              //fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Color.fromRGBO(133, 116, 249, 1),
                             ),
                           ),
                         ),
@@ -200,15 +155,8 @@ class Details extends StatelessWidget {
                     ],
                   ),
                 ),
+                Divider(),
                 Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    //color: Color.fromRGBO(185, 189, 198, 1),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Color.fromRGBO(185, 189, 198, 0.5),
-                    ),
-                  ),
                   margin: const EdgeInsets.only(top: 20),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -217,21 +165,20 @@ class Details extends StatelessWidget {
                       Container(
                         child: Text(
                           "More details :",
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.lato(
                             fontSize: 17,
-                            color: Color.fromRGBO(37, 46, 73, 1),
-                            //fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       Flexible(
                         child: Container(
                           child: Text(
-                            moreDetail == null?"":moreDetail,
-                            style: GoogleFonts.nunito(
-                              fontSize: 17,
-                              color: Color.fromRGBO(20, 121, 255, 1),
-                              //fontWeight: FontWeight.bold,
+                            moreDetail == null ? "Not Provided" : moreDetail,
+                            style: GoogleFonts.lato(
+                              fontSize: 16,
+                              color: Color.fromRGBO(133, 116, 249, 1),
                             ),
                           ),
                         ),
@@ -239,15 +186,8 @@ class Details extends StatelessWidget {
                     ],
                   ),
                 ),
+                Divider(),
                 Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    //color: Color.fromRGBO(185, 189, 198, 1),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Color.fromRGBO(185, 189, 198, 0.5),
-                    ),
-                  ),
                   margin: const EdgeInsets.only(top: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -255,21 +195,20 @@ class Details extends StatelessWidget {
                       Container(
                         child: Text(
                           "Link :",
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.lato(
                             fontSize: 17,
-                            color: Color.fromRGBO(37, 46, 73, 1),
-                            //fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       Flexible(
                         child: Container(
                           child: Text(
-                            link==null?"":link,
-                            style: GoogleFonts.nunito(
-                              fontSize: 17,
-                              color: Color.fromRGBO(20, 121, 255, 1),
-                              //fontWeight: FontWeight.bold,
+                            link == null ? "Not Provided" : link,
+                            style: GoogleFonts.lato(
+                              fontSize: 16,
+                              color: Color.fromRGBO(133, 116, 249, 1),
                             ),
                           ),
                         ),
@@ -277,6 +216,7 @@ class Details extends StatelessWidget {
                     ],
                   ),
                 ),
+                Divider(),
               ],
             ),
           )
