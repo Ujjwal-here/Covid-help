@@ -9,18 +9,22 @@ class HelpForm extends StatefulWidget {
 
   final bool editMode;
   final String uid;
+  final String name;
+  final String phoneNumber;
+  final String detail;
+  final String other;
+  final String link;
 
-  HelpForm({Key key, @required this.editMode,this.uid});
+  HelpForm({Key key, @required this.editMode,this.uid,this.detail,this.link,this.name,this.other,this.phoneNumber});
   
   @override
   _HelpFormState createState() => _HelpFormState();
 }
 
 class _HelpFormState extends State<HelpForm> {
-  final FormController formController = Get.find<FormController>();
-
   @override
   Widget build(BuildContext context) {
+    final FormController formController = Get.put(FormController(name:widget.name,detail:widget.detail,other: widget.other,link: widget.link,phoneNumber: widget.phoneNumber, ));
     return Scaffold(
       body: ListView(
         padding: const EdgeInsets.all(30),

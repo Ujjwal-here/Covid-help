@@ -143,7 +143,15 @@ class Posts extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Get.to(()=>HelpForm(editMode: true,uid: result.serviceUid,));
+                          Get.to(()=>HelpForm(
+                            editMode: true,
+                            uid: result.serviceUid,
+                            name: result.name,
+                            other: "",
+                            link: "",
+                            phoneNumber: result.phoneNumber,
+                            detail: result.moreDetail,                   
+                            ));
                         },
                         child: Container(
                           padding: const EdgeInsets.all(10),

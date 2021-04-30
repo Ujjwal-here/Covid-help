@@ -16,7 +16,6 @@ import 'package:google_fonts/google_fonts.dart';
 class HomeScreen extends StatelessWidget {
   final ServiceController serviceController = Get.put(ServiceController());
   final AuthController authController = Get.find<AuthController>();
-  final FormController formController = Get.put(FormController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(

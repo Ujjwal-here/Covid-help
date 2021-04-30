@@ -5,12 +5,32 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class FormController extends GetxController{
+  final String name;
+  final String phoneNumber;
+  final String detail;
+  final String link;
+  final String other;
 
+  FormController({Key key, this.name,this.phoneNumber,this.detail,this.link,this.other});
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController detailController = TextEditingController();
   TextEditingController linkController = TextEditingController();
   TextEditingController otherController = TextEditingController();
+
+  onInit(){
+    initController();
+    super.onInit();
+  }
+
+  initController(){
+    nameController.text = name;
+    phoneNumberController.text = phoneNumber;
+    detailController.text = detail;
+    linkController.text = link;
+    otherController.text = other;
+  }
+
 
   Set<Services> typeOfServices = Set<Services>();
 
