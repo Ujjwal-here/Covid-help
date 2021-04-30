@@ -12,7 +12,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
   final ServiceController serviceController = Get.put(ServiceController());
-  AuthController authController = Get.find<AuthController>();
+  final AuthController authController = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -190,7 +190,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            serviceController.selectServiceType(Services.Blood);
+                            serviceController.selectServiceType(Services.Plasma);
                           },
                           child: Container(
                             width: 110,
@@ -417,7 +417,7 @@ class HomeScreen extends StatelessWidget {
                         GestureDetector(
                           onTap: () {
                             serviceController
-                                .selectServiceType(Services.Ambulance);
+                                .selectServiceType(Services.Blood);
                           },
                           child: Container(
                             width: 110,
@@ -449,7 +449,7 @@ class HomeScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        "Others",
+                                        "Blood",
                                         style: GoogleFonts.lato(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 16,
