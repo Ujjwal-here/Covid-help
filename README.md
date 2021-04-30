@@ -7,6 +7,6 @@ An app to help people find resource during this covid pandemic, if you know some
 
 ![](images/Screenshot1.jpg)
 ![](images/Screenshot2.jpg)
-![](images/Screenshot3.jng)
-![](images/Screenshot4.jng)
-![](images/Screenshot5.jng)
+![](images/Screenshot3.jpg)
+![](images/Screenshot4.jpg)
+![](images/Screenshot5.jpg)
