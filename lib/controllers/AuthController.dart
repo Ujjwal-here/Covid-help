@@ -2,6 +2,7 @@ import 'package:covid_help/Repository/user_repo.dart';
 import 'package:covid_help/root.dart';
 import 'package:covid_help/screens/homescreen.dart';
 import 'package:covid_help/screens/userDetails.dart';
+
 import 'package:covid_help/screens/verificationCode.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -47,12 +48,12 @@ class AuthController extends GetxController {
   }
 
   verificationCompleted(PhoneAuthCredential phoneAuthCredential) async {
-    bool ifExists = await userRepo.checkUserExists(phoneNumberController.text.trim());
+    bool ifExists =
+        await userRepo.checkUserExists(phoneNumberController.text.trim());
     await _auth.signInWithCredential(phoneAuthCredential);
-    if(ifExists){
+    if (ifExists) {
       Get.off(HomeScreen());
-    }
-    else{
+    } else {
       Get.off(UserDetails());
     }
   }
@@ -81,15 +82,14 @@ class AuthController extends GetxController {
           otpController6.text;
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
           verificationId: _verificationId, smsCode: otp.trim());
-      bool ifExists = await userRepo.checkUserExists(phoneNumberController.text.trim());
-    await _auth.signInWithCredential(credential);
-    if(ifExists){
-      Get.off(HomeScreen());
-    }
-    else{
-      Get.off(UserDetails());
-    }    
-      
+      bool ifExists =
+          await userRepo.checkUserExists(phoneNumberController.text.trim());
+      await _auth.signInWithCredential(credential);
+      if (ifExists) {
+        Get.off(HomeScreen());
+      } else {
+        Get.off(UserDetails());
+      }
     } catch (e) {
       print(e);
       Get.snackbar("Wrong Otp", "You have entered wrong OTP");

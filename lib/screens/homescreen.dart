@@ -517,7 +517,7 @@ class HomeScreen extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.all(20),
                         margin: const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 20),
+                            vertical: 5, horizontal: 20),
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
@@ -525,13 +525,6 @@ class HomeScreen extends StatelessWidget {
                               Color.fromRGBO(112, 219, 254, 1),
                             ],
                           ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color.fromRGBO(84, 206, 254, 0.5),
-                              spreadRadius: 1,
-                              blurRadius: 5,
-                            )
-                          ],
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Column(
