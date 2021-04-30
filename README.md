@@ -5,7 +5,7 @@ An app to help people find resource during this covid pandemic, if you know some
 #Example Images:
 
 
-![](images/Screenshot1.jpg)
+![](images/Screenshot.jpg)
 ![](images/Screenshot2.jpg)
 ![](images/Screenshot3.jpg)
 ![](images/Screenshot4.jpg)
