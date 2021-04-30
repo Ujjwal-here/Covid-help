@@ -66,14 +66,14 @@ class SignUp extends StatelessWidget {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Color.fromRGBO(133, 116, 249, 1),
+                          color: Color.fromRGBO(26, 99, 209, 1),
                         ),
                         borderRadius: BorderRadius.circular(5),
                       ),
                       border: InputBorder.none,
                       prefixIcon: Icon(
                         Icons.call_rounded,
-                        color: Color.fromRGBO(133, 116, 249, 1),
+                        color: Color.fromRGBO(26, 99, 209, 1),
                         size: 18,
                       ),
                     ),
@@ -92,7 +92,7 @@ class SignUp extends StatelessWidget {
                           EdgeInsets.all(15),
                         ),
                         backgroundColor: MaterialStateProperty.all(
-                          Color.fromRGBO(133, 116, 249, 1),
+                          Color.fromRGBO(26, 99, 209, 1),
                         ),
                         textStyle: MaterialStateProperty.all(
                           GoogleFonts.lato(

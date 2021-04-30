@@ -698,7 +698,7 @@ class _HelpFormState extends State<HelpForm> {
                     EdgeInsets.all(15),
                   ),
                   backgroundColor: MaterialStateProperty.all(
-                    Color.fromRGBO(133, 116, 249, 1),
+                    Color.fromRGBO(26, 99, 209, 1),
                   ),
                   textStyle: MaterialStateProperty.all(
                     GoogleFonts.lato(
