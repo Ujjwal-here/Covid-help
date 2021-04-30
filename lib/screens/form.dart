@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:covid_help/Enums/service_enum.dart';
 import 'package:covid_help/controllers/form_conttroller.dart';
 import 'package:csc_picker/csc_picker.dart';
@@ -23,10 +25,10 @@ class _HelpFormState extends State<HelpForm> {
             margin: EdgeInsets.only(top: 50),
             child: Text(
               "Covid Help Resource",
-              style: GoogleFonts.nunito(
-                fontWeight: FontWeight.w800,
-                fontSize: 30,
-                color: Color.fromRGBO(37, 46, 73, 1),
+              style: GoogleFonts.lato(
+                fontWeight: FontWeight.w900,
+                fontSize: 25,
+                color: Colors.black,
               ),
             ),
           ),
@@ -34,8 +36,8 @@ class _HelpFormState extends State<HelpForm> {
             margin: EdgeInsets.only(right: 30),
             child: Text(
               "Please add resource by filling right information",
-              style: GoogleFonts.nunito(
-                fontSize: 17,
+              style: GoogleFonts.lato(
+                fontSize: 15,
                 color: Colors.grey,
               ),
             ),
@@ -55,7 +57,7 @@ class _HelpFormState extends State<HelpForm> {
               children: [
                 Text(
                   "Name:",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.lato(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     color: Colors.teal[900],
@@ -63,7 +65,7 @@ class _HelpFormState extends State<HelpForm> {
                 ),
                 Text(
                   "Enter your name below",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.lato(
                     fontSize: 15,
                     color: Colors.teal,
                   ),
@@ -72,10 +74,11 @@ class _HelpFormState extends State<HelpForm> {
                   child: TextField(
                     controller: formController.nameController,
                     textAlignVertical: TextAlignVertical.center,
-                    style: GoogleFonts.nunito(
-                      fontSize: 18,
+                    keyboardType: TextInputType.multiline,
+                    style: GoogleFonts.lato(
+                      fontSize: 19,
                       color: Colors.black,
-                      fontWeight: FontWeight.w800,
+                      //fontWeight: FontWeight.bold,
                     ),
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(
@@ -112,7 +115,7 @@ class _HelpFormState extends State<HelpForm> {
               children: [
                 Text(
                   "Add type",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.lato(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     color: Colors.purple[900],
@@ -120,7 +123,7 @@ class _HelpFormState extends State<HelpForm> {
                 ),
                 Text(
                   "Check types specified below ",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.lato(
                     fontSize: 15,
                     color: Colors.purple,
                   ),
@@ -155,7 +158,7 @@ class _HelpFormState extends State<HelpForm> {
                         margin: EdgeInsets.only(left: 5),
                         child: Text(
                           "Plasma",
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.lato(
                             //fontWeight: FontWeight.bold,
                             fontSize: 16,
                             color: Colors.red[900],
@@ -180,8 +183,7 @@ class _HelpFormState extends State<HelpForm> {
                         value: formController.isHospitalBedsSelected,
                         onChanged: (value) {
                           if (!formController.isHospitalBedsSelected) {
-                            formController
-                                .addServiceType(Services.Beds);
+                            formController.addServiceType(Services.Beds);
                           } else {
                             formController.removeService(Services.Beds);
                           }
@@ -196,7 +198,7 @@ class _HelpFormState extends State<HelpForm> {
                         margin: EdgeInsets.only(left: 5),
                         child: Text(
                           "Hospital Beds",
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.lato(
                             //fontWeight: FontWeight.bold,
                             fontSize: 16,
                             color: Colors.cyan[900],
@@ -237,7 +239,7 @@ class _HelpFormState extends State<HelpForm> {
                         margin: EdgeInsets.only(left: 5),
                         child: Text(
                           "Oxygen",
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.lato(
                             //fontWeight: FontWeight.bold,
                             fontSize: 16,
                             color: Colors.indigo[900],
@@ -277,7 +279,7 @@ class _HelpFormState extends State<HelpForm> {
                         margin: EdgeInsets.only(left: 5),
                         child: Text(
                           "Medicine",
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.lato(
                             //fontWeight: FontWeight.bold,
                             fontSize: 16,
                             color: Colors.orange[900],
@@ -317,7 +319,7 @@ class _HelpFormState extends State<HelpForm> {
                         margin: EdgeInsets.only(left: 5),
                         child: Text(
                           "Food",
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.lato(
                             //fontWeight: FontWeight.bold,
                             fontSize: 16,
                             color: Colors.teal[900],
@@ -357,7 +359,7 @@ class _HelpFormState extends State<HelpForm> {
                         margin: EdgeInsets.only(left: 5),
                         child: Text(
                           "Ambulance Service",
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.lato(
                             //fontWeight: FontWeight.bold,
                             fontSize: 16,
                             color: Colors.pink[900],
@@ -400,7 +402,7 @@ class _HelpFormState extends State<HelpForm> {
                             margin: EdgeInsets.only(left: 5),
                             child: Text(
                               "Others",
-                              style: GoogleFonts.nunito(
+                              style: GoogleFonts.lato(
                                 //fontWeight: FontWeight.bold,
                                 fontSize: 16,
                                 color: Colors.deepOrange[900],
@@ -415,10 +417,11 @@ class _HelpFormState extends State<HelpForm> {
                         child: TextField(
                           controller: formController.otherController,
                           textAlignVertical: TextAlignVertical.center,
-                          style: GoogleFonts.nunito(
-                            fontSize: 18,
+                          keyboardType: TextInputType.multiline,
+                          style: GoogleFonts.lato(
+                            fontSize: 19,
                             color: Colors.black,
-                            fontWeight: FontWeight.w800,
+                            //fontWeight: FontWeight.bold,
                           ),
                           decoration: InputDecoration(
                             enabledBorder: UnderlineInputBorder(
@@ -458,7 +461,7 @@ class _HelpFormState extends State<HelpForm> {
               children: [
                 Text(
                   "Region",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.lato(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     color: Colors.blue[900],
@@ -466,7 +469,7 @@ class _HelpFormState extends State<HelpForm> {
                 ),
                 Text(
                   "Select your location",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.lato(
                     fontSize: 15,
                     color: Colors.blue,
                   ),
@@ -487,10 +490,9 @@ class _HelpFormState extends State<HelpForm> {
                         color: Colors.blue[100],
                       ),
                     ),
-                    selectedItemStyle: GoogleFonts.nunito(),
-                    dropdownHeadingStyle:
-                        GoogleFonts.nunito(color: Colors.white),
-                    dropdownItemStyle: GoogleFonts.nunito(),
+                    selectedItemStyle: GoogleFonts.lato(),
+                    dropdownHeadingStyle: GoogleFonts.lato(color: Colors.white),
+                    dropdownItemStyle: GoogleFonts.lato(),
                     flagState: CountryFlag.DISABLE,
                     onCountryChanged: (value) {
                       print(value);
@@ -521,7 +523,7 @@ class _HelpFormState extends State<HelpForm> {
               children: [
                 Text(
                   "Phone number:",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.lato(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     color: Colors.green[800],
@@ -529,7 +531,7 @@ class _HelpFormState extends State<HelpForm> {
                 ),
                 Text(
                   "Add working phone numbers",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.lato(
                     fontSize: 15,
                     color: Colors.green,
                   ),
@@ -538,11 +540,13 @@ class _HelpFormState extends State<HelpForm> {
                   child: TextField(
                     controller: formController.phoneNumberController,
                     textAlignVertical: TextAlignVertical.center,
-                    style: GoogleFonts.nunito(
-                      fontSize: 18,
+                    keyboardType: TextInputType.multiline,
+                    style: GoogleFonts.lato(
+                      fontSize: 19,
                       color: Colors.black,
-                      fontWeight: FontWeight.w800,
+                      //fontWeight: FontWeight.bold,
                     ),
+                    maxLines: null,
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
@@ -578,15 +582,15 @@ class _HelpFormState extends State<HelpForm> {
               children: [
                 Text(
                   "Link",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.lato(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     color: Colors.red[800],
                   ),
                 ),
                 Text(
-                  "You can provide links",
-                  style: GoogleFonts.nunito(
+                  "You can provide link to some resource",
+                  style: GoogleFonts.lato(
                     fontSize: 15,
                     color: Colors.red,
                   ),
@@ -595,11 +599,13 @@ class _HelpFormState extends State<HelpForm> {
                   child: TextField(
                     controller: formController.linkController,
                     textAlignVertical: TextAlignVertical.center,
-                    style: GoogleFonts.nunito(
-                      fontSize: 18,
+                    keyboardType: TextInputType.multiline,
+                    style: GoogleFonts.lato(
+                      fontSize: 19,
                       color: Colors.black,
-                      fontWeight: FontWeight.w800,
+                      //fontWeight: FontWeight.bold,
                     ),
+                    maxLines: null,
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
@@ -635,15 +641,15 @@ class _HelpFormState extends State<HelpForm> {
               children: [
                 Text(
                   "More details:",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.lato(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     color: Colors.indigo[800],
                   ),
                 ),
                 Text(
-                  "You can provide more details like address,blood type etc",
-                  style: GoogleFonts.nunito(
+                  "You can provide details like address,blood type",
+                  style: GoogleFonts.lato(
                     fontSize: 15,
                     color: Colors.indigo,
                   ),
@@ -653,11 +659,12 @@ class _HelpFormState extends State<HelpForm> {
                     controller: formController.detailController,
                     textAlignVertical: TextAlignVertical.center,
                     keyboardType: TextInputType.multiline,
-                    style: GoogleFonts.nunito(
-                      fontSize: 18,
+                    style: GoogleFonts.lato(
+                      fontSize: 19,
                       color: Colors.black,
-                      fontWeight: FontWeight.w800,
+                      //fontWeight: FontWeight.bold,
                     ),
+                    maxLines: null,
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
@@ -691,11 +698,10 @@ class _HelpFormState extends State<HelpForm> {
                     EdgeInsets.all(15),
                   ),
                   backgroundColor: MaterialStateProperty.all(
-                    Color.fromRGBO(20, 121, 255, 1),
+                    Color.fromRGBO(133, 116, 249, 1),
                   ),
                   textStyle: MaterialStateProperty.all(
-                    GoogleFonts.nunito(
-                      decoration: TextDecoration.none,
+                    GoogleFonts.lato(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),

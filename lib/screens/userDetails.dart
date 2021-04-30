@@ -26,8 +26,8 @@ class UserDetails extends StatelessWidget {
             margin: EdgeInsets.only(left: 50, top: 10),
             child: Text(
               "User Details",
-              style: GoogleFonts.nunito(
-                fontWeight: FontWeight.w800,
+              style: GoogleFonts.lato(
+                fontWeight: FontWeight.w900,
                 fontSize: 30,
                 color: Color.fromRGBO(37, 46, 73, 1),
               ),
