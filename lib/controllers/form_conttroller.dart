@@ -44,6 +44,10 @@ class FormController extends GetxController{
   }
 
   postForm()async{
+    if(nameController.text == null || phoneNumberController.text == null || typeOfServices.isEmpty || _city == null || _state == null){
+      Get.snackbar("Fill Required Fields!!", "Some Fields are required fill those to submit!");
+      return;
+    }
       Map<String,dynamic> form = {
         "name":nameController.text.trim(),
         "city":_city,
