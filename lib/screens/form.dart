@@ -707,7 +707,32 @@ class _HelpFormState extends State<HelpForm> {
                     ),
                   )),
             ),
-          )
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 10),
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Back to home"),
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all(
+                  EdgeInsets.all(12),
+                ),
+                backgroundColor: MaterialStateProperty.all(
+                  Color.fromRGBO(26, 99, 209, 1),
+                ),
+                textStyle: MaterialStateProperty.all(
+                  GoogleFonts.lato(
+                    decoration: TextDecoration.none,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
