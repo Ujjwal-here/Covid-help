@@ -62,7 +62,7 @@ class _HelpFormState extends State<HelpForm> {
                 "Help",
                 style: GoogleFonts.lato(
                   fontSize: SizeConfig.safeBlockHorizontal * 6,
-                  color: Color.fromRGBO(26, 99, 209, 1),
+                  color: const Color.fromRGBO(214, 61, 22, 1),
                   fontWeight: FontWeight.w900,
                   letterSpacing: 0.5,
                 ),
@@ -86,24 +86,19 @@ class _HelpFormState extends State<HelpForm> {
                 child: ListView(
                   padding: const EdgeInsets.all(30),
                   children: [
-                    Container(
-                      child: Text(
-                        "Covid Help Resource",
-                        style: GoogleFonts.lato(
-                          fontWeight: FontWeight.w900,
-                          fontSize: SizeConfig.safeBlockHorizontal * 6,
-                          color: Colors.black,
-                        ),
+                    Text(
+                      "Covid Help Resource",
+                      style: GoogleFonts.lato(
+                        fontWeight: FontWeight.w900,
+                        fontSize: SizeConfig.safeBlockHorizontal * 6,
+                        color: Colors.black,
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.only(right: 30, top: 5),
-                      child: Text(
-                        "Please add resource by filling right information",
-                        style: GoogleFonts.lato(
-                          fontSize: SizeConfig.safeBlockHorizontal * 3.5,
-                          color: Colors.grey,
-                        ),
+                    Text(
+                      "Please add resource by filling right information",
+                      style: GoogleFonts.lato(
+                        fontSize: SizeConfig.safeBlockHorizontal * 3.5,
+                        color: Colors.grey,
                       ),
                     ),
                     Container(
@@ -115,7 +110,7 @@ class _HelpFormState extends State<HelpForm> {
                           color: Colors.teal[100],
                         ),
                       ),
-                      margin: EdgeInsets.only(top: 30),
+                      margin: const EdgeInsets.only(top: 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -202,7 +197,7 @@ class _HelpFormState extends State<HelpForm> {
                               ),
                               color: Colors.white,
                             ),
-                            margin: EdgeInsets.only(top: 20),
+                            margin: const EdgeInsets.only(top: 20),
                             child: Row(
                               children: [
                                 Checkbox(
@@ -223,7 +218,7 @@ class _HelpFormState extends State<HelpForm> {
                                       MaterialStateProperty.all(Colors.red),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(left: 5),
+                                  margin: const EdgeInsets.only(left: 5),
                                   child: Text(
                                     "Plasma",
                                     style: GoogleFonts.lato(
@@ -245,7 +240,7 @@ class _HelpFormState extends State<HelpForm> {
                               ),
                               color: Colors.white,
                             ),
-                            margin: EdgeInsets.only(top: 20),
+                            margin: const EdgeInsets.only(top: 20),
                             child: Row(
                               children: [
                                 Checkbox(
@@ -269,7 +264,7 @@ class _HelpFormState extends State<HelpForm> {
                                       MaterialStateProperty.all(Colors.cyan),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(left: 5),
+                                  margin: const EdgeInsets.only(left: 5),
                                   child: Text(
                                     "Hospital Beds",
                                     style: GoogleFonts.lato(
@@ -291,7 +286,7 @@ class _HelpFormState extends State<HelpForm> {
                               ),
                               color: Colors.white,
                             ),
-                            margin: EdgeInsets.only(top: 20),
+                            margin: const EdgeInsets.only(top: 20),
                             child: Row(
                               children: [
                                 Checkbox(
@@ -314,7 +309,7 @@ class _HelpFormState extends State<HelpForm> {
                                       MaterialStateProperty.all(Colors.indigo),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(left: 5),
+                                  margin: const EdgeInsets.only(left: 5),
                                   child: Text(
                                     "Oxygen",
                                     style: GoogleFonts.lato(
@@ -336,7 +331,7 @@ class _HelpFormState extends State<HelpForm> {
                               ),
                               color: Colors.white,
                             ),
-                            margin: EdgeInsets.only(top: 20),
+                            margin: const EdgeInsets.only(top: 20),
                             child: Row(
                               children: [
                                 Checkbox(
@@ -358,7 +353,7 @@ class _HelpFormState extends State<HelpForm> {
                                       MaterialStateProperty.all(Colors.orange),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(left: 5),
+                                  margin: const EdgeInsets.only(left: 5),
                                   child: Text(
                                     "Medicine",
                                     style: GoogleFonts.lato(
@@ -380,7 +375,7 @@ class _HelpFormState extends State<HelpForm> {
                               ),
                               color: Colors.white,
                             ),
-                            margin: EdgeInsets.only(top: 20),
+                            margin: const EdgeInsets.only(top: 20),
                             child: Row(
                               children: [
                                 Checkbox(
@@ -402,7 +397,7 @@ class _HelpFormState extends State<HelpForm> {
                                       MaterialStateProperty.all(Colors.teal),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(left: 5),
+                                  margin: const EdgeInsets.only(left: 5),
                                   child: Text(
                                     "Food",
                                     style: GoogleFonts.lato(
@@ -468,7 +463,7 @@ class _HelpFormState extends State<HelpForm> {
                               ),
                               color: Colors.white,
                             ),
-                            margin: EdgeInsets.only(top: 20),
+                            margin: const EdgeInsets.only(top: 20),
                             child: Column(
                               children: [
                                 Row(
@@ -492,7 +487,7 @@ class _HelpFormState extends State<HelpForm> {
                                           Colors.deepOrange),
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(left: 5),
+                                      margin: const EdgeInsets.only(left: 5),
                                       child: Text(
                                         "Blood",
                                         style: GoogleFonts.lato(
@@ -556,10 +551,14 @@ class _HelpFormState extends State<HelpForm> {
                                   color: Colors.blue[100],
                                 ),
                               ),
-                              selectedItemStyle: GoogleFonts.lato(),
+                              selectedItemStyle: GoogleFonts.lato(
+                                fontSize: SizeConfig.safeBlockHorizontal * 3.5,
+                              ),
                               dropdownHeadingStyle:
                                   GoogleFonts.lato(color: Colors.white),
-                              dropdownItemStyle: GoogleFonts.lato(),
+                              dropdownItemStyle: GoogleFonts.lato(
+                                fontSize: SizeConfig.safeBlockHorizontal * 3.5,
+                              ),
                               flagState: CountryFlag.DISABLE,
                               onCountryChanged: (value) {
                                 print(value);
@@ -584,7 +583,7 @@ class _HelpFormState extends State<HelpForm> {
                           color: Colors.green[100],
                         ),
                       ),
-                      margin: EdgeInsets.only(top: 30),
+                      margin: const EdgeInsets.only(top: 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -644,7 +643,7 @@ class _HelpFormState extends State<HelpForm> {
                           color: Colors.red[100],
                         ),
                       ),
-                      margin: EdgeInsets.only(top: 30),
+                      margin: const EdgeInsets.only(top: 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -704,7 +703,7 @@ class _HelpFormState extends State<HelpForm> {
                           color: Colors.indigo[100],
                         ),
                       ),
-                      margin: EdgeInsets.only(top: 30),
+                      margin: const EdgeInsets.only(top: 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -756,7 +755,7 @@ class _HelpFormState extends State<HelpForm> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 30),
+                      margin: const EdgeInsets.only(top: 30),
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
@@ -774,7 +773,7 @@ class _HelpFormState extends State<HelpForm> {
                               EdgeInsets.all(15),
                             ),
                             backgroundColor: MaterialStateProperty.all(
-                              Color.fromRGBO(26, 99, 209, 1),
+                              const Color.fromRGBO(26, 99, 209, 1),
                             ),
                             textStyle: MaterialStateProperty.all(
                               GoogleFonts.lato(
