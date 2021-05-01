@@ -5,6 +5,7 @@ import 'package:covid_help/models/service_model.dart';
 import 'package:covid_help/screens/details.dart';
 import 'package:covid_help/screens/form.dart';
 import 'package:covid_help/screens/posts.dart';
+import 'package:covid_help/widgets/sizeConfig.dart';
 import 'package:csc_picker/csc_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -14,8 +15,10 @@ import 'package:google_fonts/google_fonts.dart';
 class HomeScreen extends StatelessWidget {
   final ServiceController serviceController = Get.put(ServiceController());
   final AuthController authController = Get.find<AuthController>();
+
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -59,15 +62,16 @@ class HomeScreen extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey[300],
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                          )
-                        ]),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey[300],
+                          spreadRadius: 1,
+                          blurRadius: 5,
+                        )
+                      ],
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -75,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                           child: Text(
                             "Select your location",
                             style: GoogleFonts.lato(
-                              fontSize: 18,
+                              fontSize: SizeConfig.safeBlockHorizontal * 4.2,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
@@ -88,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(5),
                               color: Colors.white,
                               border: Border.all(
-                                color: Colors.black54,
+                                color: Color.fromRGBO(26, 99, 209, 1),
                               ),
                             ),
                             disabledDropdownDecoration: BoxDecoration(
@@ -97,8 +101,8 @@ class HomeScreen extends StatelessWidget {
                             ),
                             selectedItemStyle: GoogleFonts.lato(),
                             dropdownHeadingStyle:
-                                GoogleFonts.nunito(color: Colors.white),
-                            dropdownItemStyle: GoogleFonts.nunito(),
+                                GoogleFonts.lato(color: Colors.white),
+                            dropdownItemStyle: GoogleFonts.lato(),
                             flagState: CountryFlag.DISABLE,
                             onCountryChanged: (value) {
                               print(value);
@@ -128,8 +132,8 @@ class HomeScreen extends StatelessWidget {
                               ),
                               textStyle: MaterialStateProperty.all(
                                 GoogleFonts.lato(
-                                  decoration: TextDecoration.none,
-                                  fontSize: 15,
+                                  fontSize:
+                                      SizeConfig.safeBlockHorizontal * 3.5,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -140,18 +144,18 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.only(top: 20, left: 5),
                     child: Text(
                       "Filters",
                       style: GoogleFonts.lato(
-                        fontSize: 18,
+                        fontSize: SizeConfig.safeBlockHorizontal * 4.2,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   Container(
-                    height: 150,
+                    height: SizeConfig.blockSizeVertical * 19,
                     margin: EdgeInsets.only(top: 10),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -166,7 +170,7 @@ class HomeScreen extends StatelessWidget {
                                 .selectServiceType(Services.Oxygen);
                           },
                           child: Container(
-                            width: 110,
+                            width: SizeConfig.blockSizeVertical * 14,
                             margin: const EdgeInsets.all(10),
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
@@ -182,7 +186,7 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 Container(
                                   child: Image(
-                                    width: 15,
+                                    height: SizeConfig.blockSizeVertical * 5,
                                     image: AssetImage(
                                       "assets/oxygen-cylinder.png",
                                     ),
@@ -197,16 +201,19 @@ class HomeScreen extends StatelessWidget {
                                         "Oxygen",
                                         style: GoogleFonts.lato(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                          fontSize:
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3.8,
                                           color: Colors.green[900],
                                         ),
                                       ),
                                       Text(
                                         "Donation",
                                         style: GoogleFonts.lato(
-                                          fontSize: 13,
-                                          color:
-                                              Color.fromRGBO(185, 189, 198, 1),
+                                          fontSize:
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3,
+                                          color: Colors.green,
                                         ),
                                       ),
                                     ],
@@ -222,7 +229,7 @@ class HomeScreen extends StatelessWidget {
                                 .selectServiceType(Services.Plasma);
                           },
                           child: Container(
-                            width: 110,
+                            width: SizeConfig.blockSizeVertical * 14,
                             margin: EdgeInsets.only(
                                 right: 10, top: 10, left: 5, bottom: 10),
                             padding: const EdgeInsets.all(10),
@@ -239,7 +246,7 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 Container(
                                   child: Image(
-                                    width: 40,
+                                    height: SizeConfig.blockSizeVertical * 3.6,
                                     image: AssetImage(
                                       "assets/blood-test.png",
                                     ),
@@ -254,16 +261,19 @@ class HomeScreen extends StatelessWidget {
                                         "Plasma",
                                         style: GoogleFonts.lato(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                          fontSize:
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3.8,
                                           color: Colors.red[900],
                                         ),
                                       ),
                                       Text(
                                         "Donation",
                                         style: GoogleFonts.lato(
-                                          fontSize: 13,
-                                          color:
-                                              Color.fromRGBO(185, 189, 198, 1),
+                                          fontSize:
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3,
+                                          color: Colors.red,
                                         ),
                                       ),
                                     ],
@@ -279,7 +289,7 @@ class HomeScreen extends StatelessWidget {
                                 .selectServiceType(Services.Ambulance);
                           },
                           child: Container(
-                            width: 110,
+                            width: SizeConfig.blockSizeVertical * 14,
                             margin: EdgeInsets.only(
                                 right: 10, top: 10, left: 5, bottom: 10),
                             padding: const EdgeInsets.all(10),
@@ -296,7 +306,7 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 Container(
                                   child: Image(
-                                    width: 40,
+                                    height: SizeConfig.blockSizeVertical * 3.5,
                                     image: AssetImage(
                                       "assets/emergency.png",
                                     ),
@@ -311,17 +321,19 @@ class HomeScreen extends StatelessWidget {
                                         "Ambulance",
                                         style: GoogleFonts.lato(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                          fontSize:
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3.8,
                                           color: Colors.pink[900],
                                         ),
                                       ),
                                       Text(
                                         "Donation",
                                         style: GoogleFonts.lato(
-                                          fontSize: 13,
-                                          color:
-                                              Color.fromRGBO(185, 189, 198, 1),
-                                        ),
+                                            fontSize:
+                                                SizeConfig.safeBlockHorizontal *
+                                                    3,
+                                            color: Colors.pink),
                                       ),
                                     ],
                                   ),
@@ -336,7 +348,7 @@ class HomeScreen extends StatelessWidget {
                                 .selectServiceType(Services.Medicine);
                           },
                           child: Container(
-                            width: 110,
+                            width: SizeConfig.blockSizeVertical * 14,
                             margin: EdgeInsets.only(
                                 right: 10, top: 10, left: 5, bottom: 10),
                             padding: const EdgeInsets.all(10),
@@ -353,7 +365,7 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 Container(
                                   child: Image(
-                                    width: 40,
+                                    height: SizeConfig.blockSizeVertical * 3,
                                     image: AssetImage(
                                       "assets/pills-tablets.png",
                                     ),
@@ -368,16 +380,19 @@ class HomeScreen extends StatelessWidget {
                                         "Medicine",
                                         style: GoogleFonts.lato(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                          fontSize:
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3.8,
                                           color: Colors.blue[900],
                                         ),
                                       ),
                                       Text(
                                         "Donation",
                                         style: GoogleFonts.lato(
-                                          fontSize: 13,
-                                          color:
-                                              Color.fromRGBO(185, 189, 198, 1),
+                                          fontSize:
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3,
+                                          color: Colors.blue,
                                         ),
                                       ),
                                     ],
@@ -392,7 +407,7 @@ class HomeScreen extends StatelessWidget {
                             serviceController.selectServiceType(Services.Food);
                           },
                           child: Container(
-                            width: 110,
+                            width: SizeConfig.blockSizeVertical * 14,
                             margin: EdgeInsets.only(
                                 right: 10, top: 10, left: 5, bottom: 10),
                             padding: const EdgeInsets.all(10),
@@ -407,12 +422,10 @@ class HomeScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Container(
-                                  child: Image(
-                                    width: 40,
-                                    image: AssetImage(
-                                      "assets/vegetarian-food.png",
-                                    ),
+                                Image(
+                                  height: SizeConfig.blockSizeVertical * 3.5,
+                                  image: AssetImage(
+                                    "assets/vegetarian-food.png",
                                   ),
                                 ),
                                 Container(
@@ -424,16 +437,19 @@ class HomeScreen extends StatelessWidget {
                                         "Food",
                                         style: GoogleFonts.lato(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                          fontSize:
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3.8,
                                           color: Colors.teal[900],
                                         ),
                                       ),
                                       Text(
                                         "Donation",
                                         style: GoogleFonts.lato(
-                                          fontSize: 13,
-                                          color:
-                                              Color.fromRGBO(185, 189, 198, 1),
+                                          fontSize:
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3,
+                                          color: Colors.teal,
                                         ),
                                       ),
                                     ],
@@ -448,7 +464,7 @@ class HomeScreen extends StatelessWidget {
                             serviceController.selectServiceType(Services.Blood);
                           },
                           child: Container(
-                            width: 110,
+                            width: SizeConfig.blockSizeVertical * 14,
                             margin: EdgeInsets.only(
                                 right: 10, top: 10, left: 5, bottom: 10),
                             padding: const EdgeInsets.all(10),
@@ -463,12 +479,10 @@ class HomeScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Container(
-                                  child: Image(
-                                    width: 40,
-                                    image: AssetImage(
-                                      "assets/donate-donation.png",
-                                    ),
+                                Image(
+                                  height: SizeConfig.blockSizeVertical * 4,
+                                  image: AssetImage(
+                                    "assets/donate-donation.png",
                                   ),
                                 ),
                                 Container(
@@ -480,16 +494,19 @@ class HomeScreen extends StatelessWidget {
                                         "Blood",
                                         style: GoogleFonts.lato(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                          fontSize:
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3.8,
                                           color: Colors.red[900],
                                         ),
                                       ),
                                       Text(
                                         "Donation",
                                         style: GoogleFonts.lato(
-                                          fontSize: 13,
-                                          color:
-                                              Color.fromRGBO(185, 189, 198, 1),
+                                          fontSize:
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3,
+                                          color: Colors.red,
                                         ),
                                       ),
                                     ],
@@ -503,11 +520,11 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.only(top: 20, left: 5),
                     child: Text(
                       "Search Results",
                       style: GoogleFonts.lato(
-                        fontSize: 18,
+                        fontSize: SizeConfig.safeBlockHorizontal * 4.2,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
@@ -548,7 +565,7 @@ class HomeScreen extends StatelessWidget {
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: GoogleFonts.lato(
-                                fontSize: 22,
+                                fontSize: SizeConfig.safeBlockHorizontal * 5.5,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w800,
                               ),
@@ -575,16 +592,20 @@ class HomeScreen extends StatelessWidget {
                                         child: Text(
                                           "City :",
                                           style: GoogleFonts.lato(
-                                            fontSize: 16,
+                                            fontSize:
+                                                SizeConfig.safeBlockHorizontal *
+                                                    3.7,
                                             color: Colors.white,
                                           ),
                                         ),
                                       ),
                                       Container(
                                         child: Text(
-                                          " ${result.city.capitalizeFirst}",
+                                          "\t\t${result.city.capitalizeFirst}",
                                           style: GoogleFonts.lato(
-                                            fontSize: 16,
+                                            fontSize:
+                                                SizeConfig.safeBlockHorizontal *
+                                                    3.8,
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -607,7 +628,9 @@ class HomeScreen extends StatelessWidget {
                                         child: Text(
                                           "Type :",
                                           style: GoogleFonts.lato(
-                                            fontSize: 16,
+                                            fontSize:
+                                                SizeConfig.safeBlockHorizontal *
+                                                    3.7,
                                             color: Colors.white,
                                             //fontWeight: FontWeight.bold,
                                           ),
@@ -616,10 +639,12 @@ class HomeScreen extends StatelessWidget {
                                       Flexible(
                                         child: Container(
                                           child: Text(
-                                            "\t${result.serviceType.map((e) => convert(e))}",
+                                            "\t\t${result.serviceType.map((e) => convert(e))}",
                                             maxLines: 1,
                                             style: GoogleFonts.lato(
-                                              fontSize: 16,
+                                              fontSize: SizeConfig
+                                                      .safeBlockHorizontal *
+                                                  3.8,
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -638,14 +663,15 @@ class HomeScreen extends StatelessWidget {
                               GestureDetector(
                                 onTap: () {
                                   Get.to(() => Details(
-                                      name: result.name,
-                                      city: result.city,
-                                      phoneNumber: result.phoneNumber,
-                                      donationType: result.serviceType
-                                          .map((e) => convert(e))
-                                          .toList(),
-                                      moreDetail: result.moreDetail,
-                                      postDateTime: result.postDateTime,));
+                                        name: result.name,
+                                        city: result.city,
+                                        phoneNumber: result.phoneNumber,
+                                        donationType: result.serviceType
+                                            .map((e) => convert(e))
+                                            .toList(),
+                                        moreDetail: result.moreDetail,
+                                        postDateTime: result.postDateTime,
+                                      ));
                                 },
                                 child: Container(
                                   padding: const EdgeInsets.all(10),
@@ -657,7 +683,8 @@ class HomeScreen extends StatelessWidget {
                                   child: Text(
                                     "Read more",
                                     style: GoogleFonts.lato(
-                                      fontSize: 14,
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.4,
                                       color: Colors.black87,
                                       fontWeight: FontWeight.bold,
                                     ),
