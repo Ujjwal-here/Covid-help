@@ -184,6 +184,7 @@ class Posts extends StatelessWidget {
                               ),
                             ),
                           ),
+                          
                           GestureDetector(
                             onTap: () {
                               Get.to(() => Details(
@@ -195,7 +196,8 @@ class Posts extends StatelessWidget {
                                       .toList(),
                                   moreDetail: result.moreDetail,
                                   postDateTime: result.postDateTime,
-                                  link: result.link));
+                                  link: result.link,
+                                  serviceUid: result.serviceUid,));
                             },
                             child: Container(
                               padding: const EdgeInsets.all(10),

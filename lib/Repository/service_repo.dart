@@ -83,4 +83,20 @@ class ServiceRepo {
        Get.snackbar("Something Went Wrong", "Please Try Again!");
     }
   }
+
+  deleteService(String uid)async{
+    try {
+        await _firestore
+                      .collection("users")
+                      .doc(_authController.user.uid)
+                      .collection("services")
+                      .doc(uid)
+                      .delete();
+        await _firestore.collection("services").doc(uid).delete();
+        return;              
+    } catch (e) {
+      Get.snackbar("Something Went Wrong", "Please Try Again!");
+    }
+  }
+
 }

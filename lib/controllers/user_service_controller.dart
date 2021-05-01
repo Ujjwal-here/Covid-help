@@ -13,6 +13,7 @@ class UserServicesController extends GetxController {
 
   Rx<bool> loading = false.obs;
   Rx<bool> noResult = false.obs;
+  Rx<bool> deleteLoading = false.obs;
 
     @override
     onInit(){
@@ -45,6 +46,12 @@ class UserServicesController extends GetxController {
     else{
       noResult.value = false;
     }
+  }
+
+  deleteService(String uid)async{
+    deleteLoading.toggle();
+    await _serviceRepo.deleteService(uid);
+    deleteLoading.toggle();
   }
 
 }

@@ -231,7 +231,7 @@ class HomeScreen extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            "Oxygen",
+                                            "Oxygen Cylinders",
                                             style: GoogleFonts.lato(
                                               fontWeight: FontWeight.bold,
                                               fontSize: SizeConfig
@@ -262,7 +262,7 @@ class HomeScreen extends StatelessWidget {
                                   border: Border.all(
                                     color: controller.isBedSelected.value
                                         ? Colors.black
-                                        : Colors.green[100],
+                                        : Colors.purple[100],
                                   ),
                                 ),
                                 child: Column(
@@ -758,6 +758,40 @@ class HomeScreen extends StatelessWidget {
                                           ),
                                         ),
                                       ),
+                                      
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        child: Text(
+                                          "Phone Number :\t\t\t",
+                                          style: GoogleFonts.lato(
+                                            fontSize:
+                                                SizeConfig.safeBlockHorizontal *
+                                                    3.7,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        child: Text(
+                                          "\t\t${result.phoneNumber}",
+                                          style: GoogleFonts.lato(
+                                            fontSize:
+                                                SizeConfig.safeBlockHorizontal *
+                                                    3.8,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -765,7 +799,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               GestureDetector(
                                 onTap: () {
@@ -779,6 +813,7 @@ class HomeScreen extends StatelessWidget {
                                         moreDetail: result.moreDetail,
                                         postDateTime: result.postDateTime,
                                         link: result.link,
+                                        serviceUid: result.serviceUid,
                                       ));
                                 },
                                 child: Container(
@@ -801,6 +836,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ],
                           ),
+                          
                         ],
                       ),
                     );

@@ -87,7 +87,7 @@ class _HelpFormState extends State<HelpForm> {
                   padding: const EdgeInsets.all(30),
                   children: [
                     Text(
-                      "Covid Help Resource",
+                      "Covid Help Resources",
                       style: GoogleFonts.lato(
                         fontWeight: FontWeight.w900,
                         fontSize: SizeConfig.safeBlockHorizontal * 6,
@@ -250,7 +250,7 @@ class _HelpFormState extends State<HelpForm> {
                                     child: Container(
                                       margin: EdgeInsets.only(left: 5),
                                       child: Text(
-                                        "Plasma",
+                                        "Plasma Donation",
                                         style: GoogleFonts.lato(
                                           //fontWeight: FontWeight.bold,
                                           fontSize:
@@ -370,7 +370,7 @@ class _HelpFormState extends State<HelpForm> {
                                   Container(
                                     margin: EdgeInsets.only(left: 5),
                                     child: Text(
-                                      "Oxygen",
+                                      "Oxygen Cylinders",
                                       style: GoogleFonts.lato(
                                         //fontWeight: FontWeight.bold,
                                         fontSize:
@@ -550,7 +550,7 @@ class _HelpFormState extends State<HelpForm> {
                                   Container(
                                     margin: EdgeInsets.only(left: 5),
                                     child: Text(
-                                      "Ambulance Service",
+                                      "Ambulance Services",
                                       style: GoogleFonts.lato(
                                         //fontWeight: FontWeight.bold,
                                         fontSize:
@@ -612,7 +612,7 @@ class _HelpFormState extends State<HelpForm> {
                                       Container(
                                         margin: EdgeInsets.only(left: 5),
                                         child: Text(
-                                          "Blood",
+                                          "Blood Donation",
                                           style: GoogleFonts.lato(
                                             //fontWeight: FontWeight.bold,
                                             fontSize:
