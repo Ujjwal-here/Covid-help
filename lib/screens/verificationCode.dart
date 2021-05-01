@@ -5,7 +5,12 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class VerifCode extends StatelessWidget {
-  final FocusNode focusNode = FocusNode();
+  final FocusNode focusNode1 = FocusNode();
+  final FocusNode focusNode2 = FocusNode();
+  final FocusNode focusNode3 = FocusNode();
+  final FocusNode focusNode4 = FocusNode();
+  final FocusNode focusNode5 = FocusNode();
+  final FocusNode focusNode6 = FocusNode();
   @override
   Widget build(BuildContext context) {
     AuthController authController = Get.find<AuthController>();
@@ -73,6 +78,7 @@ class VerifCode extends StatelessWidget {
                               color: Colors.black,
                               fontWeight: FontWeight.w900,
                             ),
+                            focusNode: focusNode1,
                             decoration: InputDecoration(
                               counterText: "",
                               enabledBorder: OutlineInputBorder(
@@ -105,6 +111,7 @@ class VerifCode extends StatelessWidget {
                               color: Colors.black,
                               fontWeight: FontWeight.w900,
                             ),
+                            focusNode: focusNode2,
                             decoration: InputDecoration(
                               counterText: "",
                               enabledBorder: OutlineInputBorder(
@@ -137,7 +144,7 @@ class VerifCode extends StatelessWidget {
                               color: Colors.black,
                               fontWeight: FontWeight.w900,
                             ),
-                            focusNode: focusNode,
+                            focusNode: focusNode3,
                             decoration: InputDecoration(
                               counterText: "",
                               enabledBorder: OutlineInputBorder(
@@ -170,6 +177,7 @@ class VerifCode extends StatelessWidget {
                               color: Colors.black,
                               fontWeight: FontWeight.w900,
                             ),
+                            focusNode: focusNode4,
                             decoration: InputDecoration(
                               counterText: "",
                               enabledBorder: OutlineInputBorder(
@@ -202,6 +210,7 @@ class VerifCode extends StatelessWidget {
                               color: Colors.black,
                               fontWeight: FontWeight.w900,
                             ),
+                            focusNode: focusNode5,
                             decoration: InputDecoration(
                               counterText: "",
                               enabledBorder: OutlineInputBorder(
@@ -229,6 +238,7 @@ class VerifCode extends StatelessWidget {
                             textAlign: TextAlign.center,
                             textAlignVertical: TextAlignVertical.center,
                             keyboardType: TextInputType.phone,
+                            focusNode: focusNode6,
                             style: GoogleFonts.lato(
                               fontSize: SizeConfig.safeBlockHorizontal * 6,
                               color: Colors.black,
@@ -259,7 +269,12 @@ class VerifCode extends StatelessWidget {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
-                          focusNode.unfocus();
+                          focusNode1.unfocus();
+                          focusNode2.unfocus();
+                          focusNode3.unfocus();
+                          focusNode4.unfocus();
+                          focusNode5.unfocus();
+                          focusNode6.unfocus();
                           authController.manualPart();
                         },
                         child: Text("Verify"),
