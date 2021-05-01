@@ -38,7 +38,14 @@ class Posts extends StatelessWidget {
           }
           if (controller.noResult.value) {
             return Center(
-              child: Text("You have not added any service Add to show here"),
+              child: Text(
+                "You have not added any service \n Add to show here",
+                style: GoogleFonts.lato(
+                  fontSize: SizeConfig.safeBlockHorizontal * 4.5,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
             );
           }
           return ListView.builder(
