@@ -119,6 +119,7 @@ class ServiceController extends GetxController{
       upvotes: e["upvotes"],
       moreDetail: e["moreDetail"],
       postDateTime: (e["timeOfUpload"]as Timestamp).toDate(),
+      link: e["link"]
       );}).toList().obs;
 
     print(_services);
@@ -150,7 +151,8 @@ class ServiceController extends GetxController{
       phoneNumber: e["phoneNumber"], 
       upvotes: e["upvotes"],
       moreDetail: e["moreDetail"],
-      postDateTime: (e["timeOfUpload"]as Timestamp).toDate()
+      postDateTime: (e["timeOfUpload"]as Timestamp).toDate(),
+      link: e["link"]
       );}).toList().obs;
 
     print(_services);

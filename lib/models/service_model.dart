@@ -13,6 +13,7 @@ class ServiceModel extends Equatable {
   final String moreDetail;
   final String serviceUid;
   final DateTime postDateTime;
+  final String link;
 
   ServiceModel(
       {@required this.serviceType,
@@ -23,7 +24,8 @@ class ServiceModel extends Equatable {
       @required this.name,
       @required this.phoneNumber,
       @required this.upvotes,
-      this.moreDetail});
+      this.moreDetail,
+      this.link});
 
   @override
   List<Object> get props => [serviceType, name, city, state, phoneNumber];
@@ -36,7 +38,8 @@ class ServiceModel extends Equatable {
         name: ds.data()["name"],
         phoneNumber: ds.data()["phoneNumber"],
         upvotes: ds.data()["upvotes"],
-        postDateTime: ds.data()["timeOfUpload"]
+        postDateTime: ds.data()["timeOfUpload"],
+        link: ds.data()["link"]
         );
   }
 }

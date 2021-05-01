@@ -13,9 +13,6 @@ class VerifCode extends StatelessWidget {
         builder: (controller){
           return Stack(
           children: [
-            Opacity(opacity: controller.loading.value?1:0,
-            child: Center(child: CircularProgressIndicator(),),
-            ),
             Opacity(
               opacity: controller.loading.value?0.5:1,
               child: ListView(
@@ -261,6 +258,9 @@ class VerifCode extends StatelessWidget {
                 )
               ],
                       ),
+            ),
+            Opacity(opacity: controller.loading.value?1:0,
+            child: Center(child: CircularProgressIndicator(),),
             ),
           ]);
         },

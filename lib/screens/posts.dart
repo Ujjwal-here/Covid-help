@@ -150,7 +150,7 @@ class Posts extends StatelessWidget {
                             other: "",
                             link: "",
                             phoneNumber: result.phoneNumber,
-                            detail: result.moreDetail,                   
+                            detail: result.moreDetail,               
                             ));
                         },
                         child: Container(
@@ -180,7 +180,8 @@ class Posts extends StatelessWidget {
                                           .map((e) => convert(e))
                                           .toList(),
                                       moreDetail: result.moreDetail,
-                                      postDateTime: result.postDateTime,));
+                                      postDateTime: result.postDateTime,
+                                      link: result.link));
                         },
                         child: Container(
                           padding: const EdgeInsets.all(10),

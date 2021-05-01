@@ -656,7 +656,8 @@ class HomeScreen extends StatelessWidget {
                                           .map((e) => convert(e))
                                           .toList(),
                                       moreDetail: result.moreDetail,
-                                      postDateTime: result.postDateTime,));
+                                      postDateTime: result.postDateTime,
+                                      link: result.link,));
                                 },
                                 child: Container(
                                   padding: const EdgeInsets.all(10),
