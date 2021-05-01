@@ -20,8 +20,34 @@ class HomeScreen extends StatelessWidget {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
+        title: Container(
+          margin: EdgeInsets.only(left: 10),
+          child: Row(
+            children: [
+              Text(
+                "Co",
+                style: GoogleFonts.lato(
+                  fontSize: SizeConfig.safeBlockHorizontal * 6,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 0.5,
+                ),
+              ),
+              Text(
+                "Help",
+                style: GoogleFonts.lato(
+                  fontSize: SizeConfig.safeBlockHorizontal * 6,
+                  color: Color.fromRGBO(26, 99, 209, 1),
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 0.5,
+                ),
+              ),
+            ],
+          ),
+        ),
         elevation: 0,
         backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
         actions: [
           GestureDetector(
             onTap: () {
@@ -33,14 +59,19 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(right: 30),
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Color.fromRGBO(239, 92, 54, 1),
+            ),
+            margin: const EdgeInsets.only(right: 20),
             child: GestureDetector(
               onTap: () {
                 Get.to(() => Posts());
               },
               child: Icon(
                 Icons.post_add,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
           ),
@@ -582,9 +613,20 @@ class HomeScreen extends StatelessWidget {
               if (controller.noResult.value) {
                 print("This is it");
                 return SliverToBoxAdapter(
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 30),
                     child: Center(
-                  child: Text("No Result Found!"),
-                ));
+                      child: Text(
+                        "No Result Found!",
+                        style: GoogleFonts.lato(
+                          fontWeight: FontWeight.w900,
+                          fontSize: SizeConfig.safeBlockHorizontal * 7,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                );
               }
 
               if (serviceController.isLoading.value) {
@@ -763,10 +805,10 @@ class HomeScreen extends StatelessWidget {
                 editMode: false,
               ));
         },
-        backgroundColor: Colors.yellow,
+        backgroundColor: Color.fromRGBO(239, 92, 54, 1),
         child: Icon(
           Icons.add,
-          color: Colors.black,
+          color: Colors.white,
         ),
       ),
     );

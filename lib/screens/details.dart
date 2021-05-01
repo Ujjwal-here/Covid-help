@@ -34,15 +34,44 @@ class Details extends StatelessWidget {
     SizeConfig().init(context);
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Row(
+            children: [
+              Text(
+                "Co",
+                style: GoogleFonts.lato(
+                  fontSize: SizeConfig.safeBlockHorizontal * 6,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 0.5,
+                ),
+              ),
+              Text(
+                "Help",
+                style: GoogleFonts.lato(
+                  fontSize: SizeConfig.safeBlockHorizontal * 6,
+                  color: Color.fromRGBO(26, 99, 209, 1),
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 0.5,
+                ),
+              ),
+            ],
+          ),
+          elevation: 0,
+          backgroundColor: Colors.white,
+          iconTheme: IconThemeData(color: Colors.black),
+        ),
         backgroundColor: Color.fromRGBO(244, 246, 248, 1),
         body: ListView(
           padding: const EdgeInsets.all(20),
           children: [
             Container(
               padding: EdgeInsets.symmetric(vertical: 15),
-              margin: const EdgeInsets.only(top: 30),
               decoration: BoxDecoration(
-                color: Color.fromRGBO(54, 121, 218, 1),
+                gradient: LinearGradient(colors: [
+                  Color.fromRGBO(214, 61, 22, 1),
+                  Color.fromRGBO(239, 92, 54, 1),
+                ]),
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Row(
@@ -50,7 +79,7 @@ class Details extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Image(
-                    image: AssetImage("assets/doctor.png"),
+                    image: AssetImage("assets/Doctor.png"),
                     height: SizeConfig.blockSizeVertical * 15,
                   ),
                   Column(
@@ -101,7 +130,7 @@ class Details extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               margin: const EdgeInsets.only(top: 30),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color.fromRGBO(54, 121, 218, 1),
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
@@ -118,7 +147,7 @@ class Details extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.lato(
                         fontSize: SizeConfig.safeBlockHorizontal * 6,
-                        color: Colors.black,
+                        color: Colors.white,
                         fontWeight: FontWeight.w900,
                       ),
                     ),
@@ -129,196 +158,189 @@ class Details extends StatelessWidget {
                       "${daysToString(postDateTime.difference(DateTime.now()).inDays)}",
                       style: GoogleFonts.lato(
                         fontSize: SizeConfig.safeBlockHorizontal * 3.5,
-                        color: Colors.grey,
+                        color: Colors.white70,
                       ),
                     ),
                   ),
-                  Divider(),
                   Container(
                     margin: const EdgeInsets.only(top: 20),
-                    color: Color.fromRGBO(244, 246, 248, 1),
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 20, horizontal: 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.white12,
+                    ),
+                    child: Column(
                       children: [
-                        Container(
-                          child: Text(
-                            "Phone :",
-                            style: GoogleFonts.lato(
-                              fontSize: SizeConfig.safeBlockHorizontal * 4,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Flexible(
-                          child: Container(
-                            child: Text(
-                              phoneNumber,
-                              style: GoogleFonts.lato(
-                                fontSize: SizeConfig.safeBlockHorizontal * 3.8,
-                                color: Color.fromRGBO(26, 99, 209, 1),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              child: Text(
+                                "Phone :\t\t",
+                                style: GoogleFonts.lato(
+                                  fontSize: SizeConfig.safeBlockHorizontal * 4,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
+                            Flexible(
+                              child: Container(
+                                child: Text(
+                                  phoneNumber,
+                                  style: GoogleFonts.lato(
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 3.8,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Divider(color: Colors.white60),
+                        Container(
+                          margin: const EdgeInsets.only(top: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "City :",
+                                  style: GoogleFonts.nunito(
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 4,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Flexible(
+                                child: Container(
+                                  child: Text(
+                                    city == null ? "Not Provided" : city,
+                                    style: GoogleFonts.lato(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.8,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Divider(color: Colors.white60),
+                        Container(
+                          margin: const EdgeInsets.only(top: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "Donation type :",
+                                  style: GoogleFonts.lato(
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 4,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Flexible(
+                                child: Container(
+                                  child: Text(
+                                    donationType == null
+                                        ? "Not Provided"
+                                        : "${donationType.map((e) => (e))}",
+                                    style: GoogleFonts.lato(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.8,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Divider(color: Colors.white60),
+                        Container(
+                          margin: const EdgeInsets.only(top: 20),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "More details :\t\t",
+                                  style: GoogleFonts.lato(
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 4,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Flexible(
+                                child: Container(
+                                  child: Text(
+                                    moreDetail == null
+                                        ? "Not Provided"
+                                        : moreDetail,
+                                    style: GoogleFonts.lato(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.8,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Divider(color: Colors.white60),
+                        Container(
+                          margin: const EdgeInsets.only(top: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "Link :\t\t",
+                                  style: GoogleFonts.lato(
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 4,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Flexible(
+                                child: Container(
+                                  child: Text(
+                                    link == null ? "Not Provided" : link,
+                                    style: GoogleFonts.lato(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.8,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  Container(
-                    color: Color.fromRGBO(244, 246, 248, 1),
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                    margin: const EdgeInsets.only(top: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "City :",
-                            style: GoogleFonts.nunito(
-                              fontSize: SizeConfig.safeBlockHorizontal * 4,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Flexible(
-                          child: Container(
-                            child: Text(
-                              city == null ? "Not Provided" : city,
-                              style: GoogleFonts.lato(
-                                fontSize: SizeConfig.safeBlockHorizontal * 3.8,
-                                color: Color.fromRGBO(26, 99, 209, 1),
-                                //fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    color: Color.fromRGBO(244, 246, 248, 1),
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                    margin: const EdgeInsets.only(top: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "Donation type :",
-                            style: GoogleFonts.lato(
-                              fontSize: SizeConfig.safeBlockHorizontal * 4,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Flexible(
-                          child: Container(
-                            child: Text(
-                              donationType == null
-                                  ? "Not Provided"
-                                  : "${donationType.map((e) => (e))}",
-                              style: GoogleFonts.lato(
-                                fontSize: SizeConfig.safeBlockHorizontal * 3.8,
-                                color: Color.fromRGBO(26, 99, 209, 1),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    color: Color.fromRGBO(244, 246, 248, 1),
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                    margin: const EdgeInsets.only(top: 20),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "More details :\t",
-                            style: GoogleFonts.lato(
-                              fontSize: SizeConfig.safeBlockHorizontal * 4,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Flexible(
-                          child: Container(
-                            child: Text(
-                              moreDetail == null ? "Not Provided" : moreDetail,
-                              style: GoogleFonts.lato(
-                                fontSize: SizeConfig.safeBlockHorizontal * 3.8,
-                                color: Color.fromRGBO(26, 99, 209, 1),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    color: Color.fromRGBO(244, 246, 248, 1),
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                    margin: const EdgeInsets.only(top: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "Link :",
-                            style: GoogleFonts.lato(
-                              fontSize: SizeConfig.safeBlockHorizontal * 4,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Flexible(
-                          child: Container(
-                            child: Text(
-                              link == null ? "Not Provided" : link,
-                              style: GoogleFonts.lato(
-                                fontSize: SizeConfig.safeBlockHorizontal * 3.8,
-                                color: Color.fromRGBO(26, 99, 209, 1),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  )
                 ],
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 30),
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text("Back"),
-                style: ButtonStyle(
-                  padding: MaterialStateProperty.all(
-                    EdgeInsets.all(15),
-                  ),
-                  backgroundColor: MaterialStateProperty.all(
-                    Color.fromRGBO(26, 99, 209, 1),
-                  ),
-                  textStyle: MaterialStateProperty.all(
-                    GoogleFonts.lato(
-                      decoration: TextDecoration.none,
-                      fontSize: SizeConfig.safeBlockHorizontal * 3.5,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
               ),
             ),
           ],
