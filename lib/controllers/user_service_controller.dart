@@ -33,7 +33,8 @@ class UserServicesController extends GetxController {
       name: e["name"], 
       phoneNumber: e["phoneNumber"], 
       upvotes: e["upvotes"],
-      moreDetail: e["moreDetail"]
+      moreDetail: e["moreDetail"],
+      postDateTime: e["timeOfUpload"]
       );}).toList().obs;
     loading.toggle();
     print(_services);

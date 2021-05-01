@@ -642,7 +642,8 @@ class HomeScreen extends StatelessWidget {
                                       donationType: result.serviceType
                                           .map((e) => convert(e))
                                           .toList(),
-                                      moreDetail: result.moreDetail));
+                                      moreDetail: result.moreDetail,
+                                      postDateTime: result.postDateTime,));
                                 },
                                 child: Container(
                                   padding: const EdgeInsets.all(10),

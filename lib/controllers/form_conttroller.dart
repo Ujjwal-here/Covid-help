@@ -71,6 +71,7 @@ class FormController extends GetxController{
       return;
     }
     loading.toggle();
+    var postDateTime = DateTime.now();
       Map<String,dynamic> form = {
         "name":nameController.text.trim(),
         "city":_city,
@@ -78,7 +79,8 @@ class FormController extends GetxController{
         "phoneNumber":phoneNumberController.text.trim(),
         "type":typeOfServices.map((e) => convert(e)).toList(),
         "upvotes":0,
-        "moreDetail":detailController.text.trim()
+        "moreDetail":detailController.text.trim(),
+        "timeOfUpload":postDateTime
       };
     DocumentReference docRef = await serviceRepo.postServices(form);
     await serviceRepo.postServiceInUser(form,docRef.id);
@@ -92,6 +94,7 @@ class FormController extends GetxController{
       return;
     }
     loading.toggle();
+    var postDateTime = DateTime.now();
     Map<String,dynamic> form = {
         "name":nameController.text.trim(),
         "city":_city,
@@ -99,7 +102,8 @@ class FormController extends GetxController{
         "phoneNumber":phoneNumberController.text.trim(),
         "type":typeOfServices.map((e) => convert(e)).toList(),
         "upvotes":0,
-        "moreDetail":detailController.text.trim()
+        "moreDetail":detailController.text.trim(),
+        "timeOfUpload":postDateTime
       };
     try {
      await serviceRepo.editPostService(uid, form); 
