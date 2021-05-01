@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignUp extends StatelessWidget {
+  final FocusNode focusNode = FocusNode();
   @override
   Widget build(BuildContext context) {
     AuthController authController = Get.find<AuthController>();
@@ -62,10 +63,11 @@ class SignUp extends StatelessWidget {
                         textAlignVertical: TextAlignVertical.center,
                         keyboardType: TextInputType.phone,
                         style: GoogleFonts.lato(
-                          fontSize: 20,
+                          fontSize: SizeConfig.safeBlockHorizontal * 5,
                           color: Colors.black,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w900,
                         ),
+                        focusNode: focusNode,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
@@ -93,6 +95,7 @@ class SignUp extends StatelessWidget {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
+                          focusNode.unfocus();
                           authController.signIn();
                         },
                         child: Text("Next"),

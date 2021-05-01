@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class VerifCode extends StatelessWidget {
+  final FocusNode focusNode = FocusNode();
   @override
   Widget build(BuildContext context) {
     AuthController authController = Get.find<AuthController>();
@@ -68,11 +69,12 @@ class VerifCode extends StatelessWidget {
                             textAlignVertical: TextAlignVertical.center,
                             keyboardType: TextInputType.phone,
                             style: GoogleFonts.lato(
-                              fontSize: 25,
+                              fontSize: SizeConfig.safeBlockHorizontal * 6,
                               color: Colors.black,
                               fontWeight: FontWeight.w900,
                             ),
                             decoration: InputDecoration(
+                              counterText: "",
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
                                   color: Color.fromRGBO(185, 189, 198, 0.5),
@@ -91,7 +93,7 @@ class VerifCode extends StatelessWidget {
                         ),
                         Container(
                           width: SizeConfig.blockSizeVertical * 5.5,
-                          margin: EdgeInsets.only(top: 30),
+                          margin: const EdgeInsets.only(top: 30),
                           child: TextField(
                             maxLength: 1,
                             controller: authController.otpController2,
@@ -99,11 +101,12 @@ class VerifCode extends StatelessWidget {
                             textAlignVertical: TextAlignVertical.center,
                             keyboardType: TextInputType.phone,
                             style: GoogleFonts.lato(
-                              fontSize: 25,
+                              fontSize: SizeConfig.safeBlockHorizontal * 6,
                               color: Colors.black,
                               fontWeight: FontWeight.w900,
                             ),
                             decoration: InputDecoration(
+                              counterText: "",
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
                                   color: Color.fromRGBO(185, 189, 198, 0.5),
@@ -122,7 +125,7 @@ class VerifCode extends StatelessWidget {
                         ),
                         Container(
                           width: SizeConfig.blockSizeVertical * 5.5,
-                          margin: EdgeInsets.only(top: 30),
+                          margin: const EdgeInsets.only(top: 30),
                           child: TextField(
                             maxLength: 1,
                             controller: authController.otpController3,
@@ -130,11 +133,13 @@ class VerifCode extends StatelessWidget {
                             textAlignVertical: TextAlignVertical.center,
                             keyboardType: TextInputType.phone,
                             style: GoogleFonts.lato(
-                              fontSize: 25,
+                              fontSize: SizeConfig.safeBlockHorizontal * 6,
                               color: Colors.black,
                               fontWeight: FontWeight.w900,
                             ),
+                            focusNode: focusNode,
                             decoration: InputDecoration(
+                              counterText: "",
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
                                   color: Color.fromRGBO(185, 189, 198, 0.5),
@@ -161,11 +166,12 @@ class VerifCode extends StatelessWidget {
                             textAlignVertical: TextAlignVertical.center,
                             keyboardType: TextInputType.phone,
                             style: GoogleFonts.lato(
-                              fontSize: 25,
+                              fontSize: SizeConfig.safeBlockHorizontal * 6,
                               color: Colors.black,
                               fontWeight: FontWeight.w900,
                             ),
                             decoration: InputDecoration(
+                              counterText: "",
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
                                   color: Color.fromRGBO(185, 189, 198, 0.5),
@@ -192,11 +198,12 @@ class VerifCode extends StatelessWidget {
                             textAlignVertical: TextAlignVertical.center,
                             keyboardType: TextInputType.phone,
                             style: GoogleFonts.lato(
-                              fontSize: 25,
+                              fontSize: SizeConfig.safeBlockHorizontal * 6,
                               color: Colors.black,
                               fontWeight: FontWeight.w900,
                             ),
                             decoration: InputDecoration(
+                              counterText: "",
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
                                   color: Color.fromRGBO(185, 189, 198, 0.5),
@@ -223,11 +230,12 @@ class VerifCode extends StatelessWidget {
                             textAlignVertical: TextAlignVertical.center,
                             keyboardType: TextInputType.phone,
                             style: GoogleFonts.lato(
-                              fontSize: 25,
+                              fontSize: SizeConfig.safeBlockHorizontal * 6,
                               color: Colors.black,
                               fontWeight: FontWeight.w900,
                             ),
                             decoration: InputDecoration(
+                              counterText: "",
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
                                   color: Color.fromRGBO(185, 189, 198, 0.5),
@@ -251,6 +259,7 @@ class VerifCode extends StatelessWidget {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
+                          focusNode.unfocus();
                           authController.manualPart();
                         },
                         child: Text("Verify"),

@@ -30,6 +30,10 @@ class HelpForm extends StatefulWidget {
 }
 
 class _HelpFormState extends State<HelpForm> {
+  final FocusNode focusNode1 = FocusNode();
+  final FocusNode focusNode2 = FocusNode();
+  final FocusNode focusNode3 = FocusNode();
+  final FocusNode focusNode4 = FocusNode();
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -42,6 +46,33 @@ class _HelpFormState extends State<HelpForm> {
     ));
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Row(
+            children: [
+              Text(
+                "Co",
+                style: GoogleFonts.lato(
+                  fontSize: SizeConfig.safeBlockHorizontal * 6,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 0.5,
+                ),
+              ),
+              Text(
+                "Help",
+                style: GoogleFonts.lato(
+                  fontSize: SizeConfig.safeBlockHorizontal * 6,
+                  color: Color.fromRGBO(26, 99, 209, 1),
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 0.5,
+                ),
+              ),
+            ],
+          ),
+          elevation: 0,
+          backgroundColor: Colors.white,
+          iconTheme: IconThemeData(color: Colors.black),
+        ),
         body: GetX<FormController>(
           builder: (controller) {
             return Stack(children: [
@@ -56,7 +87,6 @@ class _HelpFormState extends State<HelpForm> {
                   padding: const EdgeInsets.all(30),
                   children: [
                     Container(
-                      margin: EdgeInsets.only(top: 50),
                       child: Text(
                         "Covid Help Resource",
                         style: GoogleFonts.lato(
@@ -115,6 +145,7 @@ class _HelpFormState extends State<HelpForm> {
                                 //fontWeight: FontWeight.bold,
                               ),
                               maxLines: null,
+                              focusNode: focusNode1,
                               decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
@@ -583,6 +614,7 @@ class _HelpFormState extends State<HelpForm> {
                                 //fontWeight: FontWeight.bold,
                               ),
                               maxLines: null,
+                              focusNode: focusNode2,
                               decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
@@ -642,6 +674,7 @@ class _HelpFormState extends State<HelpForm> {
                                 //fontWeight: FontWeight.bold,
                               ),
                               maxLines: null,
+                              focusNode: focusNode3,
                               decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
@@ -701,6 +734,7 @@ class _HelpFormState extends State<HelpForm> {
                                 //fontWeight: FontWeight.bold,
                               ),
                               maxLines: null,
+                              focusNode: focusNode4,
                               decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
@@ -726,6 +760,10 @@ class _HelpFormState extends State<HelpForm> {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
+                          focusNode1.unfocus();
+                          focusNode2.unfocus();
+                          focusNode3.unfocus();
+                          focusNode4.unfocus();
                           widget.editMode
                               ? formController.editForm(widget.uid)
                               : formController.postForm();
@@ -744,31 +782,6 @@ class _HelpFormState extends State<HelpForm> {
                                 fontWeight: FontWeight.bold,
                               ),
                             )),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        child: Text("Back"),
-                        style: ButtonStyle(
-                          padding: MaterialStateProperty.all(
-                            EdgeInsets.all(12),
-                          ),
-                          backgroundColor: MaterialStateProperty.all(
-                            Color.fromRGBO(26, 99, 209, 1),
-                          ),
-                          textStyle: MaterialStateProperty.all(
-                            GoogleFonts.lato(
-                              decoration: TextDecoration.none,
-                              fontSize: SizeConfig.safeBlockHorizontal * 3.5,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
                       ),
                     ),
                   ],
