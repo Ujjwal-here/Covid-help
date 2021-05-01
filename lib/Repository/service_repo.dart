@@ -72,7 +72,12 @@ class ServiceRepo {
   Future<QuerySnapshot> getUserServices()async{
     try {
       print("The User uid is::${_authController.user.uid}");
-      return await _firestore.collection("users").doc(_authController.user.uid).collection("services").get();
+      return await _firestore
+                    .collection("users")
+                    .doc(_authController.user.uid)
+                    .collection("services")
+                    .orderBy("timeOfUpload",descending: true)
+                    .get();
     } catch (e) {
       print(e);
        Get.snackbar("Something Went Wrong", "Please Try Again!");

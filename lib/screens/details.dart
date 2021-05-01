@@ -38,7 +38,7 @@ class Details extends StatelessWidget {
           title: Row(
             children: [
               Text(
-                "Co",
+                "Covid",
                 style: GoogleFonts.lato(
                   fontSize: SizeConfig.safeBlockHorizontal * 6,
                   color: Colors.black,
@@ -77,7 +77,7 @@ class Details extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Image(
-                    image: AssetImage("assets/Doctor.png"),
+                    image: AssetImage("assets/doctor.png"),
                     height: SizeConfig.blockSizeVertical * 15,
                   ),
                   Column(
@@ -85,7 +85,7 @@ class Details extends StatelessWidget {
                     children: [
                       Container(
                         child: Text(
-                          "Stay home",
+                          "Stay Home",
                           style: GoogleFonts.lato(
                             fontWeight: FontWeight.bold,
                             fontSize: SizeConfig.safeBlockHorizontal * 5,
@@ -95,11 +95,11 @@ class Details extends StatelessWidget {
                       ),
                       Container(
                         child: Text(
-                          "Save lives",
+                          "Stay Safe",
                           style: GoogleFonts.lato(
                             fontWeight: FontWeight.bold,
                             fontSize: SizeConfig.safeBlockHorizontal * 4.5,
-                            color: Colors.white70,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -110,12 +110,14 @@ class Details extends StatelessWidget {
                           borderRadius: BorderRadius.circular(5),
                           color: Colors.white,
                         ),
-                        child: Text(
-                          "Wear your mask,\nProtect your family and others",
-                          style: GoogleFonts.lato(
-                            fontWeight: FontWeight.bold,
-                            fontSize: SizeConfig.safeBlockHorizontal * 3.1,
-                            color: Colors.black87,
+                        child: Flexible(
+                          child: Text(
+                            "Wear Mask And \nStop Covid",
+                            style: GoogleFonts.lato(
+                              fontWeight: FontWeight.bold,
+                              fontSize: SizeConfig.safeBlockHorizontal * 3.1,
+                              color: Colors.black87,
+                            ),
                           ),
                         ),
                       )
@@ -206,7 +208,7 @@ class Details extends StatelessWidget {
                             children: [
                               Container(
                                 child: Text(
-                                  "City :",
+                                  "City :\t\t\t",
                                   style: GoogleFonts.nunito(
                                     fontSize:
                                         SizeConfig.safeBlockHorizontal * 4,
@@ -239,7 +241,7 @@ class Details extends StatelessWidget {
                             children: [
                               Container(
                                 child: Text(
-                                  "Donation type :",
+                                  "Donation type :\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
                                   style: GoogleFonts.lato(
                                     fontSize:
                                         SizeConfig.safeBlockHorizontal * 4,
@@ -275,7 +277,7 @@ class Details extends StatelessWidget {
                             children: [
                               Container(
                                 child: Text(
-                                  "More details :\t\t",
+                                  "More details :\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
                                   style: GoogleFonts.lato(
                                     fontSize:
                                         SizeConfig.safeBlockHorizontal * 4,

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:covid_help/Enums/service_enum.dart';
 import 'package:covid_help/Repository/service_repo.dart';
 import 'package:covid_help/models/service_model.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:location/location.dart';
 
@@ -25,6 +26,7 @@ class ServiceController extends GetxController{
   Rx<bool> isAmbulanceSelected = false.obs;
   Rx<bool> isMedicineSelected = false.obs;
   Rx<bool> isFoodSelected = false.obs;
+  Rx<bool> isBedSelected = false.obs;
 
   String _state;
   String _city;
@@ -97,9 +99,13 @@ class ServiceController extends GetxController{
     getServicesByFilter();
   }
 
+  getSnackBar(){
+    Get.snackbar("Alert!", "Please enter a State and a City",colorText: Colors.red,backgroundColor: Colors.white);
+  }
+
   getServices()async{
     if(_city ==null || _state == null){
-      Get.snackbar("Error", "You have to search a state and city");
+      getSnackBar();
       return;
     }
 
@@ -136,7 +142,7 @@ class ServiceController extends GetxController{
     
   getServicesByFilter()async{
     if(_city ==null || _state == null){
-      Get.snackbar("Error", "You have to search a state and city");
+      getSnackBar();
       return;
     }
     isLoading.value = true;

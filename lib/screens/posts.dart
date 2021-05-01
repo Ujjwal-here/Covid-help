@@ -39,7 +39,7 @@ class Posts extends StatelessWidget {
           if (controller.noResult.value) {
             return Center(
               child: Text(
-                "You have not added any service \n Add to show here",
+                "No Resources Are Added. Please Add, If Any. ",
                 style: GoogleFonts.lato(
                   fontSize: SizeConfig.safeBlockHorizontal * 4.5,
                   color: Colors.black,

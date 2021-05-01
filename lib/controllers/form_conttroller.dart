@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:covid_help/Enums/service_enum.dart';
 import 'package:covid_help/Repository/service_repo.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FormController extends GetxController{
@@ -65,9 +66,13 @@ class FormController extends GetxController{
     typeOfServices.remove(services);
   }
 
+  getSnackBar(){
+    Get.snackbar("Alert!", "Required Fields Are Missing!",colorText: Colors.red,backgroundColor: Colors.white);
+  }
+
   postForm()async{
     if(nameController.text == "" || phoneNumberController.text == "" || typeOfServices.isEmpty || _city == null || _state == null){
-      Get.snackbar("Fill Required Fields!!", "Some Fields are required fill those to submit!");
+      getSnackBar();
       return;
     }
     loading.toggle();
@@ -91,7 +96,7 @@ class FormController extends GetxController{
 
   editForm(String uid)async{
     if(nameController.text == null || phoneNumberController.text == null || typeOfServices.isEmpty || _city == null || _state == null){
-      Get.snackbar("Fill Required Fields!!", "Some Fields are required fill those to submit!");
+      getSnackBar();
       return;
     }
     loading.toggle();

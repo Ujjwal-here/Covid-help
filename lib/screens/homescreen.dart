@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                "Co",
+                "Covid",
                 style: GoogleFonts.lato(
                   fontSize: SizeConfig.safeBlockHorizontal * 6,
                   color: Colors.black,
@@ -210,7 +210,58 @@ class HomeScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
                                     color: controller.isOxygenSelected.value
-                                        ? Colors.red
+                                        ? Colors.black
+                                        : Colors.green[100],
+                                  ),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Image(
+                                      height: SizeConfig.blockSizeVertical * 5,
+                                      image: AssetImage(
+                                        "assets/hospitalBeds.jpg",
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Oxygen",
+                                            style: GoogleFonts.lato(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: SizeConfig
+                                                      .safeBlockHorizontal *
+                                                  3.8,
+                                              color: Colors.green[900],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                serviceController
+                                    .selectServiceType(Services.Beds);
+                              },
+                              child: Container(
+                                width: SizeConfig.blockSizeHorizontal * 25,
+                                margin: const EdgeInsets.all(10),
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: Colors.green[50],
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    color: controller.isBedSelected.value
+                                        ? Colors.black
                                         : Colors.green[100],
                                   ),
                                 ),
@@ -231,26 +282,13 @@ class HomeScreen extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            "Oxygen",
+                                            "Hospital Beds",
                                             style: GoogleFonts.lato(
                                               fontWeight: FontWeight.bold,
                                               fontSize: SizeConfig
                                                       .safeBlockHorizontal *
                                                   3.8,
                                               color: Colors.green[900],
-                                            ),
-                                          ),
-                                          Container(
-                                            margin:
-                                                const EdgeInsets.only(top: 2),
-                                            child: Text(
-                                              "Donation",
-                                              style: GoogleFonts.lato(
-                                                fontSize: SizeConfig
-                                                        .safeBlockHorizontal *
-                                                    3,
-                                                color: Colors.green,
-                                              ),
                                             ),
                                           ),
                                         ],
@@ -275,7 +313,7 @@ class HomeScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
                                     color: controller.isPlasmaSelected.value
-                                        ? Colors.red
+                                        ? Colors.black
                                         : Colors.red[100],
                                   ),
                                 ),
@@ -341,7 +379,7 @@ class HomeScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
                                     color: controller.isAmbulanceSelected.value
-                                        ? Colors.red
+                                        ? Colors.black
                                         : Colors.pink[100],
                                   ),
                                 ),
@@ -376,7 +414,7 @@ class HomeScreen extends StatelessWidget {
                                             margin:
                                                 const EdgeInsets.only(top: 2),
                                             child: Text(
-                                              "Donation",
+                                              "Services",
                                               style: GoogleFonts.lato(
                                                 fontSize: SizeConfig
                                                         .safeBlockHorizontal *
@@ -407,7 +445,7 @@ class HomeScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
                                     color: controller.isMedicineSelected.value
-                                        ? Colors.red
+                                        ? Colors.black
                                         : Colors.blue[100],
                                   ),
                                 ),
@@ -437,19 +475,7 @@ class HomeScreen extends StatelessWidget {
                                               color: Colors.blue[900],
                                             ),
                                           ),
-                                          Container(
-                                            margin:
-                                                const EdgeInsets.only(top: 2),
-                                            child: Text(
-                                              "Donation",
-                                              style: GoogleFonts.lato(
-                                                fontSize: SizeConfig
-                                                        .safeBlockHorizontal *
-                                                    3,
-                                                color: Colors.blue,
-                                              ),
-                                            ),
-                                          ),
+                                          
                                         ],
                                       ),
                                     )
@@ -472,7 +498,7 @@ class HomeScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
                                     color: controller.isFoodSelected.value
-                                        ? Colors.red
+                                        ? Colors.black
                                         : Colors.teal[100],
                                   ),
                                 ),
@@ -494,7 +520,7 @@ class HomeScreen extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            "Food",
+                                            "Foods",
                                             style: GoogleFonts.lato(
                                               fontWeight: FontWeight.bold,
                                               fontSize: SizeConfig
@@ -503,19 +529,7 @@ class HomeScreen extends StatelessWidget {
                                               color: Colors.teal[900],
                                             ),
                                           ),
-                                          Container(
-                                            margin:
-                                                const EdgeInsets.only(top: 2),
-                                            child: Text(
-                                              "Donation",
-                                              style: GoogleFonts.lato(
-                                                fontSize: SizeConfig
-                                                        .safeBlockHorizontal *
-                                                    3,
-                                                color: Colors.teal,
-                                              ),
-                                            ),
-                                          ),
+                                          
                                         ],
                                       ),
                                     )
@@ -538,7 +552,7 @@ class HomeScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
                                     color: controller.isBloodSelected.value
-                                        ? Colors.red
+                                        ? Colors.black
                                         : Colors.red[100],
                                   ),
                                 ),
@@ -732,7 +746,7 @@ class HomeScreen extends StatelessWidget {
                                       Flexible(
                                         child: Container(
                                           child: Text(
-                                            "\t\t${result.serviceType.map((e) => convert(e))}",
+                                            "\t\t${result.serviceType.map((e) => convert(e).toString())}",
                                             maxLines: 1,
                                             style: GoogleFonts.lato(
                                               fontSize: SizeConfig
@@ -804,10 +818,10 @@ class HomeScreen extends StatelessWidget {
                 editMode: false,
               ));
         },
-        backgroundColor: Color.fromRGBO(239, 92, 54, 1),
+        backgroundColor: Colors.white,//Color.fromRGBO(239, 92, 54, 1),
         child: Icon(
           Icons.add,
-          color: Colors.white,
+          color: Colors.black,
         ),
       ),
     );

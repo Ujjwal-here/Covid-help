@@ -50,7 +50,7 @@ class _HelpFormState extends State<HelpForm> {
           title: Row(
             children: [
               Text(
-                "Co",
+                "Covid",
                 style: GoogleFonts.lato(
                   fontSize: SizeConfig.safeBlockHorizontal * 6,
                   color: Colors.black,
@@ -99,10 +99,11 @@ class _HelpFormState extends State<HelpForm> {
                     Container(
                       margin: EdgeInsets.only(right: 30, top: 5),
                       child: Text(
-                        "Please add resource by filling right information",
+                        "Please add resources with right Information",
                         style: GoogleFonts.lato(
                           fontSize: SizeConfig.safeBlockHorizontal * 3.5,
                           color: Colors.grey,
+                          fontWeight: FontWeight.w700
                         ),
                       ),
                     ),
@@ -128,12 +129,14 @@ class _HelpFormState extends State<HelpForm> {
                             ),
                           ),
                           Text(
-                            "Enter your name below",
+                            "*required",
                             style: GoogleFonts.lato(
-                              fontSize: SizeConfig.safeBlockHorizontal * 3.5,
-                              color: Colors.teal,
+                              fontWeight: FontWeight.bold,
+                              fontSize: SizeConfig.safeBlockHorizontal * 2.5,
+                              color: Colors.red[900],
                             ),
                           ),
+                          
                           Container(
                             child: TextField(
                               controller: controller.nameController,
@@ -180,7 +183,7 @@ class _HelpFormState extends State<HelpForm> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Add type",
+                            "Add Resources",
                             style: GoogleFonts.lato(
                               fontWeight: FontWeight.bold,
                               fontSize: SizeConfig.safeBlockHorizontal * 4.5,
@@ -188,325 +191,443 @@ class _HelpFormState extends State<HelpForm> {
                             ),
                           ),
                           Text(
-                            "Check types specified below ",
+                            "Click on the boxes",
                             style: GoogleFonts.lato(
                               fontSize: SizeConfig.safeBlockHorizontal * 3.5,
                               color: Colors.purple,
                             ),
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.red[100],
-                              ),
-                              color: Colors.white,
-                            ),
-                            margin: EdgeInsets.only(top: 20),
-                            child: Row(
-                              children: [
-                                Checkbox(
-                                  value: controller.isPlasmaSelected,
-                                  onChanged: (value) {
-                                    if (!controller.isPlasmaSelected) {
-                                      controller
-                                          .addServiceType(Services.Plasma);
-                                    } else {
-                                      controller.removeService(Services.Plasma);
-                                    }
-                                    setState(() {
-                                      formController.isPlasmaSelected =
-                                          !formController.isPlasmaSelected;
-                                    });
-                                  },
-                                  fillColor:
-                                      MaterialStateProperty.all(Colors.red),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    "Plasma",
-                                    style: GoogleFonts.lato(
-                                      //fontWeight: FontWeight.bold,
-                                      fontSize:
-                                          SizeConfig.safeBlockHorizontal * 4,
-                                      color: Colors.red[900],
-                                    ),
-                                  ),
-                                ),
-                              ],
+                          Text(
+                            "*required",
+                            style: GoogleFonts.lato(
+                              fontWeight: FontWeight.bold,
+                              fontSize: SizeConfig.safeBlockHorizontal * 2.5,
+                              color: Colors.red[900],
                             ),
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.cyan[100],
-                              ),
-                              color: Colors.white,
-                            ),
-                            margin: EdgeInsets.only(top: 20),
-                            child: Row(
-                              children: [
-                                Checkbox(
-                                  value: formController.isHospitalBedsSelected,
-                                  onChanged: (value) {
-                                    if (!formController
-                                        .isHospitalBedsSelected) {
-                                      formController
-                                          .addServiceType(Services.Beds);
-                                    } else {
-                                      formController
-                                          .removeService(Services.Beds);
-                                    }
-                                    setState(() {
-                                      formController.isHospitalBedsSelected =
-                                          !formController
-                                              .isHospitalBedsSelected;
-                                    });
-                                  },
-                                  fillColor:
-                                      MaterialStateProperty.all(Colors.cyan),
+                          GestureDetector(
+                            onTap: (){
+                              if (!controller.isPlasmaSelected) {
+                                        controller
+                                            .addServiceType(Services.Plasma);
+                                      } else {
+                                        controller.removeService(Services.Plasma);
+                                      }
+                              setState(() {
+                                        controller.isPlasmaSelected =
+                                            !controller
+                                                .isPlasmaSelected;
+                                      });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: Colors.red[100],
                                 ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    "Hospital Beds",
-                                    style: GoogleFonts.lato(
-                                      //fontWeight: FontWeight.bold,
-                                      fontSize:
-                                          SizeConfig.safeBlockHorizontal * 4,
-                                      color: Colors.cyan[900],
-                                    ),
+                                color: Colors.white,
+                              ),
+                              margin: EdgeInsets.only(top: 20),
+                              child: Row(
+                                children: [
+                                  Checkbox(
+                                    value: controller.isPlasmaSelected,
+                                    onChanged: (value) {
+                                        if (!controller.isPlasmaSelected) {
+                                        controller
+                                            .addServiceType(Services.Plasma);
+                                      } else {
+                                        controller.removeService(Services.Plasma);
+                                      }
+                              setState(() {
+                                        controller.isPlasmaSelected =
+                                            !controller
+                                                .isPlasmaSelected;
+                                      });
+                                    },
+                                    fillColor:
+                                        MaterialStateProperty.all(Colors.red),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.indigo[100],
-                              ),
-                              color: Colors.white,
-                            ),
-                            margin: EdgeInsets.only(top: 20),
-                            child: Row(
-                              children: [
-                                Checkbox(
-                                  value: formController.isOxygenSelected,
-                                  onChanged: (value) {
-                                    if (!formController.isOxygenSelected) {
-                                      formController
-                                          .addServiceType(Services.Oxygen);
-                                    } else {
-                                      formController
-                                          .removeService(Services.Oxygen);
-                                    }
-                                    setState(() {
-                                      formController.isOxygenSelected =
-                                          !formController.isOxygenSelected;
-                                    });
-                                    print(formController.typeOfServices);
-                                  },
-                                  fillColor:
-                                      MaterialStateProperty.all(Colors.indigo),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    "Oxygen",
-                                    style: GoogleFonts.lato(
-                                      //fontWeight: FontWeight.bold,
-                                      fontSize:
-                                          SizeConfig.safeBlockHorizontal * 4,
-                                      color: Colors.indigo[900],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.orange[100],
-                              ),
-                              color: Colors.white,
-                            ),
-                            margin: EdgeInsets.only(top: 20),
-                            child: Row(
-                              children: [
-                                Checkbox(
-                                  value: formController.isMedicineSelected,
-                                  onChanged: (value) {
-                                    if (!formController.isMedicineSelected) {
-                                      formController
-                                          .addServiceType(Services.Medicine);
-                                    } else {
-                                      formController
-                                          .removeService(Services.Medicine);
-                                    }
-                                    setState(() {
-                                      formController.isMedicineSelected =
-                                          !formController.isMedicineSelected;
-                                    });
-                                  },
-                                  fillColor:
-                                      MaterialStateProperty.all(Colors.orange),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    "Medicine",
-                                    style: GoogleFonts.lato(
-                                      //fontWeight: FontWeight.bold,
-                                      fontSize:
-                                          SizeConfig.safeBlockHorizontal * 4,
-                                      color: Colors.orange[900],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.teal[100],
-                              ),
-                              color: Colors.white,
-                            ),
-                            margin: EdgeInsets.only(top: 20),
-                            child: Row(
-                              children: [
-                                Checkbox(
-                                  value: formController.isFoodSelected,
-                                  onChanged: (value) {
-                                    if (!formController.isFoodSelected) {
-                                      formController
-                                          .addServiceType(Services.Food);
-                                    } else {
-                                      formController
-                                          .removeService(Services.Food);
-                                    }
-                                    setState(() {
-                                      formController.isFoodSelected =
-                                          !formController.isFoodSelected;
-                                    });
-                                  },
-                                  fillColor:
-                                      MaterialStateProperty.all(Colors.teal),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    "Food",
-                                    style: GoogleFonts.lato(
-                                      //fontWeight: FontWeight.bold,
-                                      fontSize:
-                                          SizeConfig.safeBlockHorizontal * 4,
-                                      color: Colors.teal[900],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.pink[100],
-                              ),
-                              color: Colors.white,
-                            ),
-                            margin: EdgeInsets.only(top: 20),
-                            child: Row(
-                              children: [
-                                Checkbox(
-                                  value: formController.isAmbulanceSelected,
-                                  onChanged: (value) {
-                                    if (!formController.isAmbulanceSelected) {
-                                      formController
-                                          .addServiceType(Services.Ambulance);
-                                    } else {
-                                      formController
-                                          .removeService(Services.Ambulance);
-                                    }
-                                    setState(() {
-                                      formController.isAmbulanceSelected =
-                                          !formController.isAmbulanceSelected;
-                                    });
-                                  },
-                                  fillColor:
-                                      MaterialStateProperty.all(Colors.pink),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    "Ambulance Service",
-                                    style: GoogleFonts.lato(
-                                      //fontWeight: FontWeight.bold,
-                                      fontSize:
-                                          SizeConfig.safeBlockHorizontal * 4,
-                                      color: Colors.pink[900],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.deepOrange[100],
-                              ),
-                              color: Colors.white,
-                            ),
-                            margin: EdgeInsets.only(top: 20),
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Checkbox(
-                                      value: formController.isBloodSelected,
-                                      onChanged: (value) {
-                                        if (!formController.isBloodSelected) {
-                                          formController
-                                              .addServiceType(Services.Blood);
-                                        } else {
-                                          formController
-                                              .removeService(Services.Blood);
-                                        }
-                                        setState(() {
-                                          formController.isBloodSelected =
-                                              !formController.isBloodSelected;
-                                        });
-                                      },
-                                      fillColor: MaterialStateProperty.all(
-                                          Colors.deepOrange),
-                                    ),
-                                    Container(
+                                  GestureDetector(
+                                    child: Container(
                                       margin: EdgeInsets.only(left: 5),
                                       child: Text(
-                                        "Blood",
+                                        "Plasma",
                                         style: GoogleFonts.lato(
                                           //fontWeight: FontWeight.bold,
                                           fontSize:
-                                              SizeConfig.safeBlockHorizontal *
-                                                  4,
-                                          color: Colors.deepOrange[900],
+                                              SizeConfig.safeBlockHorizontal * 4,
+                                          color: Colors.red[900],
                                         ),
                                       ),
                                     ),
-                                  ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: (){
+                              if (!controller.isHospitalBedsSelected) {
+                                        controller
+                                            .addServiceType(Services.Beds);
+                                      } else {
+                                        controller.removeService(Services.Beds);
+                                      }
+                              setState(() {
+                                        controller.isHospitalBedsSelected =
+                                            !controller
+                                                .isHospitalBedsSelected;
+                                      });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: Colors.cyan[100],
                                 ),
-                              ],
+                                color: Colors.white,
+                              ),
+                              margin: EdgeInsets.only(top: 20),
+                              child: Row(
+                                children: [
+                                  Checkbox(
+                                    value: formController.isHospitalBedsSelected,
+                                    onChanged: (value) {
+                                        if (!controller.isHospitalBedsSelected) {
+                                        controller
+                                            .addServiceType(Services.Beds);
+                                      } else {
+                                        controller.removeService(Services.Beds);
+                                      }
+                              setState(() {
+                                        controller.isHospitalBedsSelected =
+                                            !controller
+                                                .isHospitalBedsSelected;
+                                      });
+                                    },
+                                    fillColor:
+                                        MaterialStateProperty.all(Colors.cyan),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 5),
+                                    child: Text(
+                                      "Hospital Beds",
+                                      style: GoogleFonts.lato(
+                                        //fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            SizeConfig.safeBlockHorizontal * 4,
+                                        color: Colors.cyan[900],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: (){
+                              if (!controller.isOxygenSelected) {
+                                        controller
+                                            .addServiceType(Services.Oxygen);
+                                      } else {
+                                        controller.removeService(Services.Oxygen);
+                                      }
+                              setState(() {
+                                        controller.isOxygenSelected =
+                                            !controller
+                                                .isOxygenSelected;
+                                      });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: Colors.indigo[100],
+                                ),
+                                color: Colors.white,
+                              ),
+                              margin: EdgeInsets.only(top: 20),
+                              child: Row(
+                                children: [
+                                  Checkbox(
+                                    value: formController.isOxygenSelected,
+                                    onChanged: (value) {
+                                        if (!controller.isOxygenSelected) {
+                                        controller
+                                            .addServiceType(Services.Oxygen);
+                                      } else {
+                                        controller.removeService(Services.Oxygen);
+                                      }
+                              setState(() {
+                                        controller.isOxygenSelected =
+                                            !controller
+                                                .isOxygenSelected;
+                                      });
+                                      
+                                    },
+                                    fillColor:
+                                        MaterialStateProperty.all(Colors.indigo),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 5),
+                                    child: Text(
+                                      "Oxygen",
+                                      style: GoogleFonts.lato(
+                                        //fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            SizeConfig.safeBlockHorizontal * 4,
+                                        color: Colors.indigo[900],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: (){
+                              if (!controller.isMedicineSelected) {
+                                        controller
+                                            .addServiceType(Services.Medicine);
+                                      } else {
+                                        controller.removeService(Services.Medicine);
+                                      }
+                              setState(() {
+                                        controller.isMedicineSelected =
+                                            !controller
+                                                .isMedicineSelected;
+                                      });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: Colors.orange[100],
+                                ),
+                                color: Colors.white,
+                              ),
+                              margin: EdgeInsets.only(top: 20),
+                              child: Row(
+                                children: [
+                                  Checkbox(
+                                    value: formController.isMedicineSelected,
+                                    onChanged: (value) {
+                                        if (!controller.isMedicineSelected) {
+                                        controller
+                                            .addServiceType(Services.Medicine);
+                                      } else {
+                                        controller.removeService(Services.Medicine);
+                                      }
+                              setState(() {
+                                        controller.isMedicineSelected =
+                                            !controller
+                                                .isMedicineSelected;
+                                      });
+                                      
+                                    },
+                                    fillColor:
+                                        MaterialStateProperty.all(Colors.orange),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 5),
+                                    child: Text(
+                                      "Medicine",
+                                      style: GoogleFonts.lato(
+                                        //fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            SizeConfig.safeBlockHorizontal * 4,
+                                        color: Colors.orange[900],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: (){
+                              if (!controller.isFoodSelected) {
+                                        controller
+                                            .addServiceType(Services.Food);
+                                      } else {
+                                        controller.removeService(Services.Food);
+                                      }
+                              setState(() {
+                                        controller.isFoodSelected =
+                                            !controller
+                                                .isFoodSelected;
+                                      });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: Colors.teal[100],
+                                ),
+                                color: Colors.white,
+                              ),
+                              margin: EdgeInsets.only(top: 20),
+                              child: Row(
+                                children: [
+                                  Checkbox(
+                                    value: formController.isFoodSelected,
+                                    onChanged: (value) {
+                                      if (!controller.isFoodSelected) {
+                                        controller
+                                            .addServiceType(Services.Food);
+                                      } else {
+                                        controller.removeService(Services.Food);
+                                      }
+                              setState(() {
+                                        controller.isFoodSelected =
+                                            !controller
+                                                .isFoodSelected;
+                                      });
+                                      
+                                    },
+                                    fillColor:
+                                        MaterialStateProperty.all(Colors.teal),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 5),
+                                    child: Text(
+                                      "Food",
+                                      style: GoogleFonts.lato(
+                                        //fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            SizeConfig.safeBlockHorizontal * 4,
+                                        color: Colors.teal[900],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: (){
+                              if (!controller.isAmbulanceSelected) {
+                                        controller
+                                            .addServiceType(Services.Ambulance);
+                                      } else {
+                                        controller.removeService(Services.Ambulance);
+                                      }
+                              setState(() {
+                                        controller.isAmbulanceSelected =
+                                            !controller
+                                                .isAmbulanceSelected;
+                                      });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: Colors.pink[100],
+                                ),
+                                color: Colors.white,
+                              ),
+                              margin: EdgeInsets.only(top: 20),
+                              child: Row(
+                                children: [
+                                  Checkbox(
+                                    value: formController.isAmbulanceSelected,
+                                    onChanged: (value) {
+                                      if (!controller.isAmbulanceSelected) {
+                                        controller
+                                            .addServiceType(Services.Ambulance);
+                                      } else {
+                                        controller.removeService(Services.Ambulance);
+                                      }
+                              setState(() {
+                                        controller.isAmbulanceSelected =
+                                            !controller
+                                                .isAmbulanceSelected;
+                                      });
+                                      
+                                    },
+                                    fillColor:
+                                        MaterialStateProperty.all(Colors.pink),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 5),
+                                    child: Text(
+                                      "Ambulance Service",
+                                      style: GoogleFonts.lato(
+                                        //fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            SizeConfig.safeBlockHorizontal * 4,
+                                        color: Colors.pink[900],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: (){
+                              if (!controller.isBloodSelected) {
+                                        controller
+                                            .addServiceType(Services.Blood);
+                                      } else {
+                                        controller.removeService(Services.Blood);
+                                      }
+                              setState(() {
+                                        controller.isBloodSelected =
+                                            !controller
+                                                .isBloodSelected;
+                                      });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: Colors.deepOrange[100],
+                                ),
+                                color: Colors.white,
+                              ),
+                              margin: EdgeInsets.only(top: 20),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Checkbox(
+                                        value: formController.isBloodSelected,
+                                        onChanged: (value) {
+                                         if (!controller.isBloodSelected) {
+                                        controller
+                                            .addServiceType(Services.Blood);
+                                      } else {
+                                        controller.removeService(Services.Blood);
+                                      }
+                              setState(() {
+                                        controller.isBloodSelected =
+                                            !controller
+                                                .isBloodSelected;
+                                      });
+                                        
+                                        },
+                                        fillColor: MaterialStateProperty.all(
+                                            Colors.deepOrange),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(left: 5),
+                                        child: Text(
+                                          "Blood",
+                                          style: GoogleFonts.lato(
+                                            //fontWeight: FontWeight.bold,
+                                            fontSize:
+                                                SizeConfig.safeBlockHorizontal *
+                                                    4,
+                                            color: Colors.deepOrange[900],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -538,6 +659,14 @@ class _HelpFormState extends State<HelpForm> {
                             style: GoogleFonts.lato(
                               fontSize: SizeConfig.safeBlockHorizontal * 3.5,
                               color: Colors.blue,
+                            ),
+                          ),
+                          Text(
+                            "*required",
+                            style: GoogleFonts.lato(
+                              fontWeight: FontWeight.bold,
+                              fontSize: SizeConfig.safeBlockHorizontal * 2.5,
+                              color: Colors.red[900],
                             ),
                           ),
                           Container(
@@ -589,7 +718,7 @@ class _HelpFormState extends State<HelpForm> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Phone number:",
+                            "Phone Number:",
                             style: GoogleFonts.lato(
                               fontWeight: FontWeight.bold,
                               fontSize: SizeConfig.safeBlockHorizontal * 4.5,
@@ -597,10 +726,18 @@ class _HelpFormState extends State<HelpForm> {
                             ),
                           ),
                           Text(
-                            "Add working phone numbers",
+                            "Add working phone numbers, separated by commas",
                             style: GoogleFonts.lato(
                               fontSize: SizeConfig.safeBlockHorizontal * 3.5,
                               color: Colors.green,
+                            ),
+                          ),
+                          Text(
+                            "*required",
+                            style: GoogleFonts.lato(
+                              fontWeight: FontWeight.bold,
+                              fontSize: SizeConfig.safeBlockHorizontal * 2.5,
+                              color: Colors.red[900],
                             ),
                           ),
                           Container(
@@ -649,7 +786,7 @@ class _HelpFormState extends State<HelpForm> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Link",
+                            "Add Link",
                             style: GoogleFonts.lato(
                               fontWeight: FontWeight.bold,
                               fontSize: SizeConfig.safeBlockHorizontal * 4.5,
@@ -657,7 +794,7 @@ class _HelpFormState extends State<HelpForm> {
                             ),
                           ),
                           Text(
-                            "You can provide link to some resource",
+                            "You can provide links to resources",
                             style: GoogleFonts.lato(
                               fontSize: SizeConfig.safeBlockHorizontal * 3.5,
                               color: Colors.red,
@@ -709,7 +846,7 @@ class _HelpFormState extends State<HelpForm> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "More details:",
+                            "More Details:",
                             style: GoogleFonts.lato(
                               fontWeight: FontWeight.bold,
                               fontSize: SizeConfig.safeBlockHorizontal * 4.5,
@@ -717,7 +854,7 @@ class _HelpFormState extends State<HelpForm> {
                             ),
                           ),
                           Text(
-                            "You can provide details like address,blood type etc.",
+                            "You can provide other details like address, blood group etc.",
                             style: GoogleFonts.lato(
                               fontSize: SizeConfig.safeBlockHorizontal * 3.5,
                               color: Colors.indigo,
