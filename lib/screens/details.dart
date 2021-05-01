@@ -143,7 +143,7 @@ class Details extends StatelessWidget {
                       children: [
                         Container(
                           child: Text(
-                            "Phone :",
+                            "Phone :\t\t\t\t",
                             style: GoogleFonts.lato(
                               fontSize: SizeConfig.safeBlockHorizontal * 4,
                               color: Colors.black,
@@ -174,7 +174,7 @@ class Details extends StatelessWidget {
                       children: [
                         Container(
                           child: Text(
-                            "City :",
+                            "City :\t\t\t\t",
                             style: GoogleFonts.nunito(
                               fontSize: SizeConfig.safeBlockHorizontal * 4,
                               color: Colors.black,
@@ -206,7 +206,7 @@ class Details extends StatelessWidget {
                       children: [
                         Container(
                           child: Text(
-                            "Donation type :",
+                            "Donation type :\t\t\t\t",
                             style: GoogleFonts.lato(
                               fontSize: SizeConfig.safeBlockHorizontal * 4,
                               color: Colors.black,
@@ -240,7 +240,7 @@ class Details extends StatelessWidget {
                       children: [
                         Container(
                           child: Text(
-                            "More details :\t",
+                            "More details :\t\t\t",
                             style: GoogleFonts.lato(
                               fontSize: SizeConfig.safeBlockHorizontal * 4,
                               color: Colors.black,
@@ -271,7 +271,7 @@ class Details extends StatelessWidget {
                       children: [
                         Container(
                           child: Text(
-                            "Link :",
+                            "Link :\t\t\t",
                             style: GoogleFonts.lato(
                               fontSize: SizeConfig.safeBlockHorizontal * 4,
                               color: Colors.black,

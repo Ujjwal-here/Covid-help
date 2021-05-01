@@ -580,7 +580,6 @@ class HomeScreen extends StatelessWidget {
           GetX<ServiceController>(
             builder: (controller) {
               if (controller.noResult.value) {
-                print("This is it");
                 return SliverToBoxAdapter(
                     child: Center(
                   child: Text("No Result Found!"),

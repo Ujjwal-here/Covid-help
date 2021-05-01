@@ -80,8 +80,6 @@ class AuthController extends GetxController {
           otpController6.text;
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
           verificationId: _verificationId, smsCode: otp.trim());
-      bool ifExists =
-          await userRepo.checkUserExists(phoneNumberController.text.trim());
       UserCredential userCred = await _auth.signInWithCredential(credential);
       await userRepo.registerUser({"phoneNumber":phoneNumberController.text.trim()}, userCred.user.uid);
       loading.toggle();
