@@ -12,10 +12,12 @@ class ServiceModel extends Equatable {
   final int upvotes;
   final String moreDetail;
   final String serviceUid;
+  final DateTime postDateTime;
 
   ServiceModel(
       {@required this.serviceType,
       this.serviceUid,
+      @required this.postDateTime,
       @required this.city,
       @required this.state,
       @required this.name,
@@ -33,6 +35,8 @@ class ServiceModel extends Equatable {
         state: ds.data()["state"],
         name: ds.data()["name"],
         phoneNumber: ds.data()["phoneNumber"],
-        upvotes: ds.data()["upvotes"]);
+        upvotes: ds.data()["upvotes"],
+        postDateTime: ds.data()["timeOfUpload"]
+        );
   }
 }

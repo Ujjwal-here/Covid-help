@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
+String daysToString(int days){
+  if(days == 0){
+    return "Updated today";
+  }
+  else{
+    return "Updated $days days ago";
+  }
+}
+
+
 class Details extends StatelessWidget {
   final String name;
   final String phoneNumber;
@@ -8,6 +19,7 @@ class Details extends StatelessWidget {
   final List<String> donationType;
   final String link;
   final String moreDetail;
+  final DateTime postDateTime;
 
   Details(
       {Key key,
@@ -16,7 +28,8 @@ class Details extends StatelessWidget {
       @required this.phoneNumber,
       @required this.donationType,
       this.link,
-      @required this.moreDetail});
+      @required this.moreDetail,
+      @required this.postDateTime});
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +126,7 @@ class Details extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(top: 5),
                   child: Text(
-                    "Updated a day ago",
+                    "${daysToString(postDateTime.difference(DateTime.now()).inDays)}",
                     style: GoogleFonts.lato(
                       fontSize: 15,
                       color: Colors.grey,
