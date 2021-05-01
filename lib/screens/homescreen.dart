@@ -611,7 +611,6 @@ class HomeScreen extends StatelessWidget {
           GetX<ServiceController>(
             builder: (controller) {
               if (controller.noResult.value) {
-                print("This is it");
                 return SliverToBoxAdapter(
                   child: Container(
                     margin: const EdgeInsets.only(top: 30),
