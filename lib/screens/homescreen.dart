@@ -1,8 +1,6 @@
 import 'package:covid_help/Enums/service_enum.dart';
 import 'package:covid_help/controllers/AuthController.dart';
-import 'package:covid_help/controllers/form_conttroller.dart';
 import 'package:covid_help/controllers/service_controller.dart';
-import 'package:covid_help/controllers/user_service_controller.dart';
 import 'package:covid_help/models/service_model.dart';
 import 'package:covid_help/screens/details.dart';
 import 'package:covid_help/screens/form.dart';
@@ -22,17 +20,21 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        actions: [GestureDetector(
-          onTap: (){
-            authController.signOut();
-          },
-          child: Icon(Icons.logout,color: Colors.blue,),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              authController.signOut();
+            },
+            child: Icon(
+              Icons.logout,
+              color: Colors.blue,
+            ),
           ),
           Container(
             margin: const EdgeInsets.only(right: 30),
             child: GestureDetector(
               onTap: () {
-                Get.to(()=>Posts());
+                Get.to(() => Posts());
               },
               child: Icon(
                 Icons.post_add,
@@ -676,7 +678,9 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(() => HelpForm(editMode: false,));
+          Get.to(() => HelpForm(
+                editMode: false,
+              ));
         },
         backgroundColor: Colors.yellow,
         child: Icon(
