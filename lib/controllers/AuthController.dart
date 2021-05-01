@@ -50,7 +50,8 @@ class AuthController extends GetxController {
   verificationCompleted(PhoneAuthCredential phoneAuthCredential) async {
     bool ifExists =
         await userRepo.checkUserExists(phoneNumberController.text.trim());
-    await _auth.signInWithCredential(phoneAuthCredential);
+    UserCredential userCred = await _auth.signInWithCredential(phoneAuthCredential);
+    await userRepo.registerUser({"phoneNumber":phoneNumberController.text.trim()}, userCred.user.uid);
       Get.off(HomeScreen());
   }
 
