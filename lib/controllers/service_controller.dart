@@ -17,6 +17,12 @@ class ServiceController extends GetxController{
 
   Rx<bool> isLoading = false.obs;
 
+  Rx<bool> noResult = false.obs;
+
+
+  
+
+
   String _state;
   String _city;
 
@@ -60,8 +66,17 @@ class ServiceController extends GetxController{
       );}).toList().obs;
 
     print(_services);
+    if(_services.isEmpty){
+      print("empty");
+      noResult.value = true;
+    }
+    else{
+      noResult.value = false;
+    }
     isLoading.value = false;
-  }
+
+    }
+    
   getServicesByFilter()async{
     if(_city ==null || _state == null){
       Get.snackbar("Error", "You have to search a state and city");
@@ -82,7 +97,14 @@ class ServiceController extends GetxController{
       postDateTime: (e["timeOfUpload"]as Timestamp).toDate()
       );}).toList().obs;
 
-    print(_services);  
+    print(_services);
+    if(_services.isEmpty){
+      print("empty");
+      noResult.value = true;
+    }
+    else{
+      noResult.value = false;
+    }
     isLoading.value = false;
   }
 
