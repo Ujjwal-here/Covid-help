@@ -68,7 +68,7 @@ class Details extends StatelessWidget {
                     ),
                     Container(
                       child: Text(
-                        "Save lives",
+                        "Stay Safe",
                         style: GoogleFonts.lato(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -84,7 +84,7 @@ class Details extends StatelessWidget {
                         color: Colors.white,
                       ),
                       child: Text(
-                        "Wear your mask,\nProtect your family and others",
+                        "Wear mask,\nProtect your family and others",
                         style: GoogleFonts.lato(
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
@@ -143,7 +143,7 @@ class Details extends StatelessWidget {
                     children: [
                       Container(
                         child: Text(
-                          "Phone :",
+                          "Phone :\t\t\t",
                           style: GoogleFonts.lato(
                             fontSize: 17,
                             color: Colors.black,
@@ -174,7 +174,7 @@ class Details extends StatelessWidget {
                     children: [
                       Container(
                         child: Text(
-                          "City :",
+                          "City :\t\t\t",
                           style: GoogleFonts.nunito(
                             fontSize: 17,
                             color: Colors.black,
@@ -206,7 +206,7 @@ class Details extends StatelessWidget {
                     children: [
                       Container(
                         child: Text(
-                          "Donation type :",
+                          "Donation type :\t\t\t",
                           style: GoogleFonts.lato(
                             fontSize: 17,
                             color: Colors.black,
@@ -240,7 +240,7 @@ class Details extends StatelessWidget {
                     children: [
                       Container(
                         child: Text(
-                          "More details :",
+                          "More details :\t\t\t",
                           style: GoogleFonts.lato(
                             fontSize: 17,
                             color: Colors.black,
@@ -271,7 +271,7 @@ class Details extends StatelessWidget {
                     children: [
                       Container(
                         child: Text(
-                          "Link :",
+                          "Link :\t\t\t",
                           style: GoogleFonts.lato(
                             fontSize: 17,
                             color: Colors.black,
