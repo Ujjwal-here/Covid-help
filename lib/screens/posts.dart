@@ -13,7 +13,6 @@ class Posts extends StatelessWidget {
       Get.put(UserServicesController());
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -37,9 +36,9 @@ class Posts extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
-          if (controller.noServices.value != "") {
+          if (controller.noResult.value) {
             return Center(
-              child: Text(controller.noServices.value),
+              child: Text("You have not added any service Add to show here"),
             );
           }
           return ListView.builder(
@@ -99,7 +98,7 @@ class Posts extends StatelessWidget {
                                   ),
                                   Container(
                                     child: Text(
-                                      "\t\t${result.city}",
+                                      "\t${result.city}",
                                       style: GoogleFonts.lato(
                                         fontSize:
                                             SizeConfig.safeBlockHorizontal *
@@ -136,7 +135,7 @@ class Posts extends StatelessWidget {
                                   Flexible(
                                     child: Container(
                                       child: Text(
-                                        "\t\t${result.serviceType.map((e) => convert(e))}",
+                                        "\t${result.serviceType.map((e) => convert(e))}",
                                         maxLines: 1,
                                         style: GoogleFonts.lato(
                                           fontSize:
@@ -190,15 +189,15 @@ class Posts extends StatelessWidget {
                           GestureDetector(
                             onTap: () {
                               Get.to(() => Details(
-                                    name: result.name,
-                                    city: result.city,
-                                    phoneNumber: result.phoneNumber,
-                                    donationType: result.serviceType
-                                        .map((e) => convert(e))
-                                        .toList(),
-                                    moreDetail: result.moreDetail,
-                                    postDateTime: result.postDateTime,
-                                  ));
+                                  name: result.name,
+                                  city: result.city,
+                                  phoneNumber: result.phoneNumber,
+                                  donationType: result.serviceType
+                                      .map((e) => convert(e))
+                                      .toList(),
+                                  moreDetail: result.moreDetail,
+                                  postDateTime: result.postDateTime,
+                                  link: result.link));
                             },
                             child: Container(
                               padding: const EdgeInsets.all(10),

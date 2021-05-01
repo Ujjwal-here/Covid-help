@@ -12,7 +12,7 @@ class UserServicesController extends GetxController {
   List<ServiceModel> get services => _services.value;
 
   Rx<bool> loading = false.obs;
-  Rx<String> noServices = "".obs;
+  Rx<bool> noResult = false.obs;
 
     @override
     onInit(){
@@ -34,13 +34,17 @@ class UserServicesController extends GetxController {
       phoneNumber: e["phoneNumber"], 
       upvotes: e["upvotes"],
       moreDetail: e["moreDetail"],
-      postDateTime: (e["timeOfUpload"] as Timestamp).toDate()
+      postDateTime: (e["timeOfUpload"] as Timestamp).toDate(),
+      link: e["link"]
       );}).toList().obs;
     loading.toggle();
     print(_services);
-    if(_services == []){
-      noServices.value = "After You Add Some Services It Will Show Here";
-    } 
+    if(_services.isEmpty){
+      noResult.value = true;
+    }
+    else{
+      noResult.value = false;
+    }
   }
 
 }

@@ -80,7 +80,8 @@ class FormController extends GetxController{
         "type":typeOfServices.map((e) => convert(e)).toList(),
         "upvotes":0,
         "moreDetail":detailController.text.trim(),
-        "timeOfUpload":postDateTime
+        "timeOfUpload":postDateTime,
+        "link":linkController.text.trim()
       };
     DocumentReference docRef = await serviceRepo.postServices(form);
     await serviceRepo.postServiceInUser(form,docRef.id);
@@ -103,7 +104,8 @@ class FormController extends GetxController{
         "type":typeOfServices.map((e) => convert(e)).toList(),
         "upvotes":0,
         "moreDetail":detailController.text.trim(),
-        "timeOfUpload":postDateTime
+        "timeOfUpload":postDateTime,
+        "link":linkController.text.trim()
       };
     try {
      await serviceRepo.editPostService(uid, form); 

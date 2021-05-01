@@ -15,7 +15,6 @@ import 'package:google_fonts/google_fonts.dart';
 class HomeScreen extends StatelessWidget {
   final ServiceController serviceController = Get.put(ServiceController());
   final AuthController authController = Get.find<AuthController>();
-
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -62,16 +61,15 @@ class HomeScreen extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey[300],
-                          spreadRadius: 1,
-                          blurRadius: 5,
-                        )
-                      ],
-                    ),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey[300],
+                            spreadRadius: 1,
+                            blurRadius: 5,
+                          )
+                        ]),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -92,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(5),
                               color: Colors.white,
                               border: Border.all(
-                                color: Color.fromRGBO(26, 99, 209, 1),
+                                color: Colors.black54,
                               ),
                             ),
                             disabledDropdownDecoration: BoxDecoration(
@@ -132,6 +130,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                               textStyle: MaterialStateProperty.all(
                                 GoogleFonts.lato(
+                                  decoration: TextDecoration.none,
                                   fontSize:
                                       SizeConfig.safeBlockHorizontal * 3.5,
                                   fontWeight: FontWeight.bold,
@@ -154,370 +153,414 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    height: SizeConfig.blockSizeVertical * 19,
-                    margin: EdgeInsets.only(top: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            serviceController
-                                .selectServiceType(Services.Oxygen);
-                          },
-                          child: Container(
-                            width: SizeConfig.blockSizeVertical * 14,
-                            margin: const EdgeInsets.all(10),
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: Colors.green[50],
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.green[100],
-                              ),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Container(
-                                  child: Image(
-                                    height: SizeConfig.blockSizeVertical * 5,
-                                    image: AssetImage(
-                                      "assets/oxygen-cylinder.png",
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Oxygen",
-                                        style: GoogleFonts.lato(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal *
-                                                  3.8,
-                                          color: Colors.green[900],
-                                        ),
-                                      ),
-                                      Text(
-                                        "Donation",
-                                        style: GoogleFonts.lato(
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal *
-                                                  3,
-                                          color: Colors.green,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
+                  GetX<ServiceController>(
+                    builder: (controller) {
+                      return Container(
+                        height: SizeConfig.blockSizeVertical * 19,
+                        margin: EdgeInsets.only(top: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            serviceController
-                                .selectServiceType(Services.Plasma);
-                          },
-                          child: Container(
-                            width: SizeConfig.blockSizeVertical * 14,
-                            margin: EdgeInsets.only(
-                                right: 10, top: 10, left: 5, bottom: 10),
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: Colors.red[50],
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.red[100],
-                              ),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Container(
-                                  child: Image(
-                                    height: SizeConfig.blockSizeVertical * 3.6,
-                                    image: AssetImage(
-                                      "assets/blood-test.png",
-                                    ),
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                serviceController
+                                    .selectServiceType(Services.Oxygen);
+                              },
+                              child: Container(
+                                width: SizeConfig.blockSizeHorizontal * 25,
+                                margin: const EdgeInsets.all(10),
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: Colors.green[50],
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    color: controller.isOxygenSelected.value
+                                        ? Colors.red
+                                        : Colors.green[100],
                                   ),
                                 ),
-                                Container(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Plasma",
-                                        style: GoogleFonts.lato(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal *
-                                                  3.8,
-                                          color: Colors.red[900],
-                                        ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Image(
+                                      height: SizeConfig.blockSizeVertical * 5,
+                                      image: AssetImage(
+                                        "assets/oxygen-cylinder.png",
                                       ),
-                                      Text(
-                                        "Donation",
-                                        style: GoogleFonts.lato(
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal *
-                                                  3,
-                                          color: Colors.red,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            serviceController
-                                .selectServiceType(Services.Ambulance);
-                          },
-                          child: Container(
-                            width: SizeConfig.blockSizeVertical * 14,
-                            margin: EdgeInsets.only(
-                                right: 10, top: 10, left: 5, bottom: 10),
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: Colors.pink[50],
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.pink[100],
-                              ),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Container(
-                                  child: Image(
-                                    height: SizeConfig.blockSizeVertical * 3.5,
-                                    image: AssetImage(
-                                      "assets/emergency.png",
                                     ),
-                                  ),
-                                ),
-                                Container(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Ambulance",
-                                        style: GoogleFonts.lato(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal *
+                                    Container(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Oxygen",
+                                            style: GoogleFonts.lato(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: SizeConfig
+                                                      .safeBlockHorizontal *
                                                   3.8,
-                                          color: Colors.pink[900],
-                                        ),
-                                      ),
-                                      Text(
-                                        "Donation",
-                                        style: GoogleFonts.lato(
-                                            fontSize:
-                                                SizeConfig.safeBlockHorizontal *
+                                              color: Colors.green[900],
+                                            ),
+                                          ),
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 2),
+                                            child: Text(
+                                              "Donation",
+                                              style: GoogleFonts.lato(
+                                                fontSize: SizeConfig
+                                                        .safeBlockHorizontal *
                                                     3,
-                                            color: Colors.pink),
+                                                color: Colors.green,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            serviceController
-                                .selectServiceType(Services.Medicine);
-                          },
-                          child: Container(
-                            width: SizeConfig.blockSizeVertical * 14,
-                            margin: EdgeInsets.only(
-                                right: 10, top: 10, left: 5, bottom: 10),
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: Colors.blue[50],
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.blue[100],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Container(
-                                  child: Image(
-                                    height: SizeConfig.blockSizeVertical * 3,
-                                    image: AssetImage(
-                                      "assets/pills-tablets.png",
+                            GestureDetector(
+                              onTap: () {
+                                serviceController
+                                    .selectServiceType(Services.Plasma);
+                              },
+                              child: Container(
+                                width: SizeConfig.blockSizeHorizontal * 25,
+                                margin: EdgeInsets.only(
+                                    right: 10, top: 10, left: 5, bottom: 10),
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: Colors.red[50],
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    color: controller.isPlasmaSelected.value
+                                        ? Colors.red
+                                        : Colors.red[100],
+                                  ),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Image(
+                                      height:
+                                          SizeConfig.blockSizeVertical * 3.6,
+                                      image: AssetImage(
+                                        "assets/blood-test.png",
+                                      ),
                                     ),
-                                  ),
-                                ),
-                                Container(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Medicine",
-                                        style: GoogleFonts.lato(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal *
+                                    Container(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Plasma",
+                                            style: GoogleFonts.lato(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: SizeConfig
+                                                      .safeBlockHorizontal *
                                                   3.8,
-                                          color: Colors.blue[900],
-                                        ),
+                                              color: Colors.red[900],
+                                            ),
+                                          ),
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 2),
+                                            child: Text(
+                                              "Donation",
+                                              style: GoogleFonts.lato(
+                                                fontSize: SizeConfig
+                                                        .safeBlockHorizontal *
+                                                    3,
+                                                color: Colors.red,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                      Text(
-                                        "Donation",
-                                        style: GoogleFonts.lato(
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal *
-                                                  3,
-                                          color: Colors.blue,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            serviceController.selectServiceType(Services.Food);
-                          },
-                          child: Container(
-                            width: SizeConfig.blockSizeVertical * 14,
-                            margin: EdgeInsets.only(
-                                right: 10, top: 10, left: 5, bottom: 10),
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: Colors.teal[50],
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.teal[100],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Image(
-                                  height: SizeConfig.blockSizeVertical * 3.5,
-                                  image: AssetImage(
-                                    "assets/vegetarian-food.png",
+                            GestureDetector(
+                              onTap: () {
+                                serviceController
+                                    .selectServiceType(Services.Ambulance);
+                              },
+                              child: Container(
+                                width: SizeConfig.blockSizeHorizontal * 25,
+                                margin: EdgeInsets.only(
+                                    right: 10, top: 10, left: 5, bottom: 10),
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: Colors.pink[50],
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    color: controller.isAmbulanceSelected.value
+                                        ? Colors.red
+                                        : Colors.pink[100],
                                   ),
                                 ),
-                                Container(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Food",
-                                        style: GoogleFonts.lato(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal *
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Image(
+                                      height:
+                                          SizeConfig.blockSizeVertical * 3.5,
+                                      image: AssetImage(
+                                        "assets/emergency.png",
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Ambulance",
+                                            style: GoogleFonts.lato(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: SizeConfig
+                                                      .safeBlockHorizontal *
                                                   3.8,
-                                          color: Colors.teal[900],
-                                        ),
+                                              color: Colors.pink[900],
+                                            ),
+                                          ),
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 2),
+                                            child: Text(
+                                              "Donation",
+                                              style: GoogleFonts.lato(
+                                                fontSize: SizeConfig
+                                                        .safeBlockHorizontal *
+                                                    3,
+                                                color: Colors.pink,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                      Text(
-                                        "Donation",
-                                        style: GoogleFonts.lato(
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal *
-                                                  3,
-                                          color: Colors.teal,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            serviceController.selectServiceType(Services.Blood);
-                          },
-                          child: Container(
-                            width: SizeConfig.blockSizeVertical * 14,
-                            margin: EdgeInsets.only(
-                                right: 10, top: 10, left: 5, bottom: 10),
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: Colors.red[50],
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.red[100],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Image(
-                                  height: SizeConfig.blockSizeVertical * 4,
-                                  image: AssetImage(
-                                    "assets/donate-donation.png",
+                            GestureDetector(
+                              onTap: () {
+                                serviceController
+                                    .selectServiceType(Services.Medicine);
+                              },
+                              child: Container(
+                                width: SizeConfig.blockSizeHorizontal * 25,
+                                margin: EdgeInsets.only(
+                                    right: 10, top: 10, left: 5, bottom: 10),
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: Colors.blue[50],
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    color: controller.isMedicineSelected.value
+                                        ? Colors.red
+                                        : Colors.blue[100],
                                   ),
                                 ),
-                                Container(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Blood",
-                                        style: GoogleFonts.lato(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal *
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Image(
+                                      height: SizeConfig.blockSizeVertical * 3,
+                                      image: AssetImage(
+                                        "assets/pills-tablets.png",
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Medicine",
+                                            style: GoogleFonts.lato(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: SizeConfig
+                                                      .safeBlockHorizontal *
                                                   3.8,
-                                          color: Colors.red[900],
-                                        ),
+                                              color: Colors.blue[900],
+                                            ),
+                                          ),
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 2),
+                                            child: Text(
+                                              "Donation",
+                                              style: GoogleFonts.lato(
+                                                fontSize: SizeConfig
+                                                        .safeBlockHorizontal *
+                                                    3,
+                                                color: Colors.blue,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                      Text(
-                                        "Donation",
-                                        style: GoogleFonts.lato(
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal *
-                                                  3,
-                                          color: Colors.red,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
+                                    )
+                                  ],
+                                ),
+                              ),
                             ),
-                          ),
+                            GestureDetector(
+                              onTap: () {
+                                serviceController
+                                    .selectServiceType(Services.Food);
+                              },
+                              child: Container(
+                                width: SizeConfig.blockSizeHorizontal * 25,
+                                margin: EdgeInsets.only(
+                                    right: 10, top: 10, left: 5, bottom: 10),
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: Colors.teal[50],
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    color: controller.isFoodSelected.value
+                                        ? Colors.red
+                                        : Colors.teal[100],
+                                  ),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Image(
+                                      height:
+                                          SizeConfig.blockSizeVertical * 3.5,
+                                      image: AssetImage(
+                                        "assets/vegetarian-food.png",
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Food",
+                                            style: GoogleFonts.lato(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: SizeConfig
+                                                      .safeBlockHorizontal *
+                                                  3.8,
+                                              color: Colors.teal[900],
+                                            ),
+                                          ),
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 2),
+                                            child: Text(
+                                              "Donation",
+                                              style: GoogleFonts.lato(
+                                                fontSize: SizeConfig
+                                                        .safeBlockHorizontal *
+                                                    3,
+                                                color: Colors.teal,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                serviceController
+                                    .selectServiceType(Services.Blood);
+                              },
+                              child: Container(
+                                width: SizeConfig.blockSizeHorizontal * 25,
+                                margin: EdgeInsets.only(
+                                    right: 10, top: 10, left: 5, bottom: 10),
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: Colors.red[50],
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    color: controller.isBloodSelected.value
+                                        ? Colors.red
+                                        : Colors.red[100],
+                                  ),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Image(
+                                      height: SizeConfig.blockSizeVertical * 4,
+                                      image: AssetImage(
+                                        "assets/donate-donation.png",
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Blood",
+                                            style: GoogleFonts.lato(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: SizeConfig
+                                                      .safeBlockHorizontal *
+                                                  3.8,
+                                              color: Colors.red[900],
+                                            ),
+                                          ),
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 2),
+                                            child: Text(
+                                              "Donation",
+                                              style: GoogleFonts.lato(
+                                                fontSize: SizeConfig
+                                                        .safeBlockHorizontal *
+                                                    3,
+                                                color: Colors.red,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
                   Container(
                     margin: const EdgeInsets.only(top: 20, left: 5),
@@ -536,6 +579,14 @@ class HomeScreen extends StatelessWidget {
           ),
           GetX<ServiceController>(
             builder: (controller) {
+              if (controller.noResult.value) {
+                print("This is it");
+                return SliverToBoxAdapter(
+                    child: Center(
+                  child: Text("No Result Found!"),
+                ));
+              }
+
               if (serviceController.isLoading.value) {
                 return SliverToBoxAdapter(
                   child: Center(
@@ -543,6 +594,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 );
               }
+
               return SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
@@ -582,7 +634,7 @@ class HomeScreen extends StatelessWidget {
                             child: Column(
                               children: [
                                 Container(
-                                  padding: EdgeInsets.all(5),
+                                  padding: const EdgeInsets.all(5),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                   ),
@@ -615,8 +667,8 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(top: 10),
-                                  padding: EdgeInsets.all(5),
+                                  margin: const EdgeInsets.only(top: 10),
+                                  padding: const EdgeInsets.all(5),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                   ),
@@ -658,7 +710,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               GestureDetector(
                                 onTap: () {
@@ -671,6 +723,7 @@ class HomeScreen extends StatelessWidget {
                                             .toList(),
                                         moreDetail: result.moreDetail,
                                         postDateTime: result.postDateTime,
+                                        link: result.link,
                                       ));
                                 },
                                 child: Container(

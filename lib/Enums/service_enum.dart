@@ -7,9 +7,7 @@ enum Services {
   Plasma,
   Blood,
   Food,
-  Ambulance,
-  Emergency,
-  Others
+  Ambulance
 }
 
 String convert(Services services){
