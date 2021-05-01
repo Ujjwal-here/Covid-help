@@ -49,7 +49,7 @@ class Details extends StatelessWidget {
                 "Help",
                 style: GoogleFonts.lato(
                   fontSize: SizeConfig.safeBlockHorizontal * 6,
-                  color: Color.fromRGBO(26, 99, 209, 1),
+                  color: const Color.fromRGBO(214, 61, 22, 1),
                   fontWeight: FontWeight.w900,
                 ),
               ),
@@ -59,14 +59,14 @@ class Details extends StatelessWidget {
           backgroundColor: Colors.white,
           iconTheme: IconThemeData(color: Colors.black),
         ),
-        backgroundColor: Color.fromRGBO(244, 246, 248, 1),
+        backgroundColor: const Color.fromRGBO(244, 246, 248, 1),
         body: ListView(
           padding: const EdgeInsets.all(20),
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 15),
+              padding: const EdgeInsets.symmetric(vertical: 15),
               decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
+                gradient: const LinearGradient(colors: [
                   Color.fromRGBO(214, 61, 22, 1),
                   Color.fromRGBO(239, 92, 54, 1),
                 ]),
@@ -104,8 +104,8 @@ class Details extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 10),
-                        padding: EdgeInsets.all(10),
+                        margin: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
                           color: Colors.white,
@@ -130,12 +130,8 @@ class Details extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               margin: const EdgeInsets.only(top: 30),
               decoration: BoxDecoration(
-                color: Color.fromRGBO(54, 121, 218, 1),
+                color: const Color.fromRGBO(54, 121, 218, 1),
                 borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey[200], blurRadius: 20, spreadRadius: 2)
-                ],
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,7 +149,7 @@ class Details extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 5),
+                    margin: const EdgeInsets.only(top: 5),
                     child: Text(
                       "${daysToString(postDateTime.difference(DateTime.now()).inDays)}",
                       style: GoogleFonts.lato(
@@ -163,7 +159,7 @@ class Details extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.only(top: 20, bottom: 10),
                     padding: const EdgeInsets.symmetric(
                         vertical: 20, horizontal: 10),
                     decoration: BoxDecoration(
@@ -172,37 +168,39 @@ class Details extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              child: Text(
+                        Container(
+                          margin: const EdgeInsets.only(top: 10, bottom: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
                                 "Phone :\t\t",
                                 style: GoogleFonts.lato(
-                                  fontSize: SizeConfig.safeBlockHorizontal * 4,
+                                  fontSize:
+                                      SizeConfig.safeBlockHorizontal * 3.8,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                            ),
-                            Flexible(
-                              child: Container(
-                                child: Text(
-                                  phoneNumber,
-                                  style: GoogleFonts.lato(
-                                    fontSize:
-                                        SizeConfig.safeBlockHorizontal * 3.8,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w800,
+                              Flexible(
+                                child: Container(
+                                  child: Text(
+                                    phoneNumber,
+                                    style: GoogleFonts.lato(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.8,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w800,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                         Divider(color: Colors.white60),
                         Container(
-                          margin: const EdgeInsets.only(top: 20),
+                          margin: const EdgeInsets.only(top: 10, bottom: 10),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -235,7 +233,7 @@ class Details extends StatelessWidget {
                         ),
                         Divider(color: Colors.white60),
                         Container(
-                          margin: const EdgeInsets.only(top: 20),
+                          margin: const EdgeInsets.only(top: 10, bottom: 10),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -270,7 +268,7 @@ class Details extends StatelessWidget {
                         ),
                         Divider(color: Colors.white60),
                         Container(
-                          margin: const EdgeInsets.only(top: 20),
+                          margin: const EdgeInsets.only(top: 10, bottom: 10),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -304,21 +302,19 @@ class Details extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Divider(color: Colors.white60),
+                        Divider(color: Colors.white30),
                         Container(
-                          margin: const EdgeInsets.only(top: 20),
+                          margin: const EdgeInsets.only(top: 10, bottom: 10),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Container(
-                                child: Text(
-                                  "Link :\t\t",
-                                  style: GoogleFonts.lato(
-                                    fontSize:
-                                        SizeConfig.safeBlockHorizontal * 4,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                              Text(
+                                "Link :\t\t",
+                                style: GoogleFonts.lato(
+                                  fontSize:
+                                      SizeConfig.safeBlockHorizontal * 3.8,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                               Flexible(

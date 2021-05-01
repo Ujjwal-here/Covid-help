@@ -62,7 +62,7 @@ class _HelpFormState extends State<HelpForm> {
                 "Help",
                 style: GoogleFonts.lato(
                   fontSize: SizeConfig.safeBlockHorizontal * 6,
-                  color: Color.fromRGBO(26, 99, 209, 1),
+                  color: const Color.fromRGBO(214, 61, 22, 1),
                   fontWeight: FontWeight.w900,
                   letterSpacing: 0.5,
                 ),
@@ -86,14 +86,12 @@ class _HelpFormState extends State<HelpForm> {
                 child: ListView(
                   padding: const EdgeInsets.all(30),
                   children: [
-                    Container(
-                      child: Text(
-                        "Covid Help Resource",
-                        style: GoogleFonts.lato(
-                          fontWeight: FontWeight.w900,
-                          fontSize: SizeConfig.safeBlockHorizontal * 6,
-                          color: Colors.black,
-                        ),
+                    Text(
+                      "Covid Help Resource",
+                      style: GoogleFonts.lato(
+                        fontWeight: FontWeight.w900,
+                        fontSize: SizeConfig.safeBlockHorizontal * 6,
+                        color: Colors.black,
                       ),
                     ),
                     Container(
@@ -116,7 +114,7 @@ class _HelpFormState extends State<HelpForm> {
                           color: Colors.teal[100],
                         ),
                       ),
-                      margin: EdgeInsets.only(top: 30),
+                      margin: const EdgeInsets.only(top: 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -685,10 +683,14 @@ class _HelpFormState extends State<HelpForm> {
                                   color: Colors.blue[100],
                                 ),
                               ),
-                              selectedItemStyle: GoogleFonts.lato(),
+                              selectedItemStyle: GoogleFonts.lato(
+                                fontSize: SizeConfig.safeBlockHorizontal * 3.5,
+                              ),
                               dropdownHeadingStyle:
                                   GoogleFonts.lato(color: Colors.white),
-                              dropdownItemStyle: GoogleFonts.lato(),
+                              dropdownItemStyle: GoogleFonts.lato(
+                                fontSize: SizeConfig.safeBlockHorizontal * 3.5,
+                              ),
                               flagState: CountryFlag.DISABLE,
                               onCountryChanged: (value) {
                                 print(value);
@@ -713,7 +715,7 @@ class _HelpFormState extends State<HelpForm> {
                           color: Colors.green[100],
                         ),
                       ),
-                      margin: EdgeInsets.only(top: 30),
+                      margin: const EdgeInsets.only(top: 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -781,7 +783,7 @@ class _HelpFormState extends State<HelpForm> {
                           color: Colors.red[100],
                         ),
                       ),
-                      margin: EdgeInsets.only(top: 30),
+                      margin: const EdgeInsets.only(top: 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -841,7 +843,7 @@ class _HelpFormState extends State<HelpForm> {
                           color: Colors.indigo[100],
                         ),
                       ),
-                      margin: EdgeInsets.only(top: 30),
+                      margin: const EdgeInsets.only(top: 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -893,7 +895,7 @@ class _HelpFormState extends State<HelpForm> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 30),
+                      margin: const EdgeInsets.only(top: 30),
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
@@ -911,7 +913,7 @@ class _HelpFormState extends State<HelpForm> {
                               EdgeInsets.all(15),
                             ),
                             backgroundColor: MaterialStateProperty.all(
-                              Color.fromRGBO(26, 99, 209, 1),
+                              const Color.fromRGBO(26, 99, 209, 1),
                             ),
                             textStyle: MaterialStateProperty.all(
                               GoogleFonts.lato(

@@ -41,7 +41,7 @@ class VerifCode extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 10),
+                      margin: const EdgeInsets.only(top: 10),
                       child: Text(
                         "Verification",
                         style: GoogleFonts.lato(
@@ -52,7 +52,7 @@ class VerifCode extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 5),
+                      margin: const EdgeInsets.only(top: 5),
                       child: Text(
                         "Enter the 6-digit code sent to your phone number",
                         style: GoogleFonts.lato(
@@ -66,7 +66,7 @@ class VerifCode extends StatelessWidget {
                       children: [
                         Container(
                           width: SizeConfig.blockSizeVertical * 5.5,
-                          margin: EdgeInsets.only(top: 30),
+                          margin: const EdgeInsets.only(top: 30),
                           child: TextField(
                             maxLength: 1,
                             controller: authController.otpController1,
@@ -89,7 +89,7 @@ class VerifCode extends StatelessWidget {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Color.fromRGBO(26, 99, 209, 1),
+                                  color: Color.fromRGBO(214, 61, 22, 1),
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -122,7 +122,7 @@ class VerifCode extends StatelessWidget {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Color.fromRGBO(26, 99, 209, 1),
+                                  color: Color.fromRGBO(214, 61, 22, 1),
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -155,7 +155,7 @@ class VerifCode extends StatelessWidget {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Color.fromRGBO(26, 99, 209, 1),
+                                  color: Color.fromRGBO(214, 61, 22, 1),
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -165,7 +165,7 @@ class VerifCode extends StatelessWidget {
                         ),
                         Container(
                           width: SizeConfig.blockSizeVertical * 5.5,
-                          margin: EdgeInsets.only(top: 30),
+                          margin: const EdgeInsets.only(top: 30),
                           child: TextField(
                             maxLength: 1,
                             controller: authController.otpController4,
@@ -188,7 +188,7 @@ class VerifCode extends StatelessWidget {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Color.fromRGBO(26, 99, 209, 1),
+                                  color: Color.fromRGBO(214, 61, 22, 1),
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -198,7 +198,7 @@ class VerifCode extends StatelessWidget {
                         ),
                         Container(
                           width: SizeConfig.blockSizeVertical * 5.5,
-                          margin: EdgeInsets.only(top: 30),
+                          margin: const EdgeInsets.only(top: 30),
                           child: TextField(
                             maxLength: 1,
                             controller: authController.otpController5,
@@ -221,7 +221,7 @@ class VerifCode extends StatelessWidget {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Color.fromRGBO(26, 99, 209, 1),
+                                  color: Color.fromRGBO(214, 61, 22, 1),
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -231,7 +231,7 @@ class VerifCode extends StatelessWidget {
                         ),
                         Container(
                           width: SizeConfig.blockSizeVertical * 5.5,
-                          margin: EdgeInsets.only(top: 30),
+                          margin: const EdgeInsets.only(top: 30),
                           child: TextField(
                             maxLength: 1,
                             controller: authController.otpController6,
@@ -254,7 +254,7 @@ class VerifCode extends StatelessWidget {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Color.fromRGBO(26, 99, 209, 1),
+                                  color: Color.fromRGBO(214, 61, 22, 1),
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -265,7 +265,7 @@ class VerifCode extends StatelessWidget {
                       ],
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 30),
+                      margin: const EdgeInsets.only(top: 30),
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
@@ -280,10 +280,10 @@ class VerifCode extends StatelessWidget {
                         child: Text("Verify"),
                         style: ButtonStyle(
                           padding: MaterialStateProperty.all(
-                            EdgeInsets.all(15),
+                            const EdgeInsets.all(15),
                           ),
                           backgroundColor: MaterialStateProperty.all(
-                            Color.fromRGBO(26, 99, 209, 1),
+                            const Color.fromRGBO(26, 99, 209, 1),
                           ),
                           textStyle: MaterialStateProperty.all(
                             GoogleFonts.lato(
