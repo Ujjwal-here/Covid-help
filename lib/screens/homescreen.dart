@@ -519,6 +519,11 @@ class HomeScreen extends StatelessWidget {
           ),
           GetX<ServiceController>(
             builder: (controller) {
+              if(controller.noResult.value){
+                print("This is it");
+                return SliverToBoxAdapter(child: Center(child: Text("No Result Found!"),));
+              }
+
               if (serviceController.isLoading.value) {
                 return SliverToBoxAdapter(
                   child: Center(
@@ -526,6 +531,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 );
               }
+              
               return SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {

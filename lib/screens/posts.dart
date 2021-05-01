@@ -32,9 +32,9 @@ class Posts extends StatelessWidget {
           if(controller.loading.value){
                   return Center(child: CircularProgressIndicator(),);
             }
-            if(controller.noServices.value != ""){
-                  return Center(child: Text(controller.noServices.value),);
-                }
+            if(controller.noResult.value){
+              return Center(child: Text("You have not added any service Add to show here"),);
+            }
             return ListView.builder(
               itemCount: controller.services.length,
               itemBuilder: (context,index){

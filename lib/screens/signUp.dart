@@ -15,12 +15,6 @@ class SignUp extends StatelessWidget {
         builder: (controller) {
           return Stack(children: [
             Opacity(
-              opacity: controller.loading.value ? 1 : 0,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            ),
-            Opacity(
               opacity: controller.loading.value ? 0.5 : 1,
               child: ListView(
                 padding: const EdgeInsets.all(30),
@@ -114,7 +108,13 @@ class SignUp extends StatelessWidget {
                 ],
               ),
             ),
-          ]);
+           Opacity(
+              opacity: controller.loading.value ? 1 : 0,
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),],
+          );
         },
       ),
     );
