@@ -23,7 +23,7 @@ class Posts extends StatelessWidget {
         title: Text(
           "Resources you added",
           style: GoogleFonts.lato(
-            fontSize: 20,
+            fontSize: SizeConfig.safeBlockHorizontal * 4.8,
             color: Colors.black,
             fontWeight: FontWeight.bold,
           ),
@@ -57,7 +57,7 @@ class Posts extends StatelessWidget {
                   margin:
                       const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(54, 121, 218, 1),
+                    color: const Color.fromRGBO(54, 121, 218, 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
@@ -76,7 +76,7 @@ class Posts extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 15),
+                        margin: const EdgeInsets.only(top: 15),
                         padding: const EdgeInsets.symmetric(
                             vertical: 5, horizontal: 5),
                         decoration: BoxDecoration(
@@ -92,51 +92,42 @@ class Posts extends StatelessWidget {
                               ),
                               child: Row(
                                 children: [
-                                  Container(
-                                    child: Text(
-                                      "City :",
-                                      style: GoogleFonts.lato(
-                                        fontSize:
-                                            SizeConfig.safeBlockHorizontal *
-                                                3.7,
-                                        color: Colors.white,
-                                      ),
+                                  Text(
+                                    "City :",
+                                    style: GoogleFonts.lato(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.7,
+                                      color: Colors.white,
                                     ),
                                   ),
-                                  Container(
-                                    child: Text(
-                                      "\t${result.city}",
-                                      style: GoogleFonts.lato(
-                                        fontSize:
-                                            SizeConfig.safeBlockHorizontal *
-                                                3.8,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                  Text(
+                                    "\t${result.city}",
+                                    style: GoogleFonts.lato(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.8,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.only(top: 10),
-                              padding: EdgeInsets.all(5),
+                              margin: const EdgeInsets.only(top: 10),
+                              padding: const EdgeInsets.all(5),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                               ),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
-                                    child: Text(
-                                      "Type :",
-                                      style: GoogleFonts.lato(
-                                        fontSize:
-                                            SizeConfig.safeBlockHorizontal *
-                                                3.7,
-                                        color: Colors.white,
-                                        //fontWeight: FontWeight.bold,
-                                      ),
+                                  Text(
+                                    "Type :",
+                                    style: GoogleFonts.lato(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.7,
+                                      color: Colors.white,
+                                      //fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                   Flexible(
