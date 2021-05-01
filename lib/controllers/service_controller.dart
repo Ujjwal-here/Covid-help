@@ -52,6 +52,7 @@ class ServiceController extends GetxController{
         isFoodSelected.value = false;
         isMedicineSelected.value = false;
         isOxygenSelected.value = false;
+        isBedSelected.value = false;
         break;
       case Services.Blood:
       isBloodSelected.value = true;
@@ -60,6 +61,7 @@ class ServiceController extends GetxController{
       isFoodSelected.value = false;
       isMedicineSelected.value = false;
       isOxygenSelected.value = false;
+      isBedSelected.value = false;
       break;
       case Services.Plasma:
       isPlasmaSelected.value = true;
@@ -68,6 +70,7 @@ class ServiceController extends GetxController{
       isOxygenSelected.value = false;
       isBloodSelected.value = false;
       isAmbulanceSelected.value = false;
+      isBedSelected.value = false;
       break;
       case Services.Food:
       isFoodSelected.value = true;
@@ -76,6 +79,7 @@ class ServiceController extends GetxController{
       isBloodSelected.value = false;
       isAmbulanceSelected.value = false;
       isPlasmaSelected.value = false;
+      isBedSelected.value = false;
       break;
       case Services.Medicine:
       isMedicineSelected.value = true;
@@ -84,9 +88,20 @@ class ServiceController extends GetxController{
       isAmbulanceSelected.value = false;
       isPlasmaSelected.value = false;
       isFoodSelected.value = false;
+      isBedSelected.value = false;
       break;
       case Services.Oxygen:
       isOxygenSelected.value = true;
+      isBloodSelected.value = false;
+      isAmbulanceSelected.value = false;
+      isPlasmaSelected.value = false;
+      isFoodSelected.value = false;
+      isMedicineSelected.value = false;
+      isBedSelected.value = false;
+      break;
+      case Services.Beds:
+      isBedSelected.value = true;
+      isOxygenSelected.value = false;
       isBloodSelected.value = false;
       isAmbulanceSelected.value = false;
       isPlasmaSelected.value = false;

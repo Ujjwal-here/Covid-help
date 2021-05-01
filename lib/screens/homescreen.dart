@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
                 "Help",
                 style: GoogleFonts.lato(
                   fontSize: SizeConfig.safeBlockHorizontal * 6,
-                  color: Color.fromRGBO(26, 99, 209, 1),
+                  color: Color.fromRGBO(214, 61, 22, 1),
                   fontWeight: FontWeight.w900,
                   letterSpacing: 0.5,
                 ),
@@ -222,7 +222,7 @@ class HomeScreen extends StatelessWidget {
                                     Image(
                                       height: SizeConfig.blockSizeVertical * 5,
                                       image: AssetImage(
-                                        "assets/hospitalBeds.jpg",
+                                        "assets/oxygen-cylinder.png",
                                       ),
                                     ),
                                     Container(
@@ -257,7 +257,7 @@ class HomeScreen extends StatelessWidget {
                                 margin: const EdgeInsets.all(10),
                                 padding: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
-                                  color: Colors.green[50],
+                                  color: Colors.purple[50],
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
                                     color: controller.isBedSelected.value
@@ -273,7 +273,7 @@ class HomeScreen extends StatelessWidget {
                                     Image(
                                       height: SizeConfig.blockSizeVertical * 5,
                                       image: AssetImage(
-                                        "assets/oxygen-cylinder.png",
+                                        "assets/uxwing-svg-icon-editor.png",
                                       ),
                                     ),
                                     Container(
@@ -288,7 +288,7 @@ class HomeScreen extends StatelessWidget {
                                               fontSize: SizeConfig
                                                       .safeBlockHorizontal *
                                                   3.8,
-                                              color: Colors.green[900],
+                                              color: Colors.purple[500],
                                             ),
                                           ),
                                         ],
