@@ -676,7 +676,7 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(() => HelpForm());
+          Get.to(() => HelpForm(editMode: false,));
         },
         backgroundColor: Colors.yellow,
         child: Icon(

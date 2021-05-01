@@ -31,6 +31,7 @@ class FormController extends GetxController{
     otherController.text = other;
   }
 
+  Rx<bool> loading = false.obs;
 
   Set<Services> typeOfServices = Set<Services>();
 
@@ -52,7 +53,7 @@ class FormController extends GetxController{
   bool isPlasmaSelected = false;
   bool isHospitalBedsSelected = false;
   bool isMedicineSelected = false;
-  bool isOtherSelected = false;
+  bool isBloodSelected = false;
   bool isFoodSelected = false;
 
 
@@ -65,10 +66,11 @@ class FormController extends GetxController{
   }
 
   postForm()async{
-    if(nameController.text == null || phoneNumberController.text == null || typeOfServices.isEmpty || _city == null || _state == null){
+    if(nameController.text == "" || phoneNumberController.text == "" || typeOfServices.isEmpty || _city == null || _state == null){
       Get.snackbar("Fill Required Fields!!", "Some Fields are required fill those to submit!");
       return;
     }
+    loading.toggle();
       Map<String,dynamic> form = {
         "name":nameController.text.trim(),
         "city":_city,
@@ -80,7 +82,7 @@ class FormController extends GetxController{
       };
     DocumentReference docRef = await serviceRepo.postServices(form);
     await serviceRepo.postServiceInUser(form,docRef.id);
-    
+    loading.toggle();
     Get.back();
   }
 
@@ -89,6 +91,7 @@ class FormController extends GetxController{
       Get.snackbar("Fill Required Fields!!", "Some Fields are required fill those to submit!");
       return;
     }
+    loading.toggle();
     Map<String,dynamic> form = {
         "name":nameController.text.trim(),
         "city":_city,
@@ -98,8 +101,13 @@ class FormController extends GetxController{
         "upvotes":0,
         "moreDetail":detailController.text.trim()
       };
-
-    await serviceRepo.editPostService(uid, form);
+    try {
+     await serviceRepo.editPostService(uid, form); 
+    } catch (e) {
+      loading.toggle();
+      return;
+    }
+    loading.toggle();
     Get.back();
 
   }

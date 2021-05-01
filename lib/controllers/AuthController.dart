@@ -26,7 +26,7 @@ class AuthController extends GetxController {
 
   String _verificationId;
 
-  Rx<bool> isLoading = false.obs;
+  Rx<bool> loading = false.obs;
 
   User get user => _firebaseUser?.value;
 
@@ -37,7 +37,7 @@ class AuthController extends GetxController {
   }
 
   signIn() {
-    isLoading.value = true;
+    loading.toggle();
     _auth.verifyPhoneNumber(
         phoneNumber: phoneNumberController.text.trim(),
         timeout: const Duration(seconds: 60),
@@ -59,7 +59,7 @@ class AuthController extends GetxController {
   }
 
   codeSent(String verificationId, int resendToken) async {
-    isLoading.value = false;
+    loading.toggle();
     Get.to(VerifCode());
     _verificationId = verificationId;
   }
@@ -69,6 +69,7 @@ class AuthController extends GetxController {
   }
 
   manualPart() async {
+    loading.toggle();
     try {
       String otp = otpController1.text +
           otpController2.text +
@@ -82,6 +83,7 @@ class AuthController extends GetxController {
           await userRepo.checkUserExists(phoneNumberController.text.trim());
       UserCredential userCred = await _auth.signInWithCredential(credential);
       await userRepo.registerUser({"phoneNumber":phoneNumberController.text.trim()}, userCred.user.uid);
+      loading.toggle();
       Get.off(HomeScreen());
     } catch (e) {
       print(e);
