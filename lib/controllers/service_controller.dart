@@ -132,6 +132,7 @@ class ServiceController extends GetxController{
       print(serviceType);
       print("garegaergerg");
       return ServiceModel(
+        ownerUid: e["ownerUid"],
       serviceType:serviceType , 
       city: e["city"], 
       state: e["state"], 
@@ -165,6 +166,7 @@ class ServiceController extends GetxController{
     _services.value = qs.docs.map((e) {
       List<Services> serviceType = List.from(e["type"].map((e)=>convertToService(e)));
       return ServiceModel(
+        ownerUid: e["ownerUid"],
       serviceType: serviceType, 
       city: e["city"], 
       state: e["state"], 

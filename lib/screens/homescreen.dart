@@ -771,7 +771,7 @@ class HomeScreen extends StatelessWidget {
                                     children: [
                                       Container(
                                         child: Text(
-                                          "Phone Number :\t\t\t",
+                                          "Phone Number :",
                                           style: GoogleFonts.lato(
                                             fontSize:
                                                 SizeConfig.safeBlockHorizontal *

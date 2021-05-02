@@ -14,9 +14,11 @@ class ServiceModel extends Equatable {
   final String serviceUid;
   final DateTime postDateTime;
   final String link;
+  final String ownerUid;
 
   ServiceModel(
       {@required this.serviceType,
+      @required this.ownerUid,
       this.serviceUid,
       @required this.postDateTime,
       @required this.city,
@@ -32,6 +34,7 @@ class ServiceModel extends Equatable {
 
   factory ServiceModel.fromDocumentSnapshot(DocumentSnapshot ds) {
     return ServiceModel(
+        ownerUid: ds.data()["ownerUid"],
         serviceType: ds.data()["type"],
         city: ds.data()["address"],
         state: ds.data()["state"],

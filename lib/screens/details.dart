@@ -1,16 +1,11 @@
-import 'package:covid_help/controllers/user_service_controller.dart';
 import 'package:covid_help/widgets/sizeConfig.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 String daysToString(int days) {
   if (days == 0) {
     return "Updated today";
-  }else if(days==1){
-    return "Updated 1 day ago";
-  } 
-  else {
+  } else {
     return "Updated $days days ago";
   }
 }
@@ -34,10 +29,7 @@ class Details extends StatelessWidget {
       this.link,
       @required this.moreDetail,
       @required this.postDateTime,
-      @required this.serviceUid
-      });
-
-  final UserServicesController userServicesController = Get.put(UserServicesController());    
+      @required this.serviceUid});
 
   @override
   Widget build(BuildContext context) {
@@ -70,326 +62,286 @@ class Details extends StatelessWidget {
           iconTheme: IconThemeData(color: Colors.black),
         ),
         backgroundColor: const Color.fromRGBO(244, 246, 248, 1),
-        body: GetX<UserServicesController>(
-          builder: (controller){
-              return Stack(
-            children: [
-              Opacity(
-                opacity: controller.deleteLoading.value?0.5:1,
-                child: ListView(
-                padding: const EdgeInsets.all(20),
+        body: ListView(
+          padding: const EdgeInsets.all(20),
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 15),
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(colors: [
+                  Color.fromRGBO(214, 61, 22, 1),
+                  Color.fromRGBO(239, 92, 54, 1),
+                ]),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image(
+                    image: AssetImage("assets/doctor.png"),
+                    height: SizeConfig.blockSizeVertical * 15,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        child: Text(
+                          "Stay Home",
+                          style: GoogleFonts.lato(
+                            fontWeight: FontWeight.bold,
+                            fontSize: SizeConfig.safeBlockHorizontal * 5,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Text(
+                          "Stay Safe",
+                          style: GoogleFonts.lato(
+                            fontWeight: FontWeight.bold,
+                            fontSize: SizeConfig.safeBlockHorizontal * 4.5,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: Colors.white,
+                        ),
+                        child: Flexible(
+                          child: Text(
+                            "Wear Mask And \nStop Covid",
+                            style: GoogleFonts.lato(
+                              fontWeight: FontWeight.bold,
+                              fontSize: SizeConfig.safeBlockHorizontal * 3.1,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(20),
+              margin: const EdgeInsets.only(top: 30),
+              decoration: BoxDecoration(
+                color: const Color.fromRGBO(54, 121, 218, 1),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(colors: [
-                        Color.fromRGBO(214, 61, 22, 1),
-                        Color.fromRGBO(239, 92, 54, 1),
-                      ]),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Image(
-                          image: AssetImage("assets/doctor.png"),
-                          height: SizeConfig.blockSizeVertical * 15,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              child: Text(
-                                "Stay Home",
-                                style: GoogleFonts.lato(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: SizeConfig.safeBlockHorizontal * 5,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              child: Text(
-                                "Stay Safe",
-                                style: GoogleFonts.lato(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: SizeConfig.safeBlockHorizontal * 4.5,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(top: 10),
-                              padding: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color: Colors.white,
-                              ),
-                              child: Flexible(
-                                child: Text(
-                                  "Wear Mask And \nStop Covid",
-                                  style: GoogleFonts.lato(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: SizeConfig.safeBlockHorizontal * 3.1,
-                                    color: Colors.black87,
-                                  ),
-                                ),
-                              ),
-                            )
-                          ],
-                        )
-                      ],
+                    child: Text(
+                      name,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.lato(
+                        fontSize: SizeConfig.safeBlockHorizontal * 6,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w900,
+                      ),
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.all(20),
-                    margin: const EdgeInsets.only(top: 30),
+                    margin: const EdgeInsets.only(top: 5),
+                    child: Text(
+                      "${daysToString(postDateTime.difference(DateTime.now()).inDays)}",
+                      style: GoogleFonts.lato(
+                        fontSize: SizeConfig.safeBlockHorizontal * 3.5,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 20, bottom: 10),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 20, horizontal: 10),
                     decoration: BoxDecoration(
-                      color: const Color.fromRGBO(54, 121, 218, 1),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.white12,
                     ),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          child: Text(
-                            name,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: GoogleFonts.lato(
-                              fontSize: SizeConfig.safeBlockHorizontal * 6,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w900,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(top: 5),
-                          child: Text(
-                            "${daysToString(postDateTime.difference(DateTime.now()).inDays)}",
-                            style: GoogleFonts.lato(
-                              fontSize: SizeConfig.safeBlockHorizontal * 3.5,
-                              color: Colors.white70,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(top: 20, bottom: 10),
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Colors.white12,
-                          ),
-                          child: Column(
+                          margin: const EdgeInsets.only(top: 10, bottom: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Container(
-                                margin: const EdgeInsets.only(top: 10, bottom: 10),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "Phone :\t\t",
-                                      style: GoogleFonts.lato(
-                                        fontSize:
-                                            SizeConfig.safeBlockHorizontal * 3.8,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Flexible(
-                                      child: Container(
-                                        child: Text(
-                                          phoneNumber,
-                                          style: GoogleFonts.lato(
-                                            fontSize:
-                                                SizeConfig.safeBlockHorizontal * 3.8,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w800,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                              Text(
+                                "Phone :\t\t",
+                                style: GoogleFonts.lato(
+                                  fontSize:
+                                      SizeConfig.safeBlockHorizontal * 3.8,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Divider(color: Colors.white60),
-                              Container(
-                                margin: const EdgeInsets.only(top: 10, bottom: 10),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Container(
-                                      child: Text(
-                                        "City :\t\t\t",
-                                        style: GoogleFonts.nunito(
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal * 4,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
+                              Flexible(
+                                child: Container(
+                                  child: Text(
+                                    phoneNumber,
+                                    style: GoogleFonts.lato(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.8,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w800,
                                     ),
-                                    Flexible(
-                                      child: Container(
-                                        child: Text(
-                                          city == null ? "Not Provided" : city,
-                                          style: GoogleFonts.lato(
-                                            fontSize:
-                                                SizeConfig.safeBlockHorizontal * 3.8,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w800,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Divider(color: Colors.white60),
-                              Container(
-                                margin: const EdgeInsets.only(top: 10, bottom: 10),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Container(
-                                      child: Text(
-                                        "Donation type :\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
-                                        style: GoogleFonts.lato(
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal * 4,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                    Flexible(
-                                      child: Container(
-                                        child: Text(
-                                          donationType == null
-                                              ? "Not Provided"
-                                              : "${donationType.map((e) => (e))}",
-                                          style: GoogleFonts.lato(
-                                            fontSize:
-                                                SizeConfig.safeBlockHorizontal * 3.8,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w800,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Divider(color: Colors.white60),
-                              Container(
-                                margin: const EdgeInsets.only(top: 10, bottom: 10),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Container(
-                                      child: Text(
-                                        "More details :\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
-                                        style: GoogleFonts.lato(
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal * 4,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                    Flexible(
-                                      child: Container(
-                                        child: Text(
-                                          moreDetail == null
-                                              ? "Not Provided"
-                                              : moreDetail,
-                                          style: GoogleFonts.lato(
-                                            fontSize:
-                                                SizeConfig.safeBlockHorizontal * 3.8,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Divider(color: Colors.white30),
-                              Container(
-                                margin: const EdgeInsets.only(top: 10, bottom: 10),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "Link :\t\t",
-                                      style: GoogleFonts.lato(
-                                        fontSize:
-                                            SizeConfig.safeBlockHorizontal * 3.8,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Flexible(
-                                      child: Container(
-                                        child: Text(
-                                          link == null ? "Not Provided" : link,
-                                          style: GoogleFonts.lato(
-                                            fontSize:
-                                                SizeConfig.safeBlockHorizontal * 3.8,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                                  ),
                                 ),
                               ),
                             ],
                           ),
-                        )
-                      ],
-                    ),
-                  ),
-                  GestureDetector(
-                                  onTap: ()async{
-                                    await userServicesController.deleteService(serviceUid);
-                                    Get.back();
-                                  },
-                                  child: Container(
-                                    padding: const EdgeInsets.all(10),
-                                    decoration: BoxDecoration(
-                                      color: Colors.red[300],
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    margin: const EdgeInsets.only(top: 20),
-                                    child: Center(
-                                      child: Text(
-                                        "Delete",
-                                        style: GoogleFonts.lato(
-                                          fontSize:
-                                              SizeConfig.safeBlockHorizontal * 3.4,
-                                          color: Colors.black87,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
+                        ),
+                        Divider(color: Colors.white60),
+                        Container(
+                          margin: const EdgeInsets.only(top: 10, bottom: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "City :\t\t\t",
+                                  style: GoogleFonts.nunito(
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 4,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Flexible(
+                                child: Container(
+                                  child: Text(
+                                    city == null ? "Not Provided" : city,
+                                    style: GoogleFonts.lato(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.8,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w800,
                                     ),
                                   ),
                                 ),
-                ],
+                              ),
+                            ],
+                          ),
                         ),
+                        Divider(color: Colors.white60),
+                        Container(
+                          margin: const EdgeInsets.only(top: 10, bottom: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "Donation type :\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
+                                  style: GoogleFonts.lato(
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 4,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Flexible(
+                                child: Container(
+                                  child: Text(
+                                    donationType == null
+                                        ? "Not Provided"
+                                        : "${donationType.map((e) => (e))}",
+                                    style: GoogleFonts.lato(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.8,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Divider(color: Colors.white60),
+                        Container(
+                          margin: const EdgeInsets.only(top: 10, bottom: 10),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "More details :\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
+                                  style: GoogleFonts.lato(
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 4,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Flexible(
+                                child: Container(
+                                  child: Text(
+                                    moreDetail == null
+                                        ? "Not Provided"
+                                        : moreDetail,
+                                    style: GoogleFonts.lato(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.8,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Divider(color: Colors.white30),
+                        Container(
+                          margin: const EdgeInsets.only(top: 10, bottom: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Link :\t\t",
+                                style: GoogleFonts.lato(
+                                  fontSize:
+                                      SizeConfig.safeBlockHorizontal * 3.8,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Flexible(
+                                child: Container(
+                                  child: Text(
+                                    link == null ? "Not Provided" : link,
+                                    style: GoogleFonts.lato(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.8,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
-              Opacity(opacity: controller.deleteLoading.value?1:0,
-              child: Center(child: CircularProgressIndicator(),),
-              )
-              ],
-          );
-          },
-           
+            ),
+          ],
         ),
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:covid_help/Enums/service_enum.dart';
 import 'package:covid_help/Repository/service_repo.dart';
+import 'package:covid_help/controllers/AuthController.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,6 +19,8 @@ class FormController extends GetxController{
   TextEditingController detailController = TextEditingController();
   TextEditingController linkController = TextEditingController();
   TextEditingController otherController = TextEditingController();
+
+  AuthController authController = Get.find<AuthController>();
 
   onInit(){
     initController();
@@ -78,6 +81,7 @@ class FormController extends GetxController{
     loading.toggle();
     var postDateTime = DateTime.now();
       Map<String,dynamic> form = {
+        "ownerUid":authController.user.uid,
         "name":nameController.text.trim(),
         "city":_city,
         "state":_state,
@@ -102,6 +106,7 @@ class FormController extends GetxController{
     loading.toggle();
     var postDateTime = DateTime.now();
     Map<String,dynamic> form = {
+        "ownerUid":authController.user.uid,
         "name":nameController.text.trim(),
         "city":_city,
         "state":_state,

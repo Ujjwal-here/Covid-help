@@ -27,6 +27,7 @@ class UserServicesController extends GetxController {
     _services.value = qs.docs.map((e) {
       List<Services> serviceType = List.from(e["type"].map((e)=>convertToService(e)));
       return ServiceModel(
+        ownerUid: e["ownerUid"],
       serviceUid: e.id,
       serviceType: serviceType, 
       city: e["city"], 
