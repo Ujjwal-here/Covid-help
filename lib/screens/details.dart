@@ -67,10 +67,12 @@ class Details extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(vertical: 15),
               decoration: BoxDecoration(
-                gradient: const LinearGradient(colors: [
-                  Color.fromRGBO(214, 61, 22, 1),
-                  Color.fromRGBO(239, 92, 54, 1),
-                ]),
+                gradient: const LinearGradient(
+                  colors: [
+                    Color.fromRGBO(214, 61, 22, 1),
+                    Color.fromRGBO(239, 92, 54, 1),
+                  ],
+                ),
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Row(
@@ -135,16 +137,12 @@ class Details extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    child: Text(
-                      name,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.lato(
-                        fontSize: SizeConfig.safeBlockHorizontal * 6,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w900,
-                      ),
+                  Text(
+                    name,
+                    style: GoogleFonts.lato(
+                      fontSize: SizeConfig.safeBlockHorizontal * 6,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900,
                     ),
                   ),
                   Container(
@@ -173,7 +171,7 @@ class Details extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Phone :\t\t",
+                                "Phone :\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
                                 style: GoogleFonts.lato(
                                   fontSize:
                                       SizeConfig.safeBlockHorizontal * 3.8,
@@ -182,15 +180,13 @@ class Details extends StatelessWidget {
                                 ),
                               ),
                               Flexible(
-                                child: Container(
-                                  child: Text(
-                                    phoneNumber,
-                                    style: GoogleFonts.lato(
-                                      fontSize:
-                                          SizeConfig.safeBlockHorizontal * 3.8,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w800,
-                                    ),
+                                child: Text(
+                                  phoneNumber,
+                                  style: GoogleFonts.lato(
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 3.8,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800,
                                   ),
                                 ),
                               ),
@@ -205,7 +201,7 @@ class Details extends StatelessWidget {
                             children: [
                               Container(
                                 child: Text(
-                                  "City :\t\t\t",
+                                  "City :\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
                                   style: GoogleFonts.nunito(
                                     fontSize:
                                         SizeConfig.safeBlockHorizontal * 4,
@@ -215,15 +211,13 @@ class Details extends StatelessWidget {
                                 ),
                               ),
                               Flexible(
-                                child: Container(
-                                  child: Text(
-                                    city == null ? "Not Provided" : city,
-                                    style: GoogleFonts.lato(
-                                      fontSize:
-                                          SizeConfig.safeBlockHorizontal * 3.8,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w800,
-                                    ),
+                                child: Text(
+                                  city == null ? "Not Provided" : city,
+                                  style: GoogleFonts.lato(
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 3.8,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800,
                                   ),
                                 ),
                               ),
@@ -238,7 +232,7 @@ class Details extends StatelessWidget {
                             children: [
                               Container(
                                 child: Text(
-                                  "Donation type :\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
+                                  "Donation type :\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
                                   style: GoogleFonts.lato(
                                     fontSize:
                                         SizeConfig.safeBlockHorizontal * 4,
@@ -248,17 +242,15 @@ class Details extends StatelessWidget {
                                 ),
                               ),
                               Flexible(
-                                child: Container(
-                                  child: Text(
-                                    donationType == null
-                                        ? "Not Provided"
-                                        : "${donationType.map((e) => (e))}",
-                                    style: GoogleFonts.lato(
-                                      fontSize:
-                                          SizeConfig.safeBlockHorizontal * 3.8,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w800,
-                                    ),
+                                child: Text(
+                                  donationType == null
+                                      ? "Not Provided"
+                                      : "${donationType.map((e) => (e))}",
+                                  style: GoogleFonts.lato(
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 3.8,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800,
                                   ),
                                 ),
                               ),
@@ -274,7 +266,7 @@ class Details extends StatelessWidget {
                             children: [
                               Container(
                                 child: Text(
-                                  "More details :\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
+                                  "More details :\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
                                   style: GoogleFonts.lato(
                                     fontSize:
                                         SizeConfig.safeBlockHorizontal * 4,
@@ -284,17 +276,15 @@ class Details extends StatelessWidget {
                                 ),
                               ),
                               Flexible(
-                                child: Container(
-                                  child: Text(
-                                    moreDetail == null
-                                        ? "Not Provided"
-                                        : moreDetail,
-                                    style: GoogleFonts.lato(
-                                      fontSize:
-                                          SizeConfig.safeBlockHorizontal * 3.8,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                child: Text(
+                                  moreDetail == null
+                                      ? "Not Provided"
+                                      : moreDetail,
+                                  style: GoogleFonts.lato(
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 3.8,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ),
@@ -308,7 +298,7 @@ class Details extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Link :\t\t",
+                                "Link :\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
                                 style: GoogleFonts.lato(
                                   fontSize:
                                       SizeConfig.safeBlockHorizontal * 3.8,
@@ -317,15 +307,13 @@ class Details extends StatelessWidget {
                                 ),
                               ),
                               Flexible(
-                                child: Container(
-                                  child: Text(
-                                    link == null ? "Not Provided" : link,
-                                    style: GoogleFonts.lato(
-                                      fontSize:
-                                          SizeConfig.safeBlockHorizontal * 3.8,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                child: Text(
+                                  link == null ? "Not Provided" : link,
+                                  style: GoogleFonts.lato(
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 3.8,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ),

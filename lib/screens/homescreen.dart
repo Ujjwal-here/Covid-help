@@ -231,13 +231,27 @@ class HomeScreen extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            "Oxygen Cylinders",
+                                            "Oxygen",
                                             style: GoogleFonts.lato(
                                               fontWeight: FontWeight.bold,
                                               fontSize: SizeConfig
                                                       .safeBlockHorizontal *
                                                   3.8,
                                               color: Colors.green[900],
+                                            ),
+                                          ),
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 2),
+                                            child: Text(
+                                              "Cylinders",
+                                              style: GoogleFonts.lato(
+                                                //fontWeight: FontWeight.bold,
+                                                fontSize: SizeConfig
+                                                        .safeBlockHorizontal *
+                                                    3.3,
+                                                color: Colors.green,
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -257,12 +271,12 @@ class HomeScreen extends StatelessWidget {
                                 margin: const EdgeInsets.all(10),
                                 padding: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
-                                  color: Colors.purple[50],
+                                  color: Colors.cyan[50],
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
                                     color: controller.isBedSelected.value
                                         ? Colors.black
-                                        : Colors.purple[100],
+                                        : Colors.cyan[100],
                                   ),
                                 ),
                                 child: Column(
@@ -271,9 +285,10 @@ class HomeScreen extends StatelessWidget {
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     Image(
-                                      height: SizeConfig.blockSizeVertical * 5,
+                                      height:
+                                          SizeConfig.blockSizeVertical * 3.3,
                                       image: AssetImage(
-                                        "assets/uxwing-svg-icon-editor.png",
+                                        "assets/bed.png",
                                       ),
                                     ),
                                     Container(
@@ -282,13 +297,27 @@ class HomeScreen extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            "Hospital Beds",
+                                            "Hospital",
                                             style: GoogleFonts.lato(
                                               fontWeight: FontWeight.bold,
                                               fontSize: SizeConfig
                                                       .safeBlockHorizontal *
                                                   3.8,
-                                              color: Colors.purple[500],
+                                              color: Colors.cyan[900],
+                                            ),
+                                          ),
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 2),
+                                            child: Text(
+                                              "Beds",
+                                              style: GoogleFonts.lato(
+                                                //fontWeight: FontWeight.bold,
+                                                fontSize: SizeConfig
+                                                        .safeBlockHorizontal *
+                                                    3.3,
+                                                color: Colors.cyan[500],
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -352,7 +381,7 @@ class HomeScreen extends StatelessWidget {
                                               style: GoogleFonts.lato(
                                                 fontSize: SizeConfig
                                                         .safeBlockHorizontal *
-                                                    3,
+                                                    3.1,
                                                 color: Colors.red,
                                               ),
                                             ),
@@ -418,7 +447,7 @@ class HomeScreen extends StatelessWidget {
                                               style: GoogleFonts.lato(
                                                 fontSize: SizeConfig
                                                         .safeBlockHorizontal *
-                                                    3,
+                                                    3.1,
                                                 color: Colors.pink,
                                               ),
                                             ),
@@ -460,23 +489,14 @@ class HomeScreen extends StatelessWidget {
                                         "assets/pills-tablets.png",
                                       ),
                                     ),
-                                    Container(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Medicine",
-                                            style: GoogleFonts.lato(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: SizeConfig
-                                                      .safeBlockHorizontal *
-                                                  3.8,
-                                              color: Colors.blue[900],
-                                            ),
-                                          ),
-                                          
-                                        ],
+                                    Text(
+                                      "Medicine",
+                                      style: GoogleFonts.lato(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            SizeConfig.safeBlockHorizontal *
+                                                3.8,
+                                        color: Colors.blue[900],
                                       ),
                                     )
                                   ],
@@ -514,23 +534,14 @@ class HomeScreen extends StatelessWidget {
                                         "assets/vegetarian-food.png",
                                       ),
                                     ),
-                                    Container(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Foods",
-                                            style: GoogleFonts.lato(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: SizeConfig
-                                                      .safeBlockHorizontal *
-                                                  3.8,
-                                              color: Colors.teal[900],
-                                            ),
-                                          ),
-                                          
-                                        ],
+                                    Text(
+                                      "Foods",
+                                      style: GoogleFonts.lato(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            SizeConfig.safeBlockHorizontal *
+                                                3.8,
+                                        color: Colors.teal[900],
                                       ),
                                     )
                                   ],
@@ -590,7 +601,7 @@ class HomeScreen extends StatelessWidget {
                                               style: GoogleFonts.lato(
                                                 fontSize: SizeConfig
                                                         .safeBlockHorizontal *
-                                                    3,
+                                                    3.1,
                                                 color: Colors.red,
                                               ),
                                             ),
@@ -706,16 +717,14 @@ class HomeScreen extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                      Container(
-                                        child: Text(
-                                          "\t\t${result.city.capitalizeFirst}",
-                                          style: GoogleFonts.lato(
-                                            fontSize:
-                                                SizeConfig.safeBlockHorizontal *
-                                                    3.8,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                      Text(
+                                        "\t\t${result.city.capitalizeFirst}",
+                                        style: GoogleFonts.lato(
+                                          fontSize:
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3.8,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                     ],
@@ -758,11 +767,11 @@ class HomeScreen extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                      
                                     ],
                                   ),
                                 ),
                                 Container(
+                                  margin: const EdgeInsets.only(top: 10),
                                   padding: const EdgeInsets.all(5),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
@@ -780,16 +789,14 @@ class HomeScreen extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                      Container(
-                                        child: Text(
-                                          "\t\t${result.phoneNumber}",
-                                          style: GoogleFonts.lato(
-                                            fontSize:
-                                                SizeConfig.safeBlockHorizontal *
-                                                    3.8,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                      Text(
+                                        "\t\t${result.phoneNumber}",
+                                        style: GoogleFonts.lato(
+                                          fontSize:
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3.8,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                     ],
@@ -799,7 +806,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               GestureDetector(
                                 onTap: () {
@@ -836,7 +843,6 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          
                         ],
                       ),
                     );
@@ -848,13 +854,15 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.to(() => HelpForm(
                 editMode: false,
               ));
         },
-        backgroundColor: Colors.white,//Color.fromRGBO(239, 92, 54, 1),
+        backgroundColor: Colors.white, //Color.fromRGBO(239, 92, 54, 1),
         child: Icon(
           Icons.add,
           color: Colors.black,
