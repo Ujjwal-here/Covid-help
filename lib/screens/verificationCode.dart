@@ -37,7 +37,7 @@ class VerifCode extends StatelessWidget {
                       margin: const EdgeInsets.only(top: 50),
                       child: Image(
                         height: SizeConfig.blockSizeVertical * 30,
-                        image: AssetImage("assets/protection.png"),
+                        image: AssetImage("assets/hero.png"),
                       ),
                     ),
                     Container(
