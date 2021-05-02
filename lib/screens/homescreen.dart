@@ -733,7 +733,7 @@ class HomeScreen extends StatelessWidget {
                                     children: [
                                       Container(
                                         child: Text(
-                                          "Type :",
+                                          "Resources :",
                                           style: GoogleFonts.lato(
                                             fontSize:
                                                 SizeConfig.safeBlockHorizontal *
@@ -746,7 +746,7 @@ class HomeScreen extends StatelessWidget {
                                       Flexible(
                                         child: Container(
                                           child: Text(
-                                            "\t\t${result.serviceType.map((e) => convert(e).toString())}",
+                                            "\t\t${result.serviceType.map((e) => convert(e))}",
                                             maxLines: 1,
                                             style: GoogleFonts.lato(
                                               fontSize: SizeConfig
@@ -813,7 +813,7 @@ class HomeScreen extends StatelessWidget {
                                         moreDetail: result.moreDetail,
                                         postDateTime: result.postDateTime,
                                         link: result.link,
-                                        serviceUid: result.serviceUid,
+                                        
                                       ));
                                 },
                                 child: Container(

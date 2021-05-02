@@ -18,7 +18,7 @@ class Details extends StatelessWidget {
   final String link;
   final String moreDetail;
   final DateTime postDateTime;
-  final String serviceUid;
+  
 
   Details(
       {Key key,
@@ -28,8 +28,7 @@ class Details extends StatelessWidget {
       @required this.donationType,
       this.link,
       @required this.moreDetail,
-      @required this.postDateTime,
-      @required this.serviceUid});
+      @required this.postDateTime,});
 
   @override
   Widget build(BuildContext context) {
@@ -112,14 +111,12 @@ class Details extends StatelessWidget {
                           borderRadius: BorderRadius.circular(5),
                           color: Colors.white,
                         ),
-                        child: Flexible(
-                          child: Text(
-                            "Wear Mask And \nStop Covid",
-                            style: GoogleFonts.lato(
-                              fontWeight: FontWeight.bold,
-                              fontSize: SizeConfig.safeBlockHorizontal * 3.1,
-                              color: Colors.black87,
-                            ),
+                        child: Text(
+                          "Wear Mask And \nStop Covid",
+                          style: GoogleFonts.lato(
+                            fontWeight: FontWeight.bold,
+                            fontSize: SizeConfig.safeBlockHorizontal * 3.1,
+                            color: Colors.black87,
                           ),
                         ),
                       )

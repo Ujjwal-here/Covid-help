@@ -201,7 +201,7 @@ class Posts extends StatelessWidget {
                                 child: Container(
                                   padding: const EdgeInsets.all(10),
                                   decoration: BoxDecoration(
-                                    color: Colors.red,
+                                    color: Colors.white,
                                     borderRadius: BorderRadius.circular(5),
                                   ),
                                   margin: const EdgeInsets.only(top: 20),
@@ -228,7 +228,7 @@ class Posts extends StatelessWidget {
                                       moreDetail: result.moreDetail,
                                       postDateTime: result.postDateTime,
                                       link: result.link,
-                                      serviceUid: result.serviceUid,));
+                                      ));
                                 },
                                 child: Container(
                                   padding: const EdgeInsets.all(10),
