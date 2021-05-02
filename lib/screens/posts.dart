@@ -251,37 +251,7 @@ class Posts extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              result.ownerUid == authController.user.uid
-                                  ? GestureDetector(
-                                      onTap: () async {
-                                        await controller
-                                            .deleteService(result.serviceUid);
-                                        Get.back();
-                                      },
-                                      child: Container(
-                                        padding: const EdgeInsets.all(10),
-                                        decoration: BoxDecoration(
-                                          color: Colors.red,
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                        ),
-                                        margin: const EdgeInsets.only(top: 20),
-                                        child: Text(
-                                          "Delete",
-                                          style: GoogleFonts.lato(
-                                            fontSize:
-                                                SizeConfig.safeBlockHorizontal *
-                                                    3.4,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  : Container(
-                                      width: 0,
-                                      height: 0,
-                                    ),
+                              
                             ],
                           ),
                         ],

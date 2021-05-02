@@ -279,7 +279,7 @@ class Details extends StatelessWidget {
                               ),
                               Flexible(
                                 child: Text(
-                                  moreDetail == null
+                                  moreDetail == ""
                                       ? "Not Provided"
                                       : moreDetail,
                                   style: GoogleFonts.lato(
@@ -310,7 +310,7 @@ class Details extends StatelessWidget {
                               ),
                               Flexible(
                                 child: Text(
-                                  link == null ? "Not Provided" : link,
+                                  link == "" ? "Not Provided" : link,
                                   style: GoogleFonts.lato(
                                     fontSize:
                                         SizeConfig.safeBlockHorizontal * 3.8,
