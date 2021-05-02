@@ -193,19 +193,44 @@ class Posts extends StatelessWidget {
                                   ),
                                 ),
                               ),
+                              result.ownerUid == authController.user.uid?
+                              GestureDetector(
+                                onTap: () async{
+                        
+                                  await controller.deleteService(result.serviceUid);
+                                  Get.back();
+                                  
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  margin: const EdgeInsets.only(top: 20),
+                                  child: Text(
+                                    "Delete",
+                                    style: GoogleFonts.lato(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 3.4,
+                                      color: Colors.black87,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ):Container(width: 0,height: 0,),
                               GestureDetector(
                                 onTap: () {
                                   Get.to(() => Details(
-                                        name: result.name,
-                                        city: result.city,
-                                        phoneNumber: result.phoneNumber,
-                                        donationType: result.serviceType
-                                            .map((e) => convert(e))
-                                            .toList(),
-                                        moreDetail: result.moreDetail,
-                                        postDateTime: result.postDateTime,
-                                        link: result.link,
-                                        serviceUid: result.serviceUid,
+                                      name: result.name,
+                                      city: result.city,
+                                      phoneNumber: result.phoneNumber,
+                                      donationType: result.serviceType
+                                          .map((e) => convert(e))
+                                          .toList(),
+                                      moreDetail: result.moreDetail,
+                                      postDateTime: result.postDateTime,
+                                      link: result.link,
                                       ));
                                 },
                                 child: Container(

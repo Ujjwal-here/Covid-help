@@ -742,7 +742,7 @@ class HomeScreen extends StatelessWidget {
                                     children: [
                                       Container(
                                         child: Text(
-                                          "Type :",
+                                          "Resources :",
                                           style: GoogleFonts.lato(
                                             fontSize:
                                                 SizeConfig.safeBlockHorizontal *
@@ -753,15 +753,17 @@ class HomeScreen extends StatelessWidget {
                                         ),
                                       ),
                                       Flexible(
-                                        child: Text(
-                                          "\t\t${result.serviceType.map((e) => convert(e).toString())}",
-                                          maxLines: 1,
-                                          style: GoogleFonts.lato(
-                                            fontSize:
-                                                SizeConfig.safeBlockHorizontal *
-                                                    3.8,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
+                                        child: Container(
+                                          child: Text(
+                                            "\t\t${result.serviceType.map((e) => convert(e))}",
+                                            maxLines: 1,
+                                            style: GoogleFonts.lato(
+                                              fontSize: SizeConfig
+                                                      .safeBlockHorizontal *
+                                                  3.8,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -818,7 +820,7 @@ class HomeScreen extends StatelessWidget {
                                         moreDetail: result.moreDetail,
                                         postDateTime: result.postDateTime,
                                         link: result.link,
-                                        serviceUid: result.serviceUid,
+                                        
                                       ));
                                 },
                                 child: Container(
