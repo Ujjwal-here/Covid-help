@@ -18,17 +18,17 @@ class Details extends StatelessWidget {
   final String link;
   final String moreDetail;
   final DateTime postDateTime;
-  
 
-  Details(
-      {Key key,
-      @required this.name,
-      @required this.city,
-      @required this.phoneNumber,
-      @required this.donationType,
-      this.link,
-      @required this.moreDetail,
-      @required this.postDateTime,});
+  Details({
+    Key key,
+    @required this.name,
+    @required this.city,
+    @required this.phoneNumber,
+    @required this.donationType,
+    this.link,
+    @required this.moreDetail,
+    @required this.postDateTime,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +44,7 @@ class Details extends StatelessWidget {
                   fontSize: SizeConfig.safeBlockHorizontal * 6,
                   color: Colors.black,
                   fontWeight: FontWeight.w900,
+                  letterSpacing: 0.5,
                 ),
               ),
               Text(
@@ -52,6 +53,7 @@ class Details extends StatelessWidget {
                   fontSize: SizeConfig.safeBlockHorizontal * 6,
                   color: const Color.fromRGBO(214, 61, 22, 1),
                   fontWeight: FontWeight.w900,
+                  letterSpacing: 0.5,
                 ),
               ),
             ],

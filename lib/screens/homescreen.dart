@@ -644,7 +644,7 @@ class HomeScreen extends StatelessWidget {
                         "No Result Found!",
                         style: GoogleFonts.lato(
                           fontWeight: FontWeight.w900,
-                          fontSize: SizeConfig.safeBlockHorizontal * 7,
+                          fontSize: SizeConfig.safeBlockHorizontal * 6,
                           color: Colors.black,
                         ),
                       ),
@@ -655,8 +655,11 @@ class HomeScreen extends StatelessWidget {
 
               if (serviceController.isLoading.value) {
                 return SliverToBoxAdapter(
-                  child: Center(
-                    child: CircularProgressIndicator(),
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 30),
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
                   ),
                 );
               }
@@ -820,7 +823,6 @@ class HomeScreen extends StatelessWidget {
                                         moreDetail: result.moreDetail,
                                         postDateTime: result.postDateTime,
                                         link: result.link,
-                                        
                                       ));
                                 },
                                 child: Container(
