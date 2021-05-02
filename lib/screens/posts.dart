@@ -12,7 +12,7 @@ import 'package:google_fonts/google_fonts.dart';
 class Posts extends StatelessWidget {
   final UserServicesController userServicesController =
       Get.put(UserServicesController());
-  final AuthController authController = Get.find<AuthController>();    
+  final AuthController authController = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,18 +50,17 @@ class Posts extends StatelessWidget {
               ),
             );
           }
-          return Stack(
-            children: [
-              Opacity(
-                opacity: controller.deleteLoading.value?0.5:1,
-                child: ListView.builder(
+          return Stack(children: [
+            Opacity(
+              opacity: controller.deleteLoading.value ? 0.5 : 1,
+              child: ListView.builder(
                   itemCount: controller.services.length,
                   itemBuilder: (context, index) {
                     ServiceModel result = controller.services[index];
                     return Container(
                       padding: const EdgeInsets.all(20),
-                      margin:
-                          const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 5, horizontal: 20),
                       decoration: BoxDecoration(
                         color: const Color.fromRGBO(54, 121, 218, 1),
                         borderRadius: BorderRadius.circular(10),
@@ -102,7 +101,8 @@ class Posts extends StatelessWidget {
                                         "City :",
                                         style: GoogleFonts.lato(
                                           fontSize:
-                                              SizeConfig.safeBlockHorizontal * 3.7,
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3.7,
                                           color: Colors.white,
                                         ),
                                       ),
@@ -110,7 +110,8 @@ class Posts extends StatelessWidget {
                                         "\t${result.city}",
                                         style: GoogleFonts.lato(
                                           fontSize:
-                                              SizeConfig.safeBlockHorizontal * 3.8,
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3.8,
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -125,13 +126,15 @@ class Posts extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(5),
                                   ),
                                   child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         "Type :",
                                         style: GoogleFonts.lato(
                                           fontSize:
-                                              SizeConfig.safeBlockHorizontal * 3.7,
+                                              SizeConfig.safeBlockHorizontal *
+                                                  3.7,
                                           color: Colors.white,
                                           //fontWeight: FontWeight.bold,
                                         ),
@@ -142,9 +145,9 @@ class Posts extends StatelessWidget {
                                             "\t${result.serviceType.map((e) => convert(e))}",
                                             maxLines: 1,
                                             style: GoogleFonts.lato(
-                                              fontSize:
-                                                  SizeConfig.safeBlockHorizontal *
-                                                      3.8,
+                                              fontSize: SizeConfig
+                                                      .safeBlockHorizontal *
+                                                  3.8,
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -190,45 +193,20 @@ class Posts extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              result.ownerUid == authController.user.uid?
-                              GestureDetector(
-                                onTap: () async{
-                        
-                                  await controller.deleteService(result.serviceUid);
-                                  Get.back();
-                                  
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                    color: Colors.red,
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  margin: const EdgeInsets.only(top: 20),
-                                  child: Text(
-                                    "Delete",
-                                    style: GoogleFonts.lato(
-                                      fontSize:
-                                          SizeConfig.safeBlockHorizontal * 3.4,
-                                      color: Colors.black87,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ):Container(width: 0,height: 0,),
                               GestureDetector(
                                 onTap: () {
                                   Get.to(() => Details(
-                                      name: result.name,
-                                      city: result.city,
-                                      phoneNumber: result.phoneNumber,
-                                      donationType: result.serviceType
-                                          .map((e) => convert(e))
-                                          .toList(),
-                                      moreDetail: result.moreDetail,
-                                      postDateTime: result.postDateTime,
-                                      link: result.link,
-                                      serviceUid: result.serviceUid,));
+                                        name: result.name,
+                                        city: result.city,
+                                        phoneNumber: result.phoneNumber,
+                                        donationType: result.serviceType
+                                            .map((e) => convert(e))
+                                            .toList(),
+                                        moreDetail: result.moreDetail,
+                                        postDateTime: result.postDateTime,
+                                        link: result.link,
+                                        serviceUid: result.serviceUid,
+                                      ));
                                 },
                                 child: Container(
                                   padding: const EdgeInsets.all(10),
@@ -248,17 +226,51 @@ class Posts extends StatelessWidget {
                                   ),
                                 ),
                               ),
+                              result.ownerUid == authController.user.uid
+                                  ? GestureDetector(
+                                      onTap: () async {
+                                        await controller
+                                            .deleteService(result.serviceUid);
+                                        Get.back();
+                                      },
+                                      child: Container(
+                                        padding: const EdgeInsets.all(10),
+                                        decoration: BoxDecoration(
+                                          color: Colors.red,
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                        ),
+                                        margin: const EdgeInsets.only(top: 20),
+                                        child: Text(
+                                          "Delete",
+                                          style: GoogleFonts.lato(
+                                            fontSize:
+                                                SizeConfig.safeBlockHorizontal *
+                                                    3.4,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  : Container(
+                                      width: 0,
+                                      height: 0,
+                                    ),
                             ],
                           ),
                         ],
                       ),
                     );
                   }),
+            ),
+            Opacity(
+              opacity: controller.deleteLoading.value ? 1 : 0,
+              child: Center(
+                child: CircularProgressIndicator(),
               ),
-              Opacity(opacity: controller.deleteLoading.value?1:0,
-              child: Center(child: CircularProgressIndicator(),),
-              )
-            ]);
+            )
+          ]);
         },
       ),
     );
